@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Manish Chaudhary</title>
+    <link rel="icon" type="image/x-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsrBFy0_X7E4cdmvc7OnIhYLLsCzIucn32nDFLgymbJwck5tF-J442ASqrrkAV18LN08jDNE_lLp7jLKdcI8x8f_TTxbFRJjXiFQnF6JqhtiDoZSmjBKonklTpvZ3nPbaNIPmri4rIecQROXSv1UqgjiOYhRUDMbOlN-ihucNG7ERThPP_BkNjoBMfbBRZ/s2048/IMG_1017.jpeg">
+    <meta name="description" content="Discover top publishing trends, global author meetups, and digital writing resources with Mani E-Book Authors. Join our secure creator community today.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles & Security (Disable Copy/Save/Inspect) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Styles */
+        header {
+            background-color: #870000;
+            color: #fff;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            overflow: hidden;
+        }
+
+        .book-icon {
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            animation: bounceIcon 2s infinite alternate;
+        }
+
+        @keyframes bounceIcon {
+            0% { transform: translateY(0) scale(1); }
+            100% { transform: translateY(-3px) scale(1.1); }
+        }
+
+        .animated-text-group {
+            display: flex;
+            flex-direction: column;
+            animation: fadeOutCycle 9s infinite;
+        }
+
+        .logo-main {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-family: 'Cinzel', serif;
+            color: #fff;
+            animation: slideInLeft 0.8s ease forwards;
+        }
+
+        .logo-sub {
+            font-size: 11px;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 1px;
+            color: #fff;
+            animation: slideInLeft 1.2s ease forwards;
+        }
+
+        @keyframes slideInLeft {
+            0% { transform: translateX(-50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeOutCycle {
+            0%, 75% { opacity: 1; }
+            85%, 100% { opacity: 0; }
+        }
+
+        /* Nav Buttons Group */
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .signup-btn-nav, .login-btn-nav {
+            background: linear-gradient(45deg, #FFE32E, #FFE32E);
+            color: darkred;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            animation: pulseGlow 2s infinite;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 227, 46, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 227, 46, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 227, 46, 0); }
+        }
+
+        /* Fullscreen Loading Overlay */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: #fff;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #333;
+            border-top: 5px solid #2ed573;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Banner Section */
+        .banner-section {
+            width: 100%;
+        }
+
+        .banner-img {
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .mobile-banner { display: none; }
+        .desktop-banner { display: block; }
+
+        @media (max-width: 768px) {
+            .mobile-banner { display: block; }
+            .desktop-banner { display: none; }
+        }
+
+        /* Leaked-Style Creator Profile Section */
+        .creator-profile-section {
+            max-width: 1200px;
+            margin: -60px auto 30px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .profile-top-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-left-info {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .profile-avatar-wrapper {
+            position: relative;
+            margin-top: -80px;
+        }
+
+        .profile-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: #eee;
+            pointer-events: none;
+        }
+
+        .profile-names h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: #111;
+            font-family: 'Cinzel', serif;
+        }
+
+        .profile-names p {
+            font-size: 13px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .profile-stats-group {
+            display: flex;
+            gap: 25px;
+            background: #fdfdfd;
+            border: 1px solid #eaeaea;
+            padding: 12px 20px;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .profile-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: #444;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 9px 22px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .follow-btn {
+            background-color: #0097e6;
+            color: white;
+        }
+
+        .follow-btn.following {
+            background-color: #b2bec3;
+            color: #2d3436;
+        }
+
+        .message-btn {
+            background-color: #f1f2f6;
+            color: #333;
+            border: 1px solid #dcdde1;
+        }
+
+        .message-btn:hover {
+            background-color: #dfe4ea;
+        }
+
+        /* Interactive Chat Popup Modal */
+        #chat-modal {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 350px;
+            max-width: 90%;
+            height: 480px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 2000;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .chat-header {
+            background: #870000;
+            color: #fff;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #fff;
+            pointer-events: none;
+        }
+
+        .chat-user-details h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .chat-status {
+            font-size: 11px;
+            color: #2ed573;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #2ed573;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .chat-close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f7f8fa;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-message {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .chat-message.incoming {
+            background: #fff;
+            color: #333;
+            align-self: flex-start;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .chat-message.outgoing {
+            background: #870000;
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .query-options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 5px;
+        }
+
+        .query-option-box {
+            background: #eef2f7;
+            border: 1px solid #d2dce6;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #0066cc;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .query-option-box:hover {
+            background: #e1eaf3;
+        }
+
+        .chat-footer {
+            padding: 10px 15px;
+            background: #fff;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-footer input {
+            flex-grow: 1;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .chat-send-btn {
+            background: #870000;
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Portrait Table Section (9 Portrait Image Books Grid/Rows) */
+        .portrait-books-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .portrait-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .portrait-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+
+        .portrait-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .portrait-img-box {
+            width: 100%;
+            height: 340px;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .portrait-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .portrait-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .portrait-heading {
+            font-size: 17px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 8px;
+        }
+
+        .portrait-desc {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-book-btn {
+            display: block;
+            text-align: center;
+            background-color: #870000;
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .read-book-btn:hover {
+            background-color: #650000;
+        }
+
+        /* Latest News Section */
+        .news-section {
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 40px;
+            color: #111;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .news-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .news-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-img-container {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .news-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .news-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .news-heading {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #222;
+        }
+
+        .news-subtext {
+            font-size: 12px;
+            color: #e84118;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .news-desc {
+            font-size: 13px;
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.5;
+            flex-grow: 1;
+        }
+
+        .redirect-btn {
+            display: inline-block;
+            text-align: center;
+            background-color: #0097e6;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .redirect-btn:hover {
+            background-color: #0081c2;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-circle-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            pointer-events: none;
+        }
+
+        .footer-left span {
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .footer-right {
+            font-size: 13px;
+            color: #aaa;
+            text-align: right;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .news-grid, .portrait-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .profile-top-row {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .profile-left-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-avatar-wrapper {
+                margin-top: -60px;
+            }
+            .profile-bottom-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-actions {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-left {
+                display: none;
+            }
+            footer {
+                justify-content: center;
+                text-align: center;
+            }
+            .footer-right {
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Preparing Portal...</p>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <i class="fa-solid fa-book-open book-icon"></i>
+            <div class="animated-text-group">
+                <span class="logo-main">MANI</span>
+                <span class="logo-sub">E-Book Authors</span>
+            </div>
+        </div>
+        <div class="nav-buttons">
+            <button class="login-btn-nav" onclick="handleSignupClick('https://www.gla.ac.in')">Login</button>
+            <button class="signup-btn-nav" onclick="handleSignupClick('https://www.gla.ac.in')">Sign Up</button>
+        </div>
+    </header>
+
+    <section class="banner-section">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgZGhZHC0NjPBXw28FQMz9q_gvu97Bi9VuoZgOvjTd_o7TXK_SXDJTPdDjcfh3gjPFGkurypImLCM0yltA671uNQDYOoko92pb03IQMuNV2rtd5kL2JpbyCgTQDv8NRb7-kR5ZTjM-cidAFkb5efmMzpyFt3nCxujB2pRxJmNjrd8PgZheFHpYNW3yzKjk/s1600/Untitled%20design%20(2).png" alt="Desktop Banner" class="banner-img desktop-banner">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgZGhZHC0NjPBXw28FQMz9q_gvu97Bi9VuoZgOvjTd_o7TXK_SXDJTPdDjcfh3gjPFGkurypImLCM0yltA671uNQDYOoko92pb03IQMuNV2rtd5kL2JpbyCgTQDv8NRb7-kR5ZTjM-cidAFkb5efmMzpyFt3nCxujB2pRxJmNjrd8PgZheFHpYNW3yzKjk/s1600/Untitled%20design%20(2).png" alt="Mobile Banner" class="banner-img mobile-banner">
+    </section>
+
+    <!-- Leaked-Style Creator Profile Section -->
+    <section class="creator-profile-section">
+        <div class="profile-card">
+            <div class="profile-top-row">
+                <div class="profile-left-info">
+                    <div class="profile-avatar-wrapper">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsrBFy0_X7E4cdmvc7OnIhYLLsCzIucn32nDFLgymbJwck5tF-J442ASqrrkAV18LN08jDNE_lLp7jLKdcI8x8f_TTxbFRJjXiFQnF6JqhtiDoZSmjBKonklTpvZ3nPbaNIPmri4rIecQROXSv1UqgjiOYhRUDMbOlN-ihucNG7ERThPP_BkNjoBMfbBRZ/s2048/IMG_1017.jpeg" alt="Manish Profile" class="profile-avatar">
+                    </div>
+                    <div class="profile-names">
+                        <h1>Manish Kumar</h1>
+                        <p>Lead Digital Publisher & Author</p>
+                    </div>
+                </div>
+                <div class="profile-stats-group">
+                    <div class="stat-item">
+                        <span class="stat-num">76</span>
+                        <span class="stat-label">Books</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">653K</span>
+                        <span class="stat-label">Follower</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-bottom-row">
+                <div class="profile-bio">
+                    Welcome to the official creator hub. Discover visionary literature, indie writing resources, exclusive publication trends, and modern reader engagement frameworks.
+                </div>
+                <div class="profile-actions">
+                    <button id="followBtn" class="action-btn follow-btn" onclick="toggleFollow()">Follow</button>
+                    <button class="action-btn message-btn" onclick="openChatModal()">Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chat Popup Modal -->
+    <div id="chat-modal">
+        <div class="chat-header">
+            <div class="chat-user-info">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsrBFy0_X7E4cdmvc7OnIhYLLsCzIucn32nDFLgymbJwck5tF-J442ASqrrkAV18LN08jDNE_lLp7jLKdcI8x8f_TTxbFRJjXiFQnF6JqhtiDoZSmjBKonklTpvZ3nPbaNIPmri4rIecQROXSv1UqgjiOYhRUDMbOlN-ihucNG7ERThPP_BkNjoBMfbBRZ/s2048/IMG_1017.jpeg" alt="Manish" class="chat-user-avatar">
+                <div class="chat-user-details">
+                    <h4>Manish Kumar</h4>
+                    <span class="chat-status"><span class="status-dot"></span> Active</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" onclick="closeChatModal()">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody">
+            <!-- Completely empty by default as requested -->
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInputText" placeholder="Type a message..." onkeypress="handleChatKeyPress(event)">
+            <button class="chat-send-btn" onclick="sendUserMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+
+    <!-- Portrait Books Section (9 Books Grid with Portrait Images) -->
+    <section class="portrait-books-section">
+        <h2 class="section-title">Featured Publications</h2>
+        <div class="portrait-grid">
+            
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://picsum.photos/600/900?random=1" alt="Book 1">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">The Digital Renaissance</h3>
+                    <p class="portrait-desc">An extensive guide navigating modern independent publishing workflows and advanced ebook distribution networks.</p>
+                    <a href="https://www.gla.ac.in/page1" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://picsum.photos/600/900?random=2" alt="Book 2">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">Mastering Creative Writing</h3>
+                    <p class="portrait-desc">Unlocking narrative structures, character depth arcs, and audience engagement techniques for modern authors.</p>
+                    <a href="https://www.gla.ac.in/page2" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://picsum.photos/600/900?random=3" alt="Book 3">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">Global Storytelling</h3>
+                    <p class="portrait-desc">Connecting cross-cultural narratives with international reader communities across secure digital publishing lines.</p>
+                    <a href="https://www.gla.ac.in/page3" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://picsum.photos/600/900?random=4" alt="Book 4">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">Monetizing E-Books</h3>
+                    <p class="portrait-desc">Explore practical frameworks for maximizing revenue streams, creator funds, and direct audience memberships.</p>
+                    <a href="https://www.gla.ac.in/page4" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://picsum.photos/600/900?random=5" alt="Book 5">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">The Sci-Fi Blueprint</h3>
+                    <p class="portrait-desc">Building intricate futuristic worlds, cybernetic economies, and speculative sci-fi landscapes that captivate readers.</p>
+                    <a href="https://www.gla.ac.in/page5" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://picsum.photos/600/900?random=6" alt="Book 6">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">Poetry of the Modern Era</h3>
+                    <p class="portrait-desc">Expressing raw human experience through compact lyrical arrangements designed for digital literary platforms.</p>
+                    <a href="https://www.gla.ac.in/page6" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://picsum.photos/600/900?random=7" alt="Book 7">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">Author Branding & Media</h3>
+                    <p class="portrait-desc">Strategies to establish a commanding online presence, leverage social channels, and grow a loyal subscriber base.</p>
+                    <a href="https://www.gla.ac.in/page7" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://picsum.photos/600/900?random=8" alt="Book 8">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">The Art of Editing</h3>
+                    <p class="portrait-desc">Refining prose, trimming narrative fat, and polishing manuscripts to perfection before hitting print or release.</p>
+                    <a href="https://www.gla.ac.in/page8" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://picsum.photos/600/900?random=9" alt="Book 9">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">Indie Author Success</h3>
+                    <p class="portrait-desc">Case studies and step-by-step pathways taken by bestselling indie authors who scaled from zero to global reach.</p>
+                    <a href="https://www.gla.ac.in/page9" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="news-section">
+        <h2 class="section-title">Latest News</h2>
+        <div class="news-grid">
+            
+            <div class="news-card">
+                <div class="news-img-container">
+                    <img src="https://picsum.photos/800/1200?random=10" alt="News 1">
+                </div>
+                <div class="news-content">
+                    <h3 class="news-heading">Top Publishing Trends</h3>
+                    <div class="news-subtext">Mani E-Book</div>
+                    <p class="news-desc">Explore the futuristic trends in digital writing and how independent authors are maximizing growth.</p>
+                    <a href="https://www.gla.ac.in" class="redirect-btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-img-container">
+                    <img src="https://picsum.photos/600/600?random=11" alt="News 2">
+                </div>
+                <div class="news-content">
+                    <h3 class="news-heading">Global Author Meetup</h3>
+                    <div class="news-subtext">Mani E-Book</div>
+                    <p class="news-desc">Join thousands of global authors discussing community building, drafting stories, and distribution.</p>
+                    <a href="https://www.gla.ac.in" class="redirect-btn">Read More</a>
+                </div>
+            </div>
+
+            <div class="news-card">
+                <div class="news-img-container">
+                    <img src="https://picsum.photos/1200/500?random=12" alt="News 3">
+                </div>
+                <div class="news-content">
+                    <h3 class="news-heading">New Monetization Tools</h3>
+                    <div class="news-subtext">Mani E-Book</div>
+                    <p class="news-desc">Learn about the latest platform rollouts designed to enhance reader retention and e-book sales.</p>
+                    <a href="https://www.gla.ac.in" class="redirect-btn">Read More</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-left">
+            <img src="https://picsum.photos/100/100?random=20" alt="Country Flag" class="footer-circle-img">
+            <span>IN</span>
+        </div>
+        <div class="footer-right">
+            Copyright 2026 mani ebook authors india
+        </div>
+    </footer>
+
+    <script>
+        // Disable Developer Tools Shortcuts & Source Viewing
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Follow / Unfollow Persistent Logic (Per Device / LocalStorage)
+        function checkFollowState() {
+            const isFollowing = localStorage.getItem('mani_author_followed') === 'true';
+            const btn = document.getElementById('followBtn');
+            if (isFollowing) {
+                btn.textContent = 'Following';
+                btn.classList.add('following');
+            } else {
+                btn.textContent = 'Follow';
+                btn.classList.remove('following');
+            }
+        }
+
+        function toggleFollow() {
+            const isFollowing = localStorage.getItem('mani_author_followed') === 'true';
+            if (isFollowing) {
+                localStorage.setItem('mani_author_followed', 'false');
+            } else {
+                localStorage.setItem('mani_author_followed', 'true');
+            }
+            checkFollowState();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            checkFollowState();
+            loadPersistentChatHistory();
+        });
+
+        // Chat Popup Modal Logic with Permanent LocalStorage Persistence
+        function openChatModal() {
+            document.getElementById('chat-modal').style.display = 'flex';
+            const chatBody = document.getElementById('chatBody');
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function closeChatModal() {
+            document.getElementById('chat-modal').style.display = 'none';
+        }
+
+        function handleChatKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        }
+
+        function saveChatToStorage(htmlContent) {
+            localStorage.setItem('mani_chat_history', htmlContent);
+        }
+
+        function loadPersistentChatHistory() {
+            const savedHistory = localStorage.getItem('mani_chat_history');
+            const chatBody = document.getElementById('chatBody');
+            if (savedHistory !== null) {
+                chatBody.innerHTML = savedHistory;
+            } else {
+                chatBody.innerHTML = '';
+                saveChatToStorage('');
+            }
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function sendUserMessage() {
+            const inputField = document.getElementById('chatInputText');
+            const userText = inputField.value.trim();
+            if (!userText) return;
+
+            const chatBody = document.getElementById('chatBody');
+            
+            // Append User Message
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'chat-message outgoing';
+            userMsgDiv.textContent = userText;
+            chatBody.appendChild(userMsgDiv);
+            
+            inputField.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            // Save state permanently
+            saveChatToStorage(chatBody.innerHTML);
+
+            // Check if user text is "hii" or variant -> NO reply should trigger as requested
+            const lowerText = userText.toLowerCase();
+            if (lowerText === 'hii' || lowerText === 'hi' || lowerText === 'hey') {
+                return;
+            }
+
+            // For other messages, handle standard automated response flow
+            setTimeout(() => {
+                const incomingMsgDiv = document.createElement('div');
+                incomingMsgDiv.className = 'chat-message incoming';
+                incomingMsgDiv.textContent = "Select your query:";
+                chatBody.appendChild(incomingMsgDiv);
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'query-options-container';
+                optionsDiv.innerHTML = `
+                    <a href="https://www.gla.ac.in/connect" class="query-option-box" target="_blank">Connect Me</a>
+                    <a href="https://www.gla.ac.in/books" class="query-option-box" target="_blank">Read My Books</a>
+                    <a href="https://wa.me/" class="query-option-box" target="_blank">Connect WhatsApp</a>
+                `;
+                chatBody.appendChild(optionsDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                saveChatToStorage(chatBody.innerHTML);
+            }, 1000);
+        }
+
+        function handleSignupClick(redirectUrl) {
+            const overlay = document.getElementById('loading-overlay');
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
