@@ -1,0 +1,2525 @@
+  <div id="mani-eb-popup-overlay" class="mani-eb-overlay">
+
+    <div class="mani-eb-popup-box">
+
+        <span id="mani-eb-close-btn" class="mani-eb-close">&times;</span>
+
+
+
+        <!-- लेआउट -->
+
+        <div class="mani-eb-content-wrapper">
+
+            
+
+            <!-- Left Side: Book Cover with Fixed 3D Flip Animation -->
+
+            <div class="mani-eb-book-cover-container">
+
+                <div class="mani-eb-flip-card">
+
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFM0HidE-LVJmERpe8__VMimxk9GpOYUYGRrD3sLr1yD1HnVGqCJ1yQI22cuo5DaLqA-GiVWk3uuggBr7KyUXmshSJ0SjRL6nwgZEvIP9KzYtsojTTV4HatGJBohFwK0LWoeIkajvEH8VW7EQCr2jf8gzWSZyEj1IWwtwEOXWlyHI8LYm4e-BGq5X-U8ib/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book Cover" class="mani-eb-book-img">
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Right Side: Details & Active Read Book Button -->
+
+            <div class="mani-eb-book-info">
+
+                <h2 class="mani-eb-title">Courtroom 302: The Final Verdict</h2>
+
+                
+
+                <div class="mani-eb-meta-item">
+
+                    <span class="mani-eb-icon">👤</span>
+
+                    <span>Manish Chaudhary</span>
+
+                </div>
+
+
+
+                <div class="mani-eb-meta-item">
+
+                    <span class="mani-eb-icon">📅</span>
+
+                    <span>Published</span>
+
+                </div>
+
+
+
+                <div class="mani-eb-meta-item">
+
+                    <span class="mani-eb-icon">📁</span>
+
+                    <span>Crime Story</span>
+
+                </div>
+
+
+
+                <!-- Active Read Book Button with URL (href) & Animation -->
+
+                <div class="mani-eb-btn-container">
+
+                    <a href="https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1" class="mani-eb-read-btn" target="_blank">Read Book</a>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+
+
+
+        <!-- ड्रॉपडाउन और अन्य स्टाइल्स -->
+
+        <style>
+
+          .dropdown-container {
+
+            position: relative;
+
+            display: inline-block;
+
+          }
+
+
+
+          button.mani-eb-button {
+
+            cursor: pointer;
+
+            border: none;
+
+          }
+
+
+
+          .dropdown-content {
+
+            display: none;
+
+            position: absolute;
+
+            background-color: #ffffff;
+
+            min-width: 220px;
+
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+
+            z-index: 10;
+
+            border-radius: 5px;
+
+            overflow: hidden;
+
+            margin-top: 5px;
+
+          }
+
+
+
+          .dropdown-content a {
+
+            color: black;
+
+            padding: 12px 15px;
+
+            text-decoration: none;
+
+            display: block;
+
+            font-family: sans-serif;
+
+            font-size: 14px;
+
+            border-bottom: 1px solid #eee;
+
+          }
+
+
+
+          .dropdown-content a:last-child {
+
+            border-bottom: none;
+
+          }
+
+
+
+          .dropdown-content a:hover {
+
+            background-color: #f1f1f1;
+
+          }
+
+
+
+          .show-dropdown {
+
+            display: block;
+
+          }
+
+        </style>
+
+
+
+        <script>
+
+          function toggleDropdown() {
+
+            document.getElementById("booksDropdown").classList.toggle("show-dropdown");
+
+          }
+
+
+
+          window.onclick = function(event) {
+
+            if (!event.target.matches('.mani-eb-button')) {
+
+              var dropdowns = document.getElementsByClassName("dropdown-content");
+
+              for (var i = 0; i < dropdowns.length; i++) {
+
+                var openDropdown = dropdowns[i];
+
+                if (openDropdown.classList.contains('show-dropdown')) {
+
+                  openDropdown.classList.remove('show-dropdown');
+
+                }
+
+              }
+
+            }
+
+          }
+
+        </script>
+
+    </div>
+
+</div>
+
+
+
+<style>
+
+    /* Background Overlay */
+
+    .mani-eb-overlay {
+
+        position: fixed;
+
+        top: 0;
+
+        left: 0;
+
+        width: 100%;
+
+        height: 100%;
+
+        background-color: rgba(0, 0, 0, 0.6);
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        z-index: 999999;
+
+        font-family: Arial, sans-serif;
+
+        padding: 15px;
+
+        box-sizing: border-box;
+
+    }
+
+
+
+    /* Main Pop-up Box */
+
+    .mani-eb-popup-box {
+
+        background-color: #f7f6f0;
+
+        border: 2px solid #d32f2f;
+
+        width: 100%;
+
+        max-width: 880px;
+
+        padding: 45px 40px;
+
+        position: relative;
+
+        box-sizing: border-box;
+
+        box-shadow: 0px 15px 40px rgba(0,0,0,0.4);
+
+        border-radius: 10px;
+
+    }
+
+
+
+    /* Flex Wrapper */
+
+    .mani-eb-content-wrapper {
+
+        display: flex;
+
+        gap: 35px;
+
+        align-items: center;
+
+        text-align: left;
+
+    }
+
+
+
+    /* Left Side: Book Cover Container */
+
+    .mani-eb-book-cover-container {
+
+        flex: 0 0 240px;
+
+        height: 340px; 
+
+        background: #fff;
+
+        border: 2px solid #ccc;
+
+        border-radius: 8px;
+
+        overflow: hidden;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+
+        perspective: 1000px; /* 3D depth */
+
+    }
+
+
+
+    /* Flip Card Wrapper for Smooth 3D Rotation */
+
+    .mani-eb-flip-card {
+
+        width: 100%;
+
+        height: 100%;
+
+        transform-style: preserve-3d;
+
+        animation: maniBookFlip 4s infinite ease-in-out;
+
+    }
+
+
+
+    .mani-eb-book-img {
+
+        width: 100%;
+
+        height: 100%;
+
+        object-fit: cover; 
+
+    }
+
+
+
+    /* 360 Degree Flip Animation (Always lands straight) */
+
+    @keyframes maniBookFlip {
+
+        0% { transform: rotateY(0deg); }
+
+        35% { transform: rotateY(360deg); }
+
+        100% { transform: rotateY(360deg); }
+
+    }
+
+
+
+    /* Right Side: Book Info */
+
+    .mani-eb-book-info {
+
+        flex: 1;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 16px;
+
+    }
+
+
+
+    .mani-eb-title {
+
+        font-size: 26px;
+
+        font-weight: bold;
+
+        color: #000000;
+
+        margin: 0 0 5px 0;
+
+        line-height: 1.4;
+
+    }
+
+
+
+    .mani-eb-meta-item {
+
+        display: flex;
+
+        align-items: center;
+
+        gap: 15px;
+
+        font-size: 18px;
+
+        color: #000000;
+
+        font-weight: 600;
+
+    }
+
+
+
+    .mani-eb-icon {
+
+        font-size: 20px;
+
+        color: #000000;
+
+        width: 28px;
+
+        text-align: center;
+
+    }
+
+
+
+    /* Active Read Book Button Styling */
+
+    .mani-eb-btn-container {
+
+        margin-top: 5px;
+
+    }
+
+
+
+    .mani-eb-read-btn {
+
+        display: inline-block;
+
+        background: linear-gradient(135deg, #e53935, #c62828);
+
+        color: #ffffff !important;
+
+        text-decoration: none !important;
+
+        padding: 12px 30px;
+
+        font-size: 17px;
+
+        font-weight: bold;
+
+        border-radius: 30px;
+
+        cursor: pointer;
+
+        opacity: 1;
+
+        box-shadow: 0px 5px 15px rgba(229, 57, 53, 0.4);
+
+        animation: maniBtnPulse 2s infinite ease-in-out;
+
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    }
+
+
+
+    .mani-eb-read-btn:hover {
+
+        transform: scale(1.05);
+
+        box-shadow: 0px 8px 20px rgba(229, 57, 53, 0.6);
+
+    }
+
+
+
+    /* Button Pulse Animation */
+
+    @keyframes maniBtnPulse {
+
+        0% { transform: scale(1); box-shadow: 0px 5px 15px rgba(229,57,53,0.4); }
+
+        50% { transform: scale(1.04); box-shadow: 0px 8px 20px rgba(229,57,53,0.6); }
+
+        100% { transform: scale(1); box-shadow: 0px 5px 15px rgba(229,57,53,0.4); }
+
+    }
+
+
+
+    /* Close Button */
+
+    .mani-eb-close {
+
+        position: absolute;
+
+        top: 15px;
+
+        right: 15px;
+
+        background-color: #e53935;
+
+        color: #ffffff;
+
+        width: 36px;
+
+        height: 36px;
+
+        border-radius: 50%;
+
+        display: flex;
+
+        justify-content: center;
+
+        align-items: center;
+
+        font-size: 22px;
+
+        font-weight: bold;
+
+        cursor: pointer;
+
+        line-height: 1;
+
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+
+        z-index: 5;
+
+    }
+
+
+
+    /* Mobile View (अब मोबाइल पर भी फ्लिप एनीमेशन चालू है) */
+
+    @media screen and (max-width: 480px) {
+
+        .mani-eb-popup-box {
+
+            padding: 20px 15px;
+
+            width: 98%;
+
+            max-width: 100%;
+
+        }
+
+
+
+        .mani-eb-content-wrapper {
+
+            gap: 12px;
+
+        }
+
+
+
+        .mani-eb-book-cover-container {
+
+            flex: 0 0 110px;
+
+            height: 155px;
+
+            perspective: 600px; /* मोबाइल के लिए छोटी परस्पेक्टिव डेप्थ */
+
+        }
+
+
+
+        .mani-eb-title {
+
+            font-size: 15px;
+
+            margin-bottom: 3px;
+
+        }
+
+
+
+        .mani-eb-meta-item {
+
+            font-size: 13px;
+
+            gap: 8px;
+
+        }
+
+
+
+        .mani-eb-icon {
+
+            font-size: 14px;
+
+            width: 16px;
+
+        }
+
+
+
+        .mani-eb-read-btn {
+
+            padding: 8px 18px;
+
+            font-size: 13px;
+
+        }
+
+
+
+        .mani-eb-close {
+
+            width: 28px;
+
+            height: 28px;
+
+            font-size: 18px;
+
+            top: 10px;
+
+            right: 10px;
+
+        }
+
+    }
+
+</style>
+
+
+
+<script>
+
+    document.addEventListener("DOMContentLoaded", function() {
+
+        var overlay = document.getElementById("mani-eb-popup-overlay");
+
+        var closeBtn = document.getElementById("mani-eb-close-btn");
+
+
+
+        closeBtn.addEventListener("click", function() {
+
+            overlay.style.display = "none";
+
+        });
+
+
+
+        overlay.addEventListener("click", function(event) {
+
+            if (event.target === overlay) {
+
+                overlay.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+</script>
+
+
+
+
+
+
+
+
+
+
+<!-- Clean What's New Widget (Auto-hide on Scroll) -->
+<div id="whats-new-container">
+    <style>
+        #whats-new-container {
+            position: fixed;
+            right: 0; 
+            bottom: 10%; 
+            display: flex;
+            align-items: center; 
+            transition: right 0.4s ease-in-out;
+            z-index: 1000;
+        }
+
+        /* Jab active ho (yaani scroll karne par), toh image andar chali jaye */
+        #whats-new-container.active {
+            right: -282px !important; 
+        }
+
+        /* The Green Trigger Button */
+        .wn-trigger-btn {
+            background-color: #228B22;
+            color: #ffffff;
+            padding: 20px 10px;
+            cursor: pointer;
+            border: none;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            
+            /* Text Rotation */
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            
+            /* Design */
+            border-radius: 0 8px 8px 0; 
+            box-shadow: -2px 2px 8px rgba(0,0,0,0.2);
+            white-space: nowrap;
+        }
+
+        /* The Image Panel */
+        .wn-image-panel {
+            width: 280px; 
+            display: flex;
+            align-items: center;
+            background: transparent;
+            padding: 0;
+            margin: 0;
+        }
+
+        .wn-image-panel img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 8px 0 0 8px; 
+            box-shadow: -5px 0 15px rgba(0,0,0,0.3);
+        }
+
+        /* Mobile View (Screens under 480px) */
+        @media screen and (max-width: 480px) {
+            .wn-image-panel {
+                width: 200px; 
+            }
+            #whats-new-container {
+                right: 0; 
+                bottom: 15%; 
+            }
+            #whats-new-container.active {
+                right: -202px !important; 
+            }
+            .wn-trigger-btn {
+                font-size: 12px;
+                padding: 15px 6px;
+            }
+        }
+    </style>
+
+    <!-- 1. Button (Ab chahein toh click karke bhi khol/band kar sakte hain) -->
+    <div class="wn-trigger-btn" onclick="toggleWhatsNew()">
+        What's New
+    </div>
+
+    <!-- 2. Image -->
+    <div class="wn-image-panel">
+        <a href="https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1" target="_blank">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjMIJtx9WNu9TZG9EaKiGCpX-1qRuZ6OJtox3gXB96zs88jJbqalUbdli3AWil_5VGJZjRRlkGTiQOSC0j2Div660JiLbU2s7rQSBGx_T0X8Gz7sGlOm0QXURYOxYkSpw07_l67FurqmurQRcK7NKzoHzUAHuLCf16yo1kAFt6TiT0mF9vAFWrY4OcEOzdc/s1800/Copy%20of%20SGMC%20NEW.jpeg" alt="Update">
+        </a>
+    </div>
+
+    <script>
+        function toggleWhatsNew() {
+            const container = document.getElementById('whats-new-container');
+            container.classList.toggle('active');
+        }
+
+        // Auto-hide on page scroll logic
+        window.addEventListener('scroll', function() {
+            const container = document.getElementById('whats-new-container');
+            // jaise hi user thoda sa bhi scroll karega (scrollY > 20), widget apne aap band ho jayega
+            if (window.scrollY > 20) {
+                container.classList.add('active');
+            }
+        });
+    </script>
+</div><br>
+
+
+
+
+
+
+
+<style>
+  /* केवल WhatsApp बटन के लिए विशिष्ट CSS ताकि वेबसाइट का लेआउट खराब न हो */
+  #custom-floating-wa {
+    position: fixed;
+    bottom: 25px; /* नीचे से दूरी */
+    left: 25px; /* बाईं तरफ रखने के लिए left, अगर दाईं तरफ रखना हो तो इसे right: 25px; कर दें */
+    width: 60px;
+    height: 60px;
+    background-color: #25D366; /* WhatsApp का आधिकारिक हरा रंग */
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 999999; /* सबसे ज्यादा z-index ताकि यह हमेशा ऊपर रहे */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    animation: custom-wa-pulse 2s infinite; /* पल्स एनीमेशन */
+    transition: transform 0.3s ease;
+  }
+
+  #custom-floating-wa:hover {
+    transform: scale(1.1); /* माउस ले जाने पर थोड़ा बड़ा होगा */
+  }
+
+  #custom-floating-wa svg {
+    width: 35px;
+    height: 35px;
+    fill: #ffffff; /* आइकन का रंग सफेद */
+  }
+
+  /* एनीमेशन की सेटिंग */
+  @keyframes custom-wa-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+      box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+  }
+</style>
+
+<a href="https://whatsapp.com/channel/0029Vb7rRKgG8l5N2QMMpu1e" target="_blank" id="custom-floating-wa" title="WhatsApp पर हमसे जुड़ें">
+  <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16.002 2.001a14 14 0 0 0-11.83 21.493l-1.928 5.72 5.867-1.895A13.943 13.943 0 0 0 16.002 30a14 14 0 0 0 0-28zm0 25.666c-2.312 0-4.577-.6-6.564-1.74l-.472-.27-3.418 1.104 1.127-3.334-.3-.48a11.666 11.666 0 1 1 9.627 4.72z" />
+    <path d="M22.565 18.066c-.36-.18-2.128-1.05-2.457-1.17-.33-.12-.57-.18-.81.18s-.93 1.17-1.14 1.41c-.21.24-.42.27-.78.09-.36-.18-1.518-.56-2.893-1.787-1.07-1.02-1.79-2.28-2-2.64-.21-.36-.02-.555.16-.735.162-.162.36-.42.54-.63.18-.21.24-.36.36-.6.12-.24.06-.45-.03-.63-.09-.18-.81-1.95-1.11-2.67-.291-.703-.586-.608-.81-.618l-.69-.015c-.24 0-.63.09-.96.45s-1.26 1.23-1.26 3 1.29 3.48 1.47 3.72c.18.24 2.536 3.87 6.145 5.43.86.37 1.53.59 2.052.756.86.273 1.644.234 2.263.142.693-.103 2.128-.87 2.428-1.71.3-.84.3-1.56.21-1.71-.09-.15-.33-.24-.69-.42z" />
+  </svg>
+</a>
+
+
+
+
+
+<div class="feedback-widget">
+
+<style>
+.feedback-widget {
+    all: initial;
+}
+
+.feedback-widget .feedback-btn {
+    position: fixed;
+    right: 0; /* अब right side */
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg); /* direction adjust */
+    transform-origin: right top;
+    background-color: #007BFF;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 8px 18px;
+    text-decoration: none;
+    z-index: 9999;
+    letter-spacing: 1.5px;
+    border-radius: 0px 0px 0 0;
+}
+
+/* Hover */
+.feedback-widget .feedback-btn:hover {
+    background-color: #0056b3;
+}
+</style>
+
+<a href="mailto:maniebook.online@gmail.com?subject=I want enquiry regarding upload books"
+ target="_blank" class="feedback-btn">
+   ENQUIRY
+</a>
+
+</div>
+
+
+
+<div class="buttons-row-container" style="display: flex; justify-content: flex-end; align-items: center; gap: 10px; padding-right: 20px; margin-top: 20px; flex-wrap: wrap;">
+
+    <div class="lib-wrapper" style="margin: 0;">
+
+        <button class="lib-animated-btn" onclick="openLib()">
+            <i class="fa fa-book"></i> TOP E-BOOKS
+        </button>
+
+        <style>
+            /* --- Button Animation CSS --- */
+            .lib-animated-btn {
+                background: #3498db;
+                color: white;
+                padding: 8px 15px; /* Size Reduced */
+                font-size: 14px; /* Font Size Added */
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: bold;
+                display: inline-flex;
+                align-items: center;
+                gap: 8px;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                animation: pulseBtn 2s infinite; 
+                transition: background 0.3s;
+            }
+
+            .lib-animated-btn:hover {
+                background: #2980b9;
+            }
+
+            @keyframes pulseBtn {
+                0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7); }
+                50% { transform: scale(1.05); box-shadow: 0 0 10px 5px rgba(52, 152, 219, 0); } /* Glow reduced slightly */
+                100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(52, 152, 219, 0); }
+            }
+            /* --------------------------- */
+
+            .lib-overlay {
+                display: none; position: fixed; top:0; left:0; width:100%; height:100%;
+                background: rgba(0,0,0,0.8); z-index: 10000; justify-content: center; align-items: center;
+            }
+            .lib-popup {
+                background: white; width: 95%; max-width: 450px; padding: 20px; border-radius: 15px;
+                position: relative; text-align: center; font-family: 'Segoe UI', sans-serif;
+            }
+            .lib-close { position: absolute; top: 10px; right: 15px; font-size: 25px; cursor: pointer; color: #666; }
+
+            .lib-item {
+                display: flex; align-items: center; justify-content: space-between; 
+                background: #ffffff; margin: 12px 0; padding: 8px 12px; border-radius: 10px; 
+                text-decoration: none; color: #333; border: 1px solid #eee;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: 0.3s;
+            }
+            .lib-item:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+
+            .lib-img-box {
+                width: 50px; aspect-ratio: 1 / 1.414; background: #f0f0f0; 
+                border-radius: 3px; overflow: hidden; flex-shrink: 0;
+            }
+            .lib-img-box img { width: 100%; height: 100%; object-fit: cover; }
+
+            .lib-title {
+                flex-grow: 1; text-align: left; padding: 0 15px;
+                font-size: 14px; font-weight: 600; color: #2c3e50;
+            }
+
+            .lib-read-btn {
+                width: 50px; height: auto; cursor: pointer; border-radius: 5px;
+                transition: 0.2s;
+            }
+            .lib-read-btn:hover { opacity: 0.8; }
+
+            #libLoader { display: none; padding: 30px; }
+            .lib-main-gif { width: 120px; }
+        </style>
+
+        <div class="lib-overlay" id="libOverlay">
+            <div class="lib-popup">
+                <span class="lib-close" onclick="closeLib()">&times;</span>
+                
+                <div id="libMain">
+                    <h3 style="margin-top:0; color:#3498db;">Top 3 E-Books</h3>
+                    
+                    <div class="lib-item">
+                        <div class="lib-img-box"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4eNwAMkfWMDb1zM1z12d4pWzJIqGxUOvtLp2-3U8ki9wK4EdHZhK1H8rh8PD-ErMnxZ1fx83atoJ-8eaGeFWmPBYtK0Gd0bOhrnfbGS_iktd8chD_0G0gb_te_66c3v-x0jkn-KLoBKOKmse9TRCbZnBdamong4Wxm9bZtTEO8HqBSdyGNRsmkab_s61j/s16000/CHAPTER%201%20—%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 1"></div>
+                        <div class="lib-title">माँ जब तू थी, तब सब था</div>
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgS2CkYF1aNzy3gjZ2o9Y2zFg_P6brsmf7zQ1VIrSXIziJ94544FGUPIGUfcn1M2Kph420Oqvi_tNDgZJQPcucmtKAjXlaCZV0rBEwfcAC3c5e1oUn5JstmvKltNZxBarD01GCsZoUKSEXJQXu5E7tGyExUZKgD0fecCSxvAC8H9gETz3Wd0mr1BqJHi7jP/s160/TRENDING.gif" class="lib-read-btn" onclick="startLoading(' https://www.maniebook.online/2026/05/maa-jab-tu-thi-tab-sab-tha.html?m=1')">
+                    </div>
+
+                    <div class="lib-item">
+                        <div class="lib-img-box"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 2"></div>
+                        <div class="lib-title"> Courtroom 302 </div>
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgS2CkYF1aNzy3gjZ2o9Y2zFg_P6brsmf7zQ1VIrSXIziJ94544FGUPIGUfcn1M2Kph420Oqvi_tNDgZJQPcucmtKAjXlaCZV0rBEwfcAC3c5e1oUn5JstmvKltNZxBarD01GCsZoUKSEXJQXu5E7tGyExUZKgD0fecCSxvAC8H9gETz3Wd0mr1BqJHi7jP/s160/TRENDING.gif" class="lib-read-btn" onclick="startLoading('https://www.maniebook.online/2026/03/courtroom-302.html?m=1')">
+                    </div>
+
+                    <div class="lib-item">
+                        <div class="lib-img-box"><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFxYZW-ckBylySi1rlqLUBryJhN_RfTBOTYMeICvcmJ4J-sn-LpczN-scYlYZBfkDMUJibK3EkRcF0wOBA02ciwrsAm-F2wihxjWFBkt6CtoJymD8BN8olHQsFc_QiXxQAM67W8lVbusJu85mt6Bkd1JRCakzyPKcmfeBSow8vSPAERwG5gP0XPTttfNKK/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 3"></div>
+                        <div class="lib-title">शहर सो रहा था</div>
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgS2CkYF1aNzy3gjZ2o9Y2zFg_P6brsmf7zQ1VIrSXIziJ94544FGUPIGUfcn1M2Kph420Oqvi_tNDgZJQPcucmtKAjXlaCZV0rBEwfcAC3c5e1oUn5JstmvKltNZxBarD01GCsZoUKSEXJQXu5E7tGyExUZKgD0fecCSxvAC8H9gETz3Wd0mr1BqJHi7jP/s160/TRENDING.gif" class="lib-read-btn" onclick="startLoading('https://www.maniebook.online/2026/04/sahar-soraha-tha.html?m=1')">
+                    </div>
+                </div>
+
+                <div id="libLoader">
+                    <img src="https://media2.giphy.com/media/v1.Y2lkPTZjMDliOTUyN291NmVsZnE0d2N5ZG82cXlyeWE0bGxpMXZmZW5tcW9kYXN4aDFwbCZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/VfK8uwEgsWawGtsSKO/giphy.gif" class="lib-main-gif">
+                    <p style="font-weight:bold; color:#555;">Opening Your Book...</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const libOverlay = document.getElementById('libOverlay');
+
+            function openLib() {
+                libOverlay.style.display = 'flex';
+                document.getElementById('libMain').style.display = 'block';
+                document.getElementById('libLoader').style.display = 'none';
+            }
+
+            function closeLib() {
+                libOverlay.style.display = 'none';
+            }
+
+            libOverlay.onclick = function(event) {
+                if (!event.target.classList.contains('lib-read-btn')) {
+                    closeLib();
+                }
+            }
+
+            function startLoading(url) {
+                document.getElementById('libMain').style.display = 'none';
+                document.getElementById('libLoader').style.display = 'block';
+                
+                setTimeout(() => {
+                    window.location.href = url;
+                }, 3000); 
+            }
+        </script>
+    </div>
+
+    <div class="kc-wrapper" style="margin: 0;">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+        <style>
+            /* Main Button Style */
+            .kc-open-btn {
+                background: #ff4757; color: white; 
+                padding: 8px 15px; /* Size Reduced */
+                border: none;
+                border-radius: 8px; /* Matched with other button */
+                font-size: 14px; /* Font Size Reduced */
+                font-weight: bold; cursor: pointer;
+                display: inline-flex; align-items: center; gap: 8px; font-family: sans-serif;
+            }
+
+            /* Full Screen Overlay */
+            .kc-overlay {
+                display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(0,0,0,0.85); z-index: 99999; justify-content: center;
+                align-items: center; font-family: 'Segoe UI', Tahoma, sans-serif;
+            }
+
+            /* Popup Content Box - Full Width & Height */
+            .kc-popup {
+                background: white; 
+                width: 95%;            
+                max-width: 95%;        
+                min-height: 450px;     
+                padding: 30px;
+                border-radius: 20px; position: relative; text-align: center;
+                background-image: linear-gradient(rgba(255,255,255,0.92), rgba(255,255,255,0.92)), 
+                                  url('https://img.freepik.com/free-vector/colorful-frame-template-art-element-tools_1308-159008.jpg?w=740');
+                background-size: cover; box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+                display: flex;         
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            /* Close Icon */
+            .kc-close { position: absolute; top: 15px; right: 25px; font-size: 35px; cursor: pointer; color: #333; z-index: 10; font-weight: bold; }
+
+            /* Step 1: Winner List Styling */
+            .kc-list-item {
+                display: flex; align-items: center; background: white; margin: 20px 0;
+                padding: 20px; border-radius: 15px; border: 1px solid #eee; gap: 25px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            }
+            .kc-list-item img {
+                width: 140px; height: 150px; 
+                border-radius: 0%; 
+                object-fit: cover; border: 3px solid #2ed573; flex-shrink: 0;
+            }
+            .kc-details { text-align: left; flex-grow: 1; }
+            .kc-details b { display: block; font-size: 13px; color: #2f3542; margin-bottom: 3px; } 
+            .kc-details span { font-size: 12px; color: #747d8c; } 
+            /* बैज की कॉमन स्टाइल (लेफ्ट खिसकाने के लिए margin-right जोड़ा गया है) */
+.kc-badge { 
+    font-weight: bold; 
+    font-size: 10px; 
+    margin-right: 17px; /* अगर इसे और लेफ्ट करना हो तो 25px को बढ़ाकर 35px या 40px कर दें */
+  white-space: nowrap;/
+  
+}
+
+/* FIRST के लिए लाल (Red) रंग */
+.kc-badge-first {
+    color: #008000; 
+}
+
+/* SECOND के लिए गुलाबी (Pink) रंग */
+.kc-badge-second {
+    color: #ff66b2; 
+}
+ 
+
+            /* Step 2: Form Styling */
+            .kc-form-box { display: none; padding: 20px 0; width: 100%; max-width: 600px; margin: 0 auto; }
+            .kc-form-box input {
+                width: 100%; padding: 18px; margin: 15px 0; border: 1px solid #ccc;
+                border-radius: 10px; box-sizing: border-box; font-size: 15px;
+            }
+
+            /* Buttons */
+            .kc-action-btn {
+                background: #ff4757; color: white; border: none; padding: 18px; width: 100%; max-width: 600px; margin: 25px auto 0 auto;
+                border-radius: 12px; font-weight: bold; cursor: pointer; display: block; font-size: 20px; letter-spacing: 1px;
+            }
+            .kc-submit-btn { background: #2ed573; }
+
+            /* Spinner */
+            #kcLoader { display: none; margin: 25px auto; }
+            .kc-spinner {
+                width: 50px; height: 50px; border: 5px solid #f3f3f3; border-top: 5px solid #ff4757;
+                border-radius: 50%; animation: kc-spin 1s linear infinite; margin: 0 auto;
+            }
+            @keyframes kc-spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+            #kc-error { color: #ff4757; font-size: 16px; display: none; margin-top: 15px; font-weight: bold; }
+        </style>
+
+        
+
+        <div class="kc-overlay" id="kcOverlay">
+            <div class="kc-popup">
+                <span class="kc-close" onclick="closeKC()">&times;</span>
+                
+                <div id="kcStep1" style="width: 100%; max-width: 800px; margin: 0 auto;">
+                    <h3 style="color: #880808; margin-top: 0; font-size: 32px; margin-bottom: 30px;">This Week’s Little Star Artists</h3>
+                    <div class="kc-list-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjyjD-a630MezXYmzUGjvOUaIMdfaabvacCb6lIQthOaaFnqm6fo6RSF4W7zKt-4rwJop1aAjhS_vABR59RIvmDY1-Ac_3WUVBO7K4cpfHDOqldauT-X2f89EYNSEEOGgntZDjydPTozBvzwWUobRwxbYCx6PLigQgT7rxN-3R45Pw4ZUT80KBXj5h4a4lW/s1800/Mani%20E-Book%20Drawing%202026%20-%206.jpeg" alt="Student">
+                        <div class="kc-details"><b>Arjun Singh</b><span>Class V</span></div>
+                        <div class="kc-badge kc-badge-first">FIRST</div>
+
+                    </div>
+                    <div class="kc-list-item">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhDkJ0O5lw_kGrGqs-U9aYdkOH6kLuU266TFI6CouWko-7y8s5Z_IpocrSfdwJn4btlAZmvyTwT3YuHVIpg3DriE7MZrR2fLf6L_Mnc7iaYJ8xkpRrbhEpmy6n1gt10ndwd-Z98PDCSMXyKg0QPn061sAwBZRSAPB_z7DtZ2oTfFL4WFoXnyBag_mx4kPyU/s1800/Mani%20E-Book%20Drawing%202026%20-%207.jpeg" alt="Student">
+                        <div class="kc-details"><b>Yami</b><span>Class IV</span></div>
+                        <div class="kc-badge kc-badge-second">SECOND</div>
+                    </div>
+                   
+                    <button class="kc-action-btn" onclick="goToForm()">DOWNLOAD CERTIFICATE</button>
+                </div>
+
+                <div id="kcStep2" class="kc-form-box">
+                    <h3 style="color: #ff4757; margin-top: 0; font-size: 32px; margin-bottom: 25px;">Get Certificate</h3>
+                    <input type="password" id="stuPassword" placeholder="Enter Certificate Password">
+                    
+                    <button class="kc-action-btn kc-submit-btn" id="submitBtn" onclick="processRedirect()">SUBMIT</button>
+                    
+                    <div id="kcLoader">
+                        <div class="kc-spinner"></div>
+                        <p style="font-size: 16px; color: #555; margin-top: 15px;">Generating Certificate... (5s)</p>
+                    </div>
+                    <p id="kc-error">Invalid Password.</p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            const kcData = [
+                { password: "PASS123", url: "https://google.com/cert1" },
+                { password: "AMRITA2023", url: "https://google.com/cert2" },
+                { password: "XYZ890", url: "https://google.com/cert3" },
+                { password: "LASTPASS", url: "https://google.com/cert100" }
+            ];
+
+            function openKC() {
+                document.getElementById('kcOverlay').style.display = 'flex';
+                document.getElementById('kcStep1').style.display = 'block';
+                document.getElementById('kcStep2').style.display = 'none';
+            }
+
+            function closeKC() {
+                document.getElementById('kcOverlay').style.display = 'none';
+                resetAll();
+            }
+
+            function goToForm() {
+                document.getElementById('kcStep1').style.display = 'none';
+                document.getElementById('kcStep2').style.display = 'block';
+            }
+
+            function processRedirect() {
+                const passInp = document.getElementById('stuPassword').value.trim();
+                const btn = document.getElementById('submitBtn');
+                const loader = document.getElementById('kcLoader');
+                const error = document.getElementById('kc-error');
+
+                const student = kcData.find(s => s.password === passInp);
+
+                if (student) {
+                    error.style.display = 'none';
+                    btn.style.display = 'none';
+                    loader.style.display = 'block';
+
+                    setTimeout(() => {
+                        window.open(student.url, '_blank');
+                        closeKC();
+                    }, 5000);
+                } else {
+                    error.style.display = 'block';
+                }
+            }
+
+            function resetAll() {
+                document.getElementById('stuPassword').value = '';
+                document.getElementById('kc-error').style.display = 'none';
+                document.getElementById('kcLoader').style.display = 'none';
+                document.getElementById('submitBtn').style.display = 'block';
+            }
+
+            window.onclick = function(e) {
+                if (e.target == document.getElementById('kcOverlay')) closeKC();
+            }
+        </script>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+ 
+
+
+   
+
+        
+       
+
+     
+
+
+
+
+
+  
+
+
+<br>
+
+<div class="separator" style="clear: both; text-align: center;"><img border="0" data-original-height="315" data-original-width="851" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi3XWahThyphenhyphen5doQ1qqaB-GiF3xIOXNpRwz6HDLt1etumajsKnw8BIlMdo0bfXteQXOYk-IJdQ9PlaAMKjnERU0LFc3i7fUiO5KIJCCEp9qtZTNk6XfnhRg_eY0NBx1ueWHJ1tkbzT3U58KY96CXsSbCCAZANUlURjLDXnXE8tOXzY41rkC_csOZKZwywBD_e/s851/IMG_6083.jpeg" /></div>
+
+<div class="separator" style="clear: both; text-align: center;"></div><p></p>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8"></meta>
+<title>Blinking Text</title>
+
+<style>
+  .blink-text {
+    font-size: 10px;
+    font-weight: 800;
+    color: #d32f2f;
+    animation: blink 1.2s infinite;
+  }
+
+  @keyframes blink {
+    0%   { opacity: 1; }
+    50%  { opacity: 0; }
+    100% { opacity: 1; }
+  }
+</style>
+</head>
+
+<body>
+
+
+</body>
+</html>
+
+<div class="separator" style="clear: both; text-align: center;"><br /></div><p>Explore Our Entire Collection Of <strong>Mani E-Book</strong> Books, Available To You Completely Free Of Charge. Read Anytime, Anywhere, And Enjoy Your Favorite Books Without Any Limitations. Dive Into A World Of Knowledge, Stories, And Learning At Your Convenience—Completely Free, Just A Click Away.</p><br>
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Font Awesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* Isolation Wrapper */
+        .custom-video-container {
+            padding: 15px 5px;
+            font-family: 'Segoe UI', Roboto, sans-serif;
+            background: transparent;
+        }
+
+        /* Title Style */
+        .custom-video-container h2 {
+            text-align: left;
+            color: #000;
+            margin: 0 0 15px 10px;
+            font-size: 26px;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        /* --- DESKTOP VIEW --- */
+        .v-grid { 
+            display: flex; 
+            flex-wrap: nowrap; 
+            gap: 20px; 
+            justify-content: flex-start;
+            padding: 10px;
+        }
+
+        .v-card {
+            position: relative;
+            flex: 0 0 240px; 
+            aspect-ratio: 1 / 1.41; 
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+            background: #000;
+        }
+
+        .v-card:hover { transform: translateY(-5px); }
+
+        .thumb { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Font Awesome Play Button Styling */
+        .play-btn {
+            position: absolute; 
+            top: 50%; left: 50%; 
+            transform: translate(-50%, -50%);
+            background: rgba(255, 0, 0, 0.9); 
+            color: #fff; 
+            border-radius: 50%; 
+            width: 50px; 
+            height: 50px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            border: 2px solid #fff;
+            font-size: 18px; /* Icon size */
+            transition: background 0.3s;
+        }
+
+        .v-card:hover .play-btn {
+            background: #ff0000;
+        }
+
+        /* --- MOBILE VIEW --- */
+        @media (max-width: 600px) {
+            .v-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 6px; 
+                padding: 5px;
+            }
+            
+            .v-card {
+                flex: none;
+                width: 100%; 
+                border-radius: 6px;
+            }
+
+            .custom-video-container h2 {
+                font-size: 20px;
+                margin-left: 5px;
+            }
+
+            .play-btn { 
+                width: 32px; 
+                height: 32px; 
+                font-size: 12px; 
+            }
+        }
+
+        /* Pop-up / Modal */
+        .pop {
+            display: none; position: fixed; z-index: 999999; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(0,0,0,0.95); align-items: center; justify-content: center;
+        }
+        .pop-in { width: 95%; max-width: 800px; aspect-ratio: 16/9; position: relative; }
+        iframe { width: 100%; height: 100%; border: 1px solid #fff; border-radius: 5px; }
+        .cls { position: absolute; top: -45px; right: 0; color: #fff; font-size: 40px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<div class="custom-video-container">
+    <h2>VIDEOS</h2>
+
+    <div class="v-grid">
+        <!-- Video 1 -->
+        <div class="v-card" onclick="playVid('F3X5Kp1mqU4')">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLxn6c_Ho34qNWoZjTwn5jWXc2qo-09yCF-EpmykBELY081su7rndskWls98LzYVwavqVuRJ3o-ZAMTeDeVXZpH-E7gaEg6jmjUB1VxjAsmZclsXMm_OU_I5aWWTDVbWjmgspzR8wqcbjIIBDqQNZeUjx-A1nHW7KKwYp5Gc_W9S8BOeRrcbINRddaRImh/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" class="thumb">
+            <!-- FA Icon used here -->
+            <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+        </div>
+
+        <!-- Video 2 -->
+        <div class="v-card" onclick="playVid('RmwsE3-DAzo')">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" class="thumb">
+            <!-- FA Icon used here -->
+            <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+        </div>
+
+      
+      <!-- Video 3 -->
+        <div class="v-card" onclick="playVid('ri6YXy4gGEo')">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhFxYZW-ckBylySi1rlqLUBryJhN_RfTBOTYMeICvcmJ4J-sn-LpczN-scYlYZBfkDMUJibK3EkRcF0wOBA02ciwrsAm-F2wihxjWFBkt6CtoJymD8BN8olHQsFc_QiXxQAM67W8lVbusJu85mt6Bkd1JRCakzyPKcmfeBSow8vSPAERwG5gP0XPTttfNKK/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" class="thumb">
+            <!-- FA Icon used here -->
+            <div class="play-btn"><i class="fa-solid fa-play"></i></div>
+        </div>
+
+        
+</div>
+
+<!-- Modal -->
+<div id="vPop" class="pop" onclick="closeVid()">
+    <div class="pop-in" onclick="event.stopPropagation()">
+        <span class="cls" onclick="closeVid()">&times;</span>
+        <iframe id="vFrame" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+    </div>
+</div>
+
+<script>
+    function playVid(id) {
+        const frame = document.getElementById('vFrame');
+        const pop = document.getElementById('vPop');
+        frame.src = `https://www.youtube.com/embed/${id}?autoplay=1&rel=0`;
+        pop.style.display = 'flex';
+    }
+
+    function closeVid() {
+        const frame = document.getElementById('vFrame');
+        const pop = document.getElementById('vPop');
+        frame.src = ''; 
+        pop.style.display = 'none';
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bookslider-scope">
+    <div class="bookslider-container">
+        <h2>BOOKS COLLECTIONS</h2>
+        <div class="bookslider-track" id="bookslider-track">
+            </div>
+    </div>
+</div>
+
+<style>
+    /* Scope defines isolation - Iske bahar ka kuch change nahi hoga */
+    .bookslider-scope {
+        all: initial; /* Website ki purani settings ko block karne ke liye */
+        display: block;
+        width: 100%;
+        font-family: sans-serif;
+        background: transparent;
+        padding: 20px 0;
+    }
+
+    .bookslider-container {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .bookslider-heading {
+        all: revert; /* Sirf heading ke liye basic font wapas liya */
+        text-align: left;
+        margin-bottom: 20px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .bookslider-track {
+        display: flex;
+        transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        gap: 10px; /* Books ke beech ka gap */
+    }
+
+    /* Desktop View: 4 Books */
+    .bookslider-card {
+        flex: 0 0 calc(25% - 8px); 
+        aspect-ratio: 1 / 1.45;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        background: #fff;
+    }
+
+    .bookslider-card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border: none;
+    }
+
+    /* Mobile View: 3 Books */
+    @media (max-width: 600px) {
+        .bookslider-card {
+            flex: 0 0 calc(33.33% - 7px);
+        }
+        .bookslider-track {
+            gap: 10px;
+        }
+    }
+</style>
+
+<script>
+(function() {
+    const bookImages = [
+       
+    
+   "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFM0HidE-LVJmERpe8__VMimxk9GpOYUYGRrD3sLr1yD1HnVGqCJ1yQI22cuo5DaLqA-GiVWk3uuggBr7KyUXmshSJ0SjRL6nwgZEvIP9KzYtsojTTV4HatGJBohFwK0LWoeIkajvEH8VW7EQCr2jf8gzWSZyEj1IWwtwEOXWlyHI8LYm4e-BGq5X-U8ib/s1748/CHAPTER%201%20—%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",   
+ 
+ "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3hphACv-e8uxehBy4MtEw_NHli4UvTiJh30aiQ_SrA9z5d130iFcCoJ6mRwrbTM71BJY3nU-Z4MltTyoaPGT-M6Bp3Fs5KxZvFE2ivu-ssTI75Vs0gA6svBRoj_DTMyx9IqhScBQa0Q-ra2z26ZymR2llqd8uet3voUdppbMHTWSIcGFusNgHltmiYWaw/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.png",    
+      
+      
+     "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4eNwAMkfWMDb1zM1z12d4pWzJIqGxUOvtLp2-3U8ki9wK4EdHZhK1H8rh8PD-ErMnxZ1fx83atoJ-8eaGeFWmPBYtK0Gd0bOhrnfbGS_iktd8chD_0G0gb_te_66c3v-x0jkn-KLoBKOKmse9TRCbZnBdamong4Wxm9bZtTEO8HqBSdyGNRsmkab_s61j/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+      
+     
+      
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilsckGjT9DsgZPnYdhF2eE41MsI_cHNWETI8KXsMqQCC3sySnDhXXKOvMoCoyp1fdLfuT5lAuADYZGW_sm7Rr3nMJBxwFre-YAiuMIQHb7iIQSJ-Q4avN9ZMfs_4VrHHpZTd37f365jDGPO7cgYBLQZw0XL_xW0QyC3pH6j6jaMsrDttgvl5-PgraZh_sC/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" ,
+      
+      
+      
+     
+      
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLxn6c_Ho34qNWoZjTwn5jWXc2qo-09yCF-EpmykBELY081su7rndskWls98LzYVwavqVuRJ3o-ZAMTeDeVXZpH-E7gaEg6jmjUB1VxjAsmZclsXMm_OU_I5aWWTDVbWjmgspzR8wqcbjIIBDqQNZeUjx-A1nHW7KKwYp5Gc_W9S8BOeRrcbINRddaRImh/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+      
+      "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEsnDW4KnzW6YLYZwFirjqu3I7dM17grjhrshTHdsKb6JJXlCOuAVLVJoHoQZuv645HsLAFS02lTrtNcqaWI_VgERSVNfi_fBZ0T7Ap8QLNd0l0zTkUyf6edZr8CZJrWt2TfIoY4rBovxv4V1x-xR_ak0N4jfKOEPE58wL-RrVkUHVXEs-vnRjPeagxVcP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaKovyz9UYkQ3xzLE7U8MIuq2btLseD1aXQwOeoKG9VRCQNazWuFZ0ics0M2shNO8W2CHnlPzE9FEemKRoaeSegj6JT7RZLM8fFqNpmJpppbw8KYvl_BGkSacZvlJ12PJD1lOG-08u1CkzxoeVuvfuX9a_fkqrATRWiekkNKbyhPh46bOKY7TPfu2GUFHK/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6sg15pEmWWgyUAMQpPFs3eYomr2GtfCMG2WEIWyE7wkTp-kLZwadxhG_e8G_85lN1DEWNctvVGxwtagRrE_-x_DnaWxM2BtSn3B-iCUyqjYaqF1EkIRF__9Cqt9kC1i_v91m1DaSamPqUQsyzRqndjPRfj-TmAMnU2KpOAZvxuKt8LxwPizA0VODZpZNF/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWgMU8myn9LbMfqjRvAIbQb-IjTc0NoESeYsRw7GrcDF5RmdBQv_6dBzhtgCcmkReOe-XS34qr9Wl-o3V0D8rtdmI8ryXLY5JD7_TcGbNnr8YVdAZIlPIP6f8m_1MEllgaS6dyeGLatvJyCU9pxaZ7V83aPDk0dllYQfBxrVSidUIxQ1ZfZnJfg9447mbe/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2015.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh_cIH65hMi_Pwm5gt2pmcgn2lFzPjsbiAC0t3QaLGikzUwcVeUd0Jqqob4hyphenhyphen6hi1GNMZCFudhYsyD7WaMmG5NzukDMvMIXYMeiKF33_ovVGIodPpd9j_YXMcCzoqYzyPBF1KZtrpqgrr3vcqypKAZfCkejP6htarY2LTh4FruzvyaZlRDq72rhyphenhyphenT3nbrf/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2014.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNvVaOKeBpgiCg2bKPRwEekpNMeJmIQJehjAHdJsHK94TH1PbJ2bx3zrBns0G0V6RZidO2q18hrRSAgcDAC2DiSOM5KeDCQIwsPj3BhqBgZS5Bu2BpZ1H8V6agRmbTrBf7FiTqyU2iIqhZZoZXNlecAf7AqhlTZSS-xCx06Q_al-s-RjB8ww1DoxL5pTIB/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2013.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAdwVanqCKjxoSSTIiHpn1kcJm5f58N4maIpq35VZppyHlncwjBCMLjsamQrl0TTyBEk2XzLTR180dAdvnowbFPCYEjd2DSwvKnP6Eq5o1hofkaTOVTiatNOD6hgwzE1IX9Z_4v_5irVjTG9JY1snT764baXGtoLo-pok14rM8cEESA98nAtzZNUhjPhsR/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%209.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4oGUfBK3BaCJM070taC74gIfCygJgp39jGyuT2k8cwLeHRiEerDdPFgDQFm41BCRzrUJbzMiiZhLllnxvHlIwfqF8sM88vcuC0IurorQ_-CvcY-WrdPQX2BsZ3VzjNnq2gXdl-1UkBfnUHJOtm2rbh1Izf8J-uxu7jFAhuTwkFW9rIFv_6EfthupVpm1c/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%208.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjWrB3zbeRaXCMylf6uFcfMnyjUrVDHpgZ70re_vbCCCdo3Ct8-QGxRiJB8q93HVBh4o_LgBJmimdTilCGeHMi-qotPMpS2BgsQm9Aqi36RHeSoeIHem4HbuG_VK-dJ1wYHuqOAdhnGG8E8UZy46gPNrg1HLD0FfcaQRyodhXxu7U1JBNkxsU21rjw6064/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%207.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuKb9WGwm3BOHt2qDZSEyD_Z3InCBKsPndBbuoUV1xjksZFxp18_XHrGKDXBbUFBWXX8ttKeyC9y2Ovk32nDz2b_MQfv9Gn4rvdk-k-AVC_elGAiTvKCl2mWdDGiR90S_GuYs9uK99OOH5z3-tjPKZNXY_NUji2ewIb5QLLydCG-lgVzrvpc8fTXfyQrZV/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%201.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqVPwXuFAVU8RAqH6qukWu_XifCXB5kZkElVDsGiedudyeyLVZhyjxxEEIT1GZu2xo9wgACGjLGPa21ExV5J2hI0f_XECSItLk6wcWIkudefcVuk1CSd4VRZpAye84gy3vaQ3EndsM27L_VwqCz7TwgvOZ-W_wxeGkWg4ffisBOEGCKcDR18Fh4VnttM9g/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjn7LnnloKIVV8ccthkzilMm7CK8bpMSqw2YUUnbeJ4gDN2SSLbifUlW5Oq3edI43mxbH1zhQd9t74Wtz291_Ay5Jvc5tRlIN5QQfuQq0QCvijf328M4FJikTdwT6YkZVpuWqfuLASCFC3zwvtTN9T13Nhwtg33UTAFODlheBmUKzrZD5kuUV1Q9_3KW302/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNClR3ODYJRzVNmjVfRONyB9eW5KusWWjUuupfIV_O2K_00ZpYnJpzU5EoGV8aIS6WcBaQfEI4ZMOm4ztNntD2y70LJBWxqXSDtJimIYVGGCtNjAlPqVTTovfGJeqkE6USLf3HIv1H32IVpA0lOqsuta_8bh4NZV6a5ZHrxp3D1_-8s-iZr0h_4GK3hJQr/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%205.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIsRL_5rjeCdKy-Vq46neXC5wA1nyOpqnGYG5eF4Kmikj21ObvSU6GKfZbHsuoSUN1Ctd52lAuQK_xUDCVpvwxfFtN46nB-26rh7iLxJIRbiEiGtv8OZOpGDxoQxqKN_9VMXRF1U5VdS-Tfzv_21lA9I4Gl1toerGpq5eZatAkpUzD60hUC22kI9BqzhdP/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%204.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizpMlugCOtwNBMUHxdft72zVoLiH7gBEbaQ2iJOyDW5RxtEnc5GDkgP81Kcb1X5eaQZRzeUIw1ZZD0iUdxh4I3LCCx3WCipUqBcm1xnjI6LO6E06LMdP6WmkJa6ySs9xh4dFMOvd2LT3Oq1KLIteQg6tCaLCl5RAV9_bunxjXlnMlzSSKtOTI1KfgdLo9c/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBZfLJxIaoSKv5D1IMXIE2QTwvlo-SiibZn7Q0anm4KnAQ2Qmm1qPc0Fxpo8Ct5X5t8-mhnbbdeyro1OEQ-L_Wj_MzMEaw6IU-zEsBoYMnZDa3ys1wGVNmyxKyT97qVEfaKVnZtJd16Uuc58P7aFN7yfrXGcYdjUgUhXh6UBGSFoxwn_TXW1ELJ3ErBq0H/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJkUsWNmR9x4YGieTaD1be7w5dEURkNv-CeVkUip95HXLd3LDj01Hn6dtfP5LfHzWQ8V9K968EwcGiqYqfRcXbF58SmoSMfwsFJuprrGWxZsGRtinITwI6zL0OJ_-IuiT6-0yKYvOGo5E4A-uN447_PvIPVtE7y2ubqyhMM7MNtg-DATHWSyGg2jyrK6oR/s16000/F38677D8-9B1F-4FC5-81BB-6A5D4BB27A78.png",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8kbhxLRR96nCHnYB5DS9HKnzCjs8rbEk9LVgQzll6A0dOtqIFpJMMqMpCqUodUWSOszca3sR2-IaWYiQwbNMDjtqbM_ZnMQb3J4s1zRgwla_F56zM_XF_IBwCO99NREYSKBtMROSMKz2PalTb5vNN233sCRKSiftH68lwDWie4kriF37GsVMM3LjGDCgC/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYOsK1lCRVzmM0YVKdROuEEbMqB9DygHRxrz2bGGeSsqX6Jo3Yc7WdX2K7QHOX3Vvr2BZkjmYk3dLu9-HRDxAyYFvUdcbUQmYTTmJHBgU6kXex9R4oXzhYX3BFy4aYYnpQuxd-ZbfRj0jXLcUgiCV-GTmryHzOQE5ROVVhoe2UjoTodjbGy1H8eEZg6bkl/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbTG4o4HaUFd4Rh9sXMCHTYKKhvY4exlxqoevvRiVYJmZti7q_ChsrF40jganvZ_TLAlMqXenulioO4HwMlhM3iF1ZrPBXNfv-vgAwI2rZCNJNrYoL9tvLe8NeAe5Fj9VpjF4Nu8glkAeWnIExNk2C6rVkiVd0yZwHApFmBJZ6uM4uGdwIr2-ZqKb2brZP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIujDZG088MOVFt2gjpGityYVR4HDBrPVxFCX06XctN6aEU1VqCuJyg6zVI-XmThVpOkQwC12Tosf_m3QECus1ZDx8XIodr30m4EsYsUq7FVCS_4DaxjZEuEKH4tDKYvAeYx-tqrUKpLEddvr_rWhsuDRGeOlu-9HhyphenhyphenwOJetge_lhI2jnoTkQkMhEGuhQF/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig7m10kdXu-whz5BrLid5_xK6q5U0KYfhcyWcM7T-YOUW4__jDx2X6vQkxxrFZtOYCZj3t7zGVIB-XSIm-ykZX9jV-mLx962A9L3faYpFWdCgCwjVRrwPjcIvtxKkCB4YjIRR6BS7MX66wKNMwikPADxiVXien1XH7vK55_dnDIxg7H2MUerHBUdtefE13/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.png",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmlLBWl_4wWe0eGbNM_HX2q_2LFUMNdL5dLg7WiZPKhyDYaVeA6ix0FLVRsDeB7wIpezrDmkVLGti1ukplFHMwCyTDRSq0a7kPYa-PZxyF6zaxY-csZ30obiJ680Z4CCgVId2RtWCAiKeStxfqE4ES16xQGUX8C5xIIFJtMcIpPMcAVWs1USagy_YLnNwW/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+        "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaKovyz9UYkQ3xzLE7U8MIuq2btLseD1aXQwOeoKG9VRCQNazWuFZ0ics0M2shNO8W2CHnlPzE9FEemKRoaeSegj6JT7RZLM8fFqNpmJpppbw8KYvl_BGkSacZvlJ12PJD1lOG-08u1CkzxoeVuvfuX9a_fkqrATRWiekkNKbyhPh46bOKY7TPfu2GUFHK/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg"
+    ];
+
+    const track = document.getElementById('bookslider-track');
+    
+    // Safety check
+    if(!track) return;
+
+    bookImages.forEach(src => {
+        const card = document.createElement('div');
+        card.className = 'bookslider-card';
+        card.innerHTML = `<img src="${src}" loading="lazy">`;
+        track.appendChild(card);
+    });
+
+    let bookIdx = 0;
+
+    function moveBookSlider() {
+        let isMob = window.innerWidth <= 600;
+        let visible = isMob ? 3 : 4; 
+        let move = 2; // Do-do karke slide
+        
+        bookIdx += move;
+
+        if (bookIdx > bookImages.length - visible) {
+            bookIdx = 0;
+        }
+
+        const cardWidth = track.querySelector('.bookslider-card').offsetWidth;
+        const gap = 10; 
+        const dist = bookIdx * (cardWidth + gap);
+        track.style.transform = `translateX(-${dist}px)`;
+    }
+
+    setInterval(moveBookSlider, 4000);
+
+    window.addEventListener('resize', () => {
+        bookIdx = 0;
+        track.style.transform = `translateX(0)`;
+    });
+})();
+</script>
+
+
+<br>
+
+  
+  <!-- CSS Styling -->
+<style>
+  /* स्लाइडर का मुख्य कंटेनर */
+  .slider-container {
+    width: 100%;
+    max-width: 800px; /* आप अपनी वेबसाइट के अनुसार चौड़ाई बदल सकते हैं */
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    /* बॉर्डर और रेडियस हटा दिए गए हैं ताकि सिर्फ इमेज दिखे */
+  }
+
+  /* स्लाइडर को खिसकाने के लिए ट्रैक */
+  .slides-track {
+    display: flex;
+    transition: transform 0.8s ease-in-out; /* स्लाइड होने की स्मूथनेस */
+    width: 100%;
+  }
+
+  /* हर एक बैनर का बॉक्स */
+  .slide-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  .slide-item img {
+    width: 100%;
+    display: block;
+  }
+  
+  /* शाइनिंग (Shine) इफ़ेक्ट का CSS */
+  .reflection-box {
+    position: relative;
+    display: block;
+    overflow: hidden;
+  }
+
+  .shine {
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.7) 50%, rgba(255,255,255,0) 100%);
+    transform: skewX(-25deg);
+    animation: shine-animation 2s infinite; /* शाइनिंग की स्पीड */
+    z-index: 2;
+  }
+
+  @keyframes shine-animation {
+    0% { left: -150%; }
+    50% { left: 200%; }
+    100% { left: 200%; }
+  }
+</style>
+
+<!-- HTML Structure -->
+<div class="slider-container">
+  <div class="slides-track" id="banner-track">
+    
+    <!-- पहला बैनर -->
+    <div class="slide-item">
+      <div class="reflection-box">
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjNK4lDfyGxPHR96TMZS2-2qn2G1BHczV8p8lQDM1WzzjivmNa80qdu9nbiVR-n7XYLEWpzmkHJxsBvSQ2c-arqefR8PAL9ZfeG1ktWj4Dd1o_Um6wP5anlsUYOYILNxbwbwKElQeCAe_xLeHWXIuyodzC6yK2ZR5zLB35e4pgiDvf9CEg9wbuge0_K3gX2/s2048/E3AD855D-0CC9-4822-9F7B-3443DAA6DA23.png" alt="Banner 1">
+        <span class="shine"></span>
+      </div>
+    </div>
+
+    <!-- दूसरा बैनर -->
+    
+
+    <!-- तीसरा बैनर -->
+  
+
+  </div>
+</div>
+
+<!-- JavaScript for Auto-Slide (3 Seconds) -->
+<script>
+  let slideIndex = 0;
+  const track = document.getElementById('banner-track');
+  const totalBanners = document.querySelectorAll('.slide-item').length;
+
+  setInterval(() => {
+    slideIndex++;
+    // अगर बैनर खत्म हो जाएं, तो वापस पहले पर आ जाए
+    if (slideIndex >= totalBanners) {
+      slideIndex = 0; 
+    }
+    // स्लाइड को खिसकाने का लॉजिक
+    track.style.transform = `translateX(-${slideIndex * 100}%)`;
+  }, 3000); // 3000 मिलीसेकंड = 3 सेकंड
+</script>
+
+  
+  
+  
+  
+  
+  
+
+<style>
+.reflection-box {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.reflection-box img {
+    display: block;
+    width: 100%;
+    max-width: 851px;
+    height: auto;
+}
+
+/* Reflection animation layer */
+.reflection-box .shine {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(
+        120deg,
+        rgba(255,255,255,0) 0%,
+        rgba(255,255,255,0.7) 50%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: skewX(-25deg);
+    animation: reflectionMove 3s infinite;
+    pointer-events: none;
+}
+
+@keyframes reflectionMove {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 150%;
+    }
+}
+</style>
+
+  <br>
+
+
+<style>
+/* BLOGGER SAFE GRID */
+.book-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  width:100%;
+}
+
+@media screen and (min-width:768px){
+  .book-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+/* BOOK CARD */
+.book-card{
+  display:block;
+  text-decoration:none !important;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* A4 PORTRAIT IMAGE BOX */
+.book-image{
+  width:100%;
+  aspect-ratio:1 / 1.414; /* A4 Portrait */
+  background:#f5f5f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative; /* IMPORTANT for badge */
+}
+
+/* FULL IMAGE – NO CROP */
+.book-image img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+/* NEW GIF BADGE */
+.new-badge{
+  position:absolute;
+  top:6px;
+  right:6px;
+  width:40px;
+  z-index:5;
+}
+
+/* TEXT */
+.book-info{
+  padding:8px;
+  text-align:center;
+}
+
+.book-title{
+  font-size:14px;
+  font-weight:bold;
+  color:#000;
+}
+
+.book-author{
+  font-size:12px;
+  color:#555;
+  margin-top:3px;
+}
+</style>
+<h2 style="margin-bottom: 1px;">EXPLORE ALL BOOKS</h2><p>You Can Explore All The Available Books Here Easily.</p>
+
+<style>
+/* BLOGGER SAFE GRID */
+.book-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:12px;
+  width:100%;
+}
+
+@media screen and (min-width:768px){
+  .book-grid{
+    grid-template-columns:repeat(3,1fr);
+  }
+}
+
+/* BOOK CARD */
+.book-card{
+  display:block;
+  text-decoration:none !important;
+  background:#fff;
+  border:1px solid #ddd;
+  border-radius:6px;
+  overflow:hidden;
+  box-shadow:0 2px 4px rgba(0,0,0,0.08);
+}
+
+/* A4 PORTRAIT IMAGE BOX */
+.book-image{
+  width:100%;
+  aspect-ratio:1 / 1.414; /* A4 Portrait */
+  background:#f5f5f5;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* FULL IMAGE – NO CROP */
+.book-image img{
+  max-width:100%;
+  max-height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+/* TEXT */
+.book-info{
+  padding:8px;
+  text-align:center;
+}
+
+.book-title{
+  font-size:14px;
+  font-weight:bold;
+  color:#000;
+}
+
+.book-author{
+  font-size:12px;
+  color:#555;
+  margin-top:3px;
+}
+</style>
+
+
+
+
+
+
+<div class="book-grid">
+  
+  
+    <a class="book-card"
+ href="https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1">
+    
+    <div class="book-image">
+      
+      
+      <!-- NEW GIF -->
+    <img class="new-badge" 
+         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbtew7HAz5H8e9S-7Ej0BswdkYdx_8D0JcGuiDwtreTFK_XVmUNuCEmwJj6pa_jBqDwXY4bccwE-X6fEQwB2mhph2JhB93eslljtqmmUaKS77h6WzstNN0r-q9Ip5Bq_Q8jikp7Vafx4AjmS7oBSZjktEjSnKBoxSoY8jqYwZFWoolfP6rdvi7jRkfZF4Q/s160/NEW%20BOOK%20.gif" 
+         alt="New">
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFM0HidE-LVJmERpe8__VMimxk9GpOYUYGRrD3sLr1yD1HnVGqCJ1yQI22cuo5DaLqA-GiVWk3uuggBr7KyUXmshSJ0SjRL6nwgZEvIP9KzYtsojTTV4HatGJBohFwK0LWoeIkajvEH8VW7EQCr2jf8gzWSZyEj1IWwtwEOXWlyHI8LYm4e-BGq5X-U8ib/s1748/CHAPTER%201%20—%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title"> Courtroom 302 (II) </div>
+      <div class="book-author">By Manish Chaudhary</div>   
+      
+      
+    </div>
+  </a>
+  
+  
+    <a class="book-card"
+    href="https://www.maniebook.online/2026/06/blog-post.html?m=1">
+    
+    <div class="book-image">
+      
+      
+      <!-- NEW GIF -->
+    <img class="new-badge" 
+         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbtew7HAz5H8e9S-7Ej0BswdkYdx_8D0JcGuiDwtreTFK_XVmUNuCEmwJj6pa_jBqDwXY4bccwE-X6fEQwB2mhph2JhB93eslljtqmmUaKS77h6WzstNN0r-q9Ip5Bq_Q8jikp7Vafx4AjmS7oBSZjktEjSnKBoxSoY8jqYwZFWoolfP6rdvi7jRkfZF4Q/s160/NEW%20BOOK%20.gif" 
+         alt="New">
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg3hphACv-e8uxehBy4MtEw_NHli4UvTiJh30aiQ_SrA9z5d130iFcCoJ6mRwrbTM71BJY3nU-Z4MltTyoaPGT-M6Bp3Fs5KxZvFE2ivu-ssTI75Vs0gA6svBRoj_DTMyx9IqhScBQa0Q-ra2z26ZymR2llqd8uet3voUdppbMHTWSIcGFusNgHltmiYWaw/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.png" />
+    </div>
+    <div class="book-info">
+      <div class="book-title"> बो बचपन</div>
+      <div class="book-author">By विक्रम पवार </div>   
+      
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  <a class="book-card"
+    href="https://www.maniebook.online/2026/05/maa-jab-tu-thi-tab-sab-tha.html?m=1">
+    
+    <div class="book-image">
+      
+      
+      <!-- NEW GIF -->
+    <img class="new-badge" 
+         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtv8HkEiOtFDFg8soYhAOpDhwBLyzPIb_Tl9pu8KxN63gJMIXz9y-DCQ-tPn3lKv1VwBRo1zkv7i-9hOWxI9spJC14RhJo1H5M6iIE9hSW-yS0JNUMJfDsZEo4Dl26nlV-uACX5NdO4wA4lYHjvw11gSY_ydLtp40Fy1DsL5BiiqYMvysWtep_ye-uA4Qg/s160/TRENDING.gif" 
+         alt="New">
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4eNwAMkfWMDb1zM1z12d4pWzJIqGxUOvtLp2-3U8ki9wK4EdHZhK1H8rh8PD-ErMnxZ1fx83atoJ-8eaGeFWmPBYtK0Gd0bOhrnfbGS_iktd8chD_0G0gb_te_66c3v-x0jkn-KLoBKOKmse9TRCbZnBdamong4Wxm9bZtTEO8HqBSdyGNRsmkab_s61j/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title"> माँ जब तू थी, तब सब था</div>
+      <div class="book-author">By विद्या शर्मा </div>   
+      
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="book-card"
+    href="https://www.maniebook.online/2026/04/sahar-soraha-tha.html?m=1">
+    
+    <div class="book-image">
+      
+      
+      <!-- NEW GIF -->
+    <img class="new-badge" 
+         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtv8HkEiOtFDFg8soYhAOpDhwBLyzPIb_Tl9pu8KxN63gJMIXz9y-DCQ-tPn3lKv1VwBRo1zkv7i-9hOWxI9spJC14RhJo1H5M6iIE9hSW-yS0JNUMJfDsZEo4Dl26nlV-uACX5NdO4wA4lYHjvw11gSY_ydLtp40Fy1DsL5BiiqYMvysWtep_ye-uA4Qg/s160/TRENDING.gif" 
+         alt="New">
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilsckGjT9DsgZPnYdhF2eE41MsI_cHNWETI8KXsMqQCC3sySnDhXXKOvMoCoyp1fdLfuT5lAuADYZGW_sm7Rr3nMJBxwFre-YAiuMIQHb7iIQSJ-Q4avN9ZMfs_4VrHHpZTd37f365jDGPO7cgYBLQZw0XL_xW0QyC3pH6j6jaMsrDttgvl5-PgraZh_sC/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title"> शहर सो रहा था</div>
+      <div class="book-author">By Yamini Pandey </div>   
+      
+      
+    </div>
+  </a>
+  
+  
+  
+  <a class="book-card"
+    href="https://www.maniebook.online/2026/04/khaamoshi-ka-bojh.html?m=1">
+    
+    <div class="book-image">
+      
+      
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhLxn6c_Ho34qNWoZjTwn5jWXc2qo-09yCF-EpmykBELY081su7rndskWls98LzYVwavqVuRJ3o-ZAMTeDeVXZpH-E7gaEg6jmjUB1VxjAsmZclsXMm_OU_I5aWWTDVbWjmgspzR8wqcbjIIBDqQNZeUjx-A1nHW7KKwYp5Gc_W9S8BOeRrcbINRddaRImh/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">खामोशी का बोज</div>
+      <div class="book-author">By Pratibha Saraswat </div>   
+      
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  <a class="book-card"
+    href="https://www.maniebook.online/2026/04/blog-post_11.html?m=1">
+    
+    <div class="book-image">
+      
+      
+      
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhEsnDW4KnzW6YLYZwFirjqu3I7dM17grjhrshTHdsKb6JJXlCOuAVLVJoHoQZuv645HsLAFS02lTrtNcqaWI_VgERSVNfi_fBZ0T7Ap8QLNd0l0zTkUyf6edZr8CZJrWt2TfIoY4rBovxv4V1x-xR_ak0N4jfKOEPE58wL-RrVkUHVXEs-vnRjPeagxVcP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">कल की साज़िश</div>
+      <div class="book-author">By Dr. Ram Mohan Singh </div>   
+      
+      
+    </div>
+  </a>
+  
+
+<a class="book-card"
+     href="https://www.maniebook.online/2026/04/blog-post.html?m=1">
+    
+    <div class="book-image">
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaKovyz9UYkQ3xzLE7U8MIuq2btLseD1aXQwOeoKG9VRCQNazWuFZ0ics0M2shNO8W2CHnlPzE9FEemKRoaeSegj6JT7RZLM8fFqNpmJpppbw8KYvl_BGkSacZvlJ12PJD1lOG-08u1CkzxoeVuvfuX9a_fkqrATRWiekkNKbyhPh46bOKY7TPfu2GUFHK/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">क्यो करते है हम पूजा?</div>
+      <div class="book-author">By Mahima Srivastav </div>   
+      
+      
+    </div>
+  </a>
+
+
+      
+
+  <a class="book-card"
+     href="https://www.maniebook.online/2026/03/courtroom-302.html?m=1">
+    
+    <div class="book-image">
+      
+     
+      <!-- NEW GIF -->
+    <img class="new-badge" 
+         src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgtv8HkEiOtFDFg8soYhAOpDhwBLyzPIb_Tl9pu8KxN63gJMIXz9y-DCQ-tPn3lKv1VwBRo1zkv7i-9hOWxI9spJC14RhJo1H5M6iIE9hSW-yS0JNUMJfDsZEo4Dl26nlV-uACX5NdO4wA4lYHjvw11gSY_ydLtp40Fy1DsL5BiiqYMvysWtep_ye-uA4Qg/s160/TRENDING.gif" 
+         alt="New">
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">COURTROOM 302</div>
+      <div class="book-author">By Manish Chaudhary</div>   
+      
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a class="book-card"
+     href="https://www.maniebook.online/2026/03/still-i-rise-again.html">
+    
+    <div class="book-image">
+      
+     
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgmlLBWl_4wWe0eGbNM_HX2q_2LFUMNdL5dLg7WiZPKhyDYaVeA6ix0FLVRsDeB7wIpezrDmkVLGti1ukplFHMwCyTDRSq0a7kPYa-PZxyF6zaxY-csZ30obiJ680Z4CCgVId2RtWCAiKeStxfqE4ES16xQGUX8C5xIIFJtMcIpPMcAVWs1USagy_YLnNwW/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">Still I Rise Again</div>
+      <div class="book-author">By Neelam Singh</div>   
+      
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a class="book-card" 
+href="https://www.maniebook.online/2026/03/blog-post_25.html?m=1">
+    
+    <div class="book-image">
+      
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEig7m10kdXu-whz5BrLid5_xK6q5U0KYfhcyWcM7T-YOUW4__jDx2X6vQkxxrFZtOYCZj3t7zGVIB-XSIm-ykZX9jV-mLx962A9L3faYpFWdCgCwjVRrwPjcIvtxKkCB4YjIRR6BS7MX66wKNMwikPADxiVXien1XH7vK55_dnDIxg7H2MUerHBUdtefE13/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.png" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">इश्क़ अधूरा सा</div>
+      <div class="book-author">By रचना चौधरी </div>   
+      
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a class="book-card" 
+href="https://www.maniebook.online/2026/03/blog-post.html?m=1">
+    
+    <div class="book-image">
+      
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIujDZG088MOVFt2gjpGityYVR4HDBrPVxFCX06XctN6aEU1VqCuJyg6zVI-XmThVpOkQwC12Tosf_m3QECus1ZDx8XIodr30m4EsYsUq7FVCS_4DaxjZEuEKH4tDKYvAeYx-tqrUKpLEddvr_rWhsuDRGeOlu-9HhyphenhyphenwOJetge_lhI2jnoTkQkMhEGuhQF/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">बदलती दुनिया, बदलते हम</div>
+      <div class="book-author">By अरविंद शिदें </div>   
+      
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <a class="book-card" 
+href="https://www.maniebook.online/2026/03/think-like-thinker.html">
+    
+    <div class="book-image">
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbTG4o4HaUFd4Rh9sXMCHTYKKhvY4exlxqoevvRiVYJmZti7q_ChsrF40jganvZ_TLAlMqXenulioO4HwMlhM3iF1ZrPBXNfv-vgAwI2rZCNJNrYoL9tvLe8NeAe5Fj9VpjF4Nu8glkAeWnIExNk2C6rVkiVd0yZwHApFmBJZ6uM4uGdwIr2-ZqKb2brZP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">Think Like A Thinker</div>
+      <div class="book-author">By Manish Chaudhary</div>   
+      
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a class="book-card" 
+href="https://www.maniebook.online/2026/02/maniebookhindi.html ">
+    
+    <div class="book-image">
+      
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiYOsK1lCRVzmM0YVKdROuEEbMqB9DygHRxrz2bGGeSsqX6Jo3Yc7WdX2K7QHOX3Vvr2BZkjmYk3dLu9-HRDxAyYFvUdcbUQmYTTmJHBgU6kXex9R4oXzhYX3BFy4aYYnpQuxd-ZbfRj0jXLcUgiCV-GTmryHzOQE5ROVVhoe2UjoTodjbGy1H8eEZg6bkl/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">आईने से आगे</div>
+      <div class="book-author">By अनुजा गुप्ता </div>
+      
+    </div>
+  </a>
+  
+  
+  <a class="book-card" 
+href="https://www.maniebook.online/2026/02/blog-post.html?m=1 ">
+    
+    <div class="book-image">
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg8kbhxLRR96nCHnYB5DS9HKnzCjs8rbEk9LVgQzll6A0dOtqIFpJMMqMpCqUodUWSOszca3sR2-IaWYiQwbNMDjtqbM_ZnMQb3J4s1zRgwla_F56zM_XF_IBwCO99NREYSKBtMROSMKz2PalTb5vNN233sCRKSiftH68lwDWie4kriF37GsVMM3LjGDCgC/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">भगवान और मनुष्य</div>
+      <div class="book-author">By योगेश सारस्वत </div>
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  
+  <a class="book-card" href="https://www.maniebook.online/2026/01/thinking-machines.html?m=1">
+    <div class="book-image">
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhbKeDfujxGJ_ytuM_wOk75J5tgGwcznTy8D7UwnR6cHX7HEFp0BOBh1pomOG_vXRZXokdRVCHHEGFB1spQU4cwGtGU-1A7ZEbldAmS9NQeFviHcJPPYlIn1WKOjgzmmhGd9VsaQVsGQS-oQfQPoUZ9QhbGrKgEogkUrbqGNz8xbTWOO4_xOcJ38Rl_oG0p/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">Thinking Machines</div>
+      <div class="book-author">By Anurag K Reddy </div>
+      
+    </div>
+  </a>
+  
+  
+  
+    <a class="book-card" href="https://www.maniebook.online/2026/01/when-love-stayed-till-end.html?m=1">
+    <div class="book-image">
+      
+      
+      
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJkUsWNmR9x4YGieTaD1be7w5dEURkNv-CeVkUip95HXLd3LDj01Hn6dtfP5LfHzWQ8V9K968EwcGiqYqfRcXbF58SmoSMfwsFJuprrGWxZsGRtinITwI6zL0OJ_-IuiT6-0yKYvOGo5E4A-uN447_PvIPVtE7y2ubqyhMM7MNtg-DATHWSyGg2jyrK6oR/s16000/F38677D8-9B1F-4FC5-81BB-6A5D4BB27A78.png" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">When Love Stayed…</div>
+      <div class="book-author">By Neelam Singh </div>
+      
+    </div>
+  </a>
+  
+  
+  
+  
+  
+  <a class="book-card" href="https://www.maniebook.online/2026/01/she-has-returned.html?m=1">
+    <div class="book-image">
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhMVVVuy0z93xEXSI-wPQHCyUu7wGVc48e7lHaGraFmAE_Zm9YVP6ABgWzu0OnZXPcHuaCOa5wlGo3nQrsIaYCmR1MP26xbJELE6NEyirGQ1cZaKRNZ8WtFirpu2HTa0kcpAkDVlONISe-C7voNV8Uw9geEg90DFlemDIi2VmO6mRCqvxrFD1RfUmxkAgUd/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">She Has Returned…</div>
+      <div class="book-author">By Pankaj Kumar </div>
+      
+    </div>
+  </a>
+  
+  
+  
+  <a class="book-card" href="https://www.maniebook.online/2026/01/blog-post_17.html?m=1">
+    <div class="book-image">
+      
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiBZfLJxIaoSKv5D1IMXIE2QTwvlo-SiibZn7Q0anm4KnAQ2Qmm1qPc0Fxpo8Ct5X5t8-mhnbbdeyro1OEQ-L_Wj_MzMEaw6IU-zEsBoYMnZDa3ys1wGVNmyxKyT97qVEfaKVnZtJd16Uuc58P7aFN7yfrXGcYdjUgUhXh6UBGSFoxwn_TXW1ELJ3ErBq0H/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">रिश्तेदार ख़बरदार </div>
+      <div class="book-author">By श्रुति तोमर </div>
+      
+    </div>
+  </a>
+  
+  
+  
+  <a class="book-card" href="https://www.maniebook.online/2026/01/blog-post_79.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEizpMlugCOtwNBMUHxdft72zVoLiH7gBEbaQ2iJOyDW5RxtEnc5GDkgP81Kcb1X5eaQZRzeUIw1ZZD0iUdxh4I3LCCx3WCipUqBcm1xnjI6LO6E06LMdP6WmkJa6ySs9xh4dFMOvd2LT3Oq1KLIteQg6tCaLCl5RAV9_bunxjXlnMlzSSKtOTI1KfgdLo9c/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">दो रास्ते</div>
+      <div class="book-author">By उन्नति शर्मा</div>
+      
+    </div>
+  </a>
+  
+  
+  <a class="book-card"
+ href="https://www.maniebook.online/2026/01/maniebookhindi.html?m=1">
+    
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhIsRL_5rjeCdKy-Vq46neXC5wA1nyOpqnGYG5eF4Kmikj21ObvSU6GKfZbHsuoSUN1Ctd52lAuQK_xUDCVpvwxfFtN46nB-26rh7iLxJIRbiEiGtv8OZOpGDxoQxqKN_9VMXRF1U5VdS-Tfzv_21lA9I4Gl1toerGpq5eZatAkpUzD60hUC22kI9BqzhdP/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%204.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">अमरता की कीमत</div>
+      <div class="book-author">By Vijender Singh</div>
+    </div>
+  </a>
+  
+  
+  
+  
+  <a class="book-card" href="https://www.maniebook.online/2026/01/blog-post_15.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNClR3ODYJRzVNmjVfRONyB9eW5KusWWjUuupfIV_O2K_00ZpYnJpzU5EoGV8aIS6WcBaQfEI4ZMOm4ztNntD2y70LJBWxqXSDtJimIYVGGCtNjAlPqVTTovfGJeqkE6USLf3HIv1H32IVpA0lOqsuta_8bh4NZV6a5ZHrxp3D1_-8s-iZr0h_4GK3hJQr/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%205.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">वर्दी के उस पार</div>
+      <div class="book-author">By Manish Chaudhary</div>
+      
+    </div>
+  </a>
+  
+  
+  <a class="book-card" href="https://www.maniebook.online/2026/01/silent-eyes-khamosh-nazrein.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjn7LnnloKIVV8ccthkzilMm7CK8bpMSqw2YUUnbeJ4gDN2SSLbifUlW5Oq3edI43mxbH1zhQd9t74Wtz291_Ay5Jvc5tRlIN5QQfuQq0QCvijf328M4FJikTdwT6YkZVpuWqfuLASCFC3zwvtTN9T13Nhwtg33UTAFODlheBmUKzrZD5kuUV1Q9_3KW302/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">Silent Eyes</div>
+      <div class="book-author">By Monika Sharma</div>
+      
+    </div>
+  </a>
+
+
+  
+  <a class="book-card" href="https://www.maniebook.online/2026/01/hindistory_0679415169.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjqVPwXuFAVU8RAqH6qukWu_XifCXB5kZkElVDsGiedudyeyLVZhyjxxEEIT1GZu2xo9wgACGjLGPa21ExV5J2hI0f_XECSItLk6wcWIkudefcVuk1CSd4VRZpAye84gy3vaQ3EndsM27L_VwqCz7TwgvOZ-W_wxeGkWg4ffisBOEGCKcDR18Fh4VnttM9g/s16000/CHAPTER%201%20—%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">वक्त की धार</div>
+      <div class="book-author">By नवनीत गुप्ता </div>
+      
+    </div>
+  </a>
+  
+  
+  
+  
+ 
+  <!--BOOK 1-->
+  <a class="book-card" href="https://www.maniebook.online/2025/12/emotion-ek-hawa-ki-tarah-science-of.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuKb9WGwm3BOHt2qDZSEyD_Z3InCBKsPndBbuoUV1xjksZFxp18_XHrGKDXBbUFBWXX8ttKeyC9y2Ovk32nDz2b_MQfv9Gn4rvdk-k-AVC_elGAiTvKCl2mWdDGiR90S_GuYs9uK99OOH5z3-tjPKZNXY_NUji2ewIb5QLLydCG-lgVzrvpc8fTXfyQrZV/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%201.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">EMOTION EK HAWA KI TARAH</div>
+      <div class="book-author">By Manish Chaudhary</div>
+    </div>
+  </a> 
+
+
+<a class="book-card" href="https://www.maniebook.online/2026/01/blog-post_4.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiR1tOO2r_muhHC2u4bA133NO_VTFVGFpYpl56OrrIXq7YHVAeuYFM4F3pG9E_rgVkWfvnMio2iKpGeENQ4jDitQAaAVp-A7jDIaDsXZdGM4RGDb9W2Xf2H5JO0lhwK0VGjeNNsNqcre3ma-DlZweq0jObDxfzQKb0ufFBRH4OfEh9TgJY7sPaAFWQCHu5A/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%203.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">जंगल की परछाई</div>
+      <div class="book-author">By विवेक अवस्थी</div>
+    </div>
+  </a>
+
+
+
+
+
+<a class="book-card" href="https://www.maniebook.online/2026/01/hindistory.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhZG_-oOFl6D-LPvI_sAtp8EpBm5SKxyf-9ABePe7IiDnbYVRMyi8uIwZJ7hRx3-jqdq8NDbH4nzj8jsx2BPe4OyV-jM-KQnQJe3lgtELefm0Vxl554ChURmSDYQIi04N9GXOXUNlXSxQNWXk5VDHR7mARkBejkNNq7HzLQzO5cwGLi9N1ZOzWvRjoASbXm/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%206.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">लाल बर्फ की रात </div>
+      <div class="book-author">By एंथनी डिसूजा </div>
+    </div>
+  </a>
+
+
+<a class="book-card" href="https://www.maniebook.online/2026/01/blog-post_9.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjWrB3zbeRaXCMylf6uFcfMnyjUrVDHpgZ70re_vbCCCdo3Ct8-QGxRiJB8q93HVBh4o_LgBJmimdTilCGeHMi-qotPMpS2BgsQm9Aqi36RHeSoeIHem4HbuG_VK-dJ1wYHuqOAdhnGG8E8UZy46gPNrg1HLD0FfcaQRyodhXxu7U1JBNkxsU21rjw6064/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%207.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">खुद से जीत</div>
+      <div class="book-author">By विवेक अवस्थी</div>
+    </div>
+  </a>
+
+
+<a class="book-card" href="https://www.maniebook.online/2026/01/blog-post.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi4oGUfBK3BaCJM070taC74gIfCygJgp39jGyuT2k8cwLeHRiEerDdPFgDQFm41BCRzrUJbzMiiZhLllnxvHlIwfqF8sM88vcuC0IurorQ_-CvcY-WrdPQX2BsZ3VzjNnq2gXdl-1UkBfnUHJOtm2rbh1Izf8J-uxu7jFAhuTwkFW9rIFv_6EfthupVpm1c/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%208.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">ख़ामोश दीवारें</div>
+      <div class="book-author">By विकास दुबे</div>
+    </div>
+  </a>
+
+
+<a class="book-card" href="https://www.maniebook.online/2026/01/two-lives-one-person_9.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAdwVanqCKjxoSSTIiHpn1kcJm5f58N4maIpq35VZppyHlncwjBCMLjsamQrl0TTyBEk2XzLTR180dAdvnowbFPCYEjd2DSwvKnP6Eq5o1hofkaTOVTiatNOD6hgwzE1IX9Z_4v_5irVjTG9JY1snT764baXGtoLo-pok14rM8cEESA98nAtzZNUhjPhsR/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%209.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">TWO LIVES,ONE PERSON</div>
+      <div class="book-author">By Manish Chaudhary</div>
+    </div>
+  </a>
+
+
+<a class="book-card" href="https://www.maniebook.online/2025/12/the-taste-of-struggle-story-of-struggle.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNvVaOKeBpgiCg2bKPRwEekpNMeJmIQJehjAHdJsHK94TH1PbJ2bx3zrBns0G0V6RZidO2q18hrRSAgcDAC2DiSOM5KeDCQIwsPj3BhqBgZS5Bu2BpZ1H8V6agRmbTrBf7FiTqyU2iIqhZZoZXNlecAf7AqhlTZSS-xCx06Q_al-s-RjB8ww1DoxL5pTIB/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2013.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">THE TASTE OF STRUGGLE</div>
+      <div class="book-author">By Manish Chaudhary</div>
+    </div>
+  </a>
+
+
+<a class="book-card" href="https://www.maniebook.online/2025/12/blog-post_20.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh_cIH65hMi_Pwm5gt2pmcgn2lFzPjsbiAC0t3QaLGikzUwcVeUd0Jqqob4hyphenhyphen6hi1GNMZCFudhYsyD7WaMmG5NzukDMvMIXYMeiKF33_ovVGIodPpd9j_YXMcCzoqYzyPBF1KZtrpqgrr3vcqypKAZfCkejP6htarY2LTh4FruzvyaZlRDq72rhyphenhyphenT3nbrf/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2014.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title"> बीते कल की क़ीमत</div>
+      <div class="book-author">By मनीष चौधरी</div>
+    </div>
+  </a>
+
+
+
+<a class="book-card" href="https://www.maniebook.online/2025/12/blog-post.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWgMU8myn9LbMfqjRvAIbQb-IjTc0NoESeYsRw7GrcDF5RmdBQv_6dBzhtgCcmkReOe-XS34qr9Wl-o3V0D8rtdmI8ryXLY5JD7_TcGbNnr8YVdAZIlPIP6f8m_1MEllgaS6dyeGLatvJyCU9pxaZ7V83aPDk0dllYQfBxrVSidUIxQ1ZfZnJfg9447mbe/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2015.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title"> त्रिलोकनाथ शंभूः</div>
+      <div class="book-author">By मनीष चौधरी</div>
+    </div>
+  </a>
+
+
+
+<a class="book-card" href="https://www.maniebook.online/2025/12/haste-haste-sochne-lage-subtitle-lifes.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh6sg15pEmWWgyUAMQpPFs3eYomr2GtfCMG2WEIWyE7wkTp-kLZwadxhG_e8G_85lN1DEWNctvVGxwtagRrE_-x_DnaWxM2BtSn3B-iCUyqjYaqF1EkIRF__9Cqt9kC1i_v91m1DaSamPqUQsyzRqndjPRfj-TmAMnU2KpOAZvxuKt8LxwPizA0VODZpZNF/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">HASTE HASTE SOCHNE LAGE</div>
+      <div class="book-author">By Aditya Reddy</div>
+    </div>
+  </a>
+
+
+
+
+
+
+<!--BOOK 2-->
+  <a class="book-card" href="https://www.maniebook.online/2025/12/the-child-who-wasnt-mine_27.html?m=1">
+    <div class="book-image">
+      <img alt="Book" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht8BwvoHsfW6sJ21SXY9P7x3hjYDUtI_b1Tv-_TFMZe4ZZS5WUmVVQ1rlb954QDkMLDP_BXKJ1OSdu8M9RtsdlQg-mwS5v7W4xTnHKYsrWiaxMhbT5k6AeoMyKup6KUjTR0tLjZyOoT4793ibQrloVW2Psi8xw6KLwkMOlZBfDvkF1YibfBPMfT5CoykjU/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2011.jpeg" />
+    </div>
+    <div class="book-info">
+      <div class="book-title">THE CHILD WHO WASN’T MINE</div>
+      <div class="book-author">By Manish Chaudhary</div>
+    </div>
+  </a>
+
+  <!--BOOK 3-->
+
+  
+  
+  
+  
+</div>
