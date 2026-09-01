@@ -34,7 +34,7 @@
         header {
             background-color: #870000;
             color: #fff;
-            padding: 15px 30px;
+            padding: 12px 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -47,54 +47,26 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            overflow: hidden;
+            height: auto;
         }
 
-        .book-icon {
-            font-size: 24px;
-            color: #fff;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-            animation: bounceIcon 2s infinite alternate;
+        /* Navbar Rectangle Logo Image Styles (Desktop View Default) */
+        .nav-logo-img {
+            height: 65px; /* Desktop view ke liye height */
+            max-width: 200px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            pointer-events: none;
         }
 
-        @keyframes bounceIcon {
-            0% { transform: translateY(0) scale(1); }
-            100% { transform: translateY(-3px) scale(1.1); }
+        /* Mobile View ke liye alag size */
+        @media (max-width: 768px) {
+            .nav-logo-img {
+                height: 40px; /* Mobile view ke liye choti height */
+                max-width: 130px;
+            }
         }
-
-        .animated-text-group {
-            display: flex;
-            flex-direction: column;
-            animation: fadeOutCycle 9s infinite;
-        }
-
-        .logo-main {
-            font-size: 24px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-family: 'Cinzel', serif;
-            color: #fff;
-            animation: slideInLeft 0.8s ease forwards;
-        }
-
-        .logo-sub {
-            font-size: 11px;
-            font-family: 'Courier New', Courier, monospace;
-            letter-spacing: 1px;
-            color: #fff;
-            animation: slideInLeft 1.2s ease forwards;
-        }
-
-        @keyframes slideInLeft {
-            0% { transform: translateX(-50px); opacity: 0; }
-            100% { transform: translateX(0); opacity: 1; }
-        }
-
-        @keyframes fadeOutCycle {
-            0%, 75% { opacity: 1; }
-            85%, 100% { opacity: 0; }
-        }
-
         /* Nav Buttons Group */
         .nav-buttons {
             display: flex;
@@ -470,7 +442,7 @@
             justify-content: center;
         }
 
-        /* Portrait Table Section (9 Portrait Image Books Grid/Rows) */
+        /* Portrait Book Grid Section (A4 Portrait Book Cover Style) */
         .portrait-books-section {
             max-width: 1200px;
             margin: 50px auto;
@@ -479,7 +451,7 @@
 
         .portrait-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3, 1fr); /* Desktop view: 3 per row */
             gap: 25px;
         }
 
@@ -497,11 +469,16 @@
             transform: translateY(-5px);
         }
 
+        /* A4 Portrait Book Cover Box Ratio (e.g. Aspect ratio 1:1.414 or structured height) */
         .portrait-img-box {
-            width: 100%;
-            height: 340px;
+            width: 65%; /* Chote a4 size portrait look ke liye width control */
+            max-width: 200px;
+            aspect-ratio: 1 / 1.414; /* A4 Ratio */
+            margin: 20px auto 10px auto;
             background: #eee;
+            border-radius: 4px;
             overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
         .portrait-img-box img {
@@ -512,24 +489,25 @@
         }
 
         .portrait-content {
-            padding: 20px;
+            padding: 15px 20px 20px 20px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            text-align: center;
         }
 
         .portrait-heading {
-            font-size: 17px;
+            font-size: 16px;
             font-weight: 700;
             color: #111;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .portrait-desc {
-            font-size: 13px;
+            font-size: 12px;
             color: #666;
             line-height: 1.5;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             flex-grow: 1;
         }
 
@@ -538,7 +516,7 @@
             text-align: center;
             background-color: #870000;
             color: #fff;
-            padding: 10px;
+            padding: 9px;
             border-radius: 5px;
             text-decoration: none;
             font-size: 13px;
@@ -690,7 +668,7 @@
 
         /* Responsive Breakpoints */
         @media (max-width: 900px) {
-            .news-grid, .portrait-grid {
+            .news-grid {
                 grid-template-columns: 1fr;
                 max-width: 450px;
                 margin: 0 auto;
@@ -717,7 +695,29 @@
             }
         }
 
+        /* Mobile View Rules: Portrait Grid 2 items per line */
         @media (max-width: 768px) {
+            .portrait-grid {
+                grid-template-columns: repeat(2, 1fr); /* Mobile view: 2 per line */
+                gap: 12px;
+            }
+            .portrait-content {
+                padding: 10px;
+            }
+            .portrait-heading {
+                font-size: 13px;
+            }
+            .portrait-desc {
+                font-size: 11px;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .read-book-btn {
+                font-size: 11px;
+                padding: 6px;
+            }
             .footer-left {
                 display: none;
             }
@@ -736,48 +736,43 @@
 
     <div id="loading-overlay">
         <div class="spinner"></div>
-        <p>Preparing Portal...</p>
+        <p>Please Wait...</p>
     </div>
 
     <header>
         <div class="logo-container">
-            <i class="fa-solid fa-book-open book-icon"></i>
-            <div class="animated-text-group">
-                <span class="logo-main">MANI</span>
-                <span class="logo-sub">E-Book Authors</span>
-            </div>
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQCyVczzDtpG_c0-6D52NjM1erZWYL1vgBjX2-EdGkbuxuOybTXkF8ldgzdp3SzFqq0sq6u68FQr5UzX7hDLqeXTF71hAgGy4ULUg3rUs4V_KZygUE73fw3fv-PfOGLHJkM06ZI3jtvRXoBbg_abbJfi5h4_KGp_lYW6rAI4HIR8FuAbHdkHZECtanPAAj/s1600/Jewellery.png" alt="Mani E-Books Logo" class="nav-logo-img">
         </div>
         <div class="nav-buttons">
-            <button class="login-btn-nav" onclick="handleSignupClick('https://www.gla.ac.in')">Login</button>
+            <button class="login-btn-nav" onclick="handleSignupClick('https://authors.maniebook.online/')">Login</button>
             <button class="signup-btn-nav" onclick="handleSignupClick('https://www.gla.ac.in')">Sign Up</button>
         </div>
     </header>
 
     <section class="banner-section">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgZGhZHC0NjPBXw28FQMz9q_gvu97Bi9VuoZgOvjTd_o7TXK_SXDJTPdDjcfh3gjPFGkurypImLCM0yltA671uNQDYOoko92pb03IQMuNV2rtd5kL2JpbyCgTQDv8NRb7-kR5ZTjM-cidAFkb5efmMzpyFt3nCxujB2pRxJmNjrd8PgZheFHpYNW3yzKjk/s1600/Untitled%20design%20(2).png" alt="Desktop Banner" class="banner-img desktop-banner">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgZGhZHC0NjPBXw28FQMz9q_gvu97Bi9VuoZgOvjTd_o7TXK_SXDJTPdDjcfh3gjPFGkurypImLCM0yltA671uNQDYOoko92pb03IQMuNV2rtd5kL2JpbyCgTQDv8NRb7-kR5ZTjM-cidAFkb5efmMzpyFt3nCxujB2pRxJmNjrd8PgZheFHpYNW3yzKjk/s1600/Untitled%20design%20(2).png" alt="Mobile Banner" class="banner-img mobile-banner">
+        <img src="https://t4.ftcdn.net/jpg/05/44/54/69/360_F_544546950_Xi80k2ppry7rqKQQYsSNVmuaAILUiki9.jpg" alt="Desktop Banner" class="banner-img desktop-banner">
+        <img src="https://t4.ftcdn.net/jpg/05/44/54/69/360_F_544546950_Xi80k2ppry7rqKQQYsSNVmuaAILUiki9.jpg" alt="Mobile Banner" class="banner-img mobile-banner">
     </section>
 
-    <!-- Leaked-Style Creator Profile Section -->
     <section class="creator-profile-section">
         <div class="profile-card">
             <div class="profile-top-row">
                 <div class="profile-left-info">
                     <div class="profile-avatar-wrapper">
-                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsrBFy0_X7E4cdmvc7OnIhYLLsCzIucn32nDFLgymbJwck5tF-J442ASqrrkAV18LN08jDNE_lLp7jLKdcI8x8f_TTxbFRJjXiFQnF6JqhtiDoZSmjBKonklTpvZ3nPbaNIPmri4rIecQROXSv1UqgjiOYhRUDMbOlN-ihucNG7ERThPP_BkNjoBMfbBRZ/s2048/IMG_1017.jpeg" alt="Manish Profile" class="profile-avatar">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK8qozBraXQDYL4TcC3qbFx8TxushugearsNx2BNKjQOOZzoZb7D5AO-4q6-xi2g0uK9kjNuiL8VBxHJGPWfzSnRjEZwQjE3b-tTp6DHyAELpS0oo7EiICVsxtBLxBfoex4N_GvoV8aRNpvh2GDIZNCOI_8YI7wKvQC0ijOIamD-stMYqEqcPuy9NLgHAP/s320/143C6587-155A-4ADC-85E2-299812839513.jpeg" alt="Manish Profile" class="profile-avatar">
                     </div>
                     <div class="profile-names">
-                        <h1>Manish Kumar</h1>
-                        <p>Lead Digital Publisher & Author</p>
+                        <h1>Manish Chaudhary</h1>
+                        <p>Author & Writer</p>
                     </div>
                 </div>
                 <div class="profile-stats-group">
                     <div class="stat-item">
-                        <span class="stat-num">76</span>
+                        <span class="stat-num">10</span>
                         <span class="stat-label">Books</span>
                     </div>
                     <div class="stat-item">
-                        <span class="stat-num">653K</span>
+                        <span class="stat-num">15K</span>
                         <span class="stat-label">Follower</span>
                     </div>
                 </div>
@@ -794,130 +789,144 @@
         </div>
     </section>
 
-    <!-- Chat Popup Modal -->
     <div id="chat-modal">
         <div class="chat-header">
             <div class="chat-user-info">
-                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsrBFy0_X7E4cdmvc7OnIhYLLsCzIucn32nDFLgymbJwck5tF-J442ASqrrkAV18LN08jDNE_lLp7jLKdcI8x8f_TTxbFRJjXiFQnF6JqhtiDoZSmjBKonklTpvZ3nPbaNIPmri4rIecQROXSv1UqgjiOYhRUDMbOlN-ihucNG7ERThPP_BkNjoBMfbBRZ/s2048/IMG_1017.jpeg" alt="Manish" class="chat-user-avatar">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK8qozBraXQDYL4TcC3qbFx8TxushugearsNx2BNKjQOOZzoZb7D5AO-4q6-xi2g0uK9kjNuiL8VBxHJGPWfzSnRjEZwQjE3b-tTp6DHyAELpS0oo7EiICVsxtBLxBfoex4N_GvoV8aRNpvh2GDIZNCOI_8YI7wKvQC0ijOIamD-stMYqEqcPuy9NLgHAP/s320/143C6587-155A-4ADC-85E2-299812839513.jpeg" alt="Manish" class="chat-user-avatar">
                 <div class="chat-user-details">
-                    <h4>Manish Kumar</h4>
-                    <span class="chat-status"><span class="status-dot"></span> Active</span>
+                    <h4>Manish Chaudhary</h4>
+                    <span class="chat-status"><span class="status-dot"></span>Online</span>
                 </div>
             </div>
             <button class="chat-close-btn" onclick="closeChatModal()">&times;</button>
         </div>
         <div class="chat-body" id="chatBody">
-            <!-- Completely empty by default as requested -->
-        </div>
+            </div>
         <div class="chat-footer">
             <input type="text" id="chatInputText" placeholder="Type a message..." onkeypress="handleChatKeyPress(event)">
             <button class="chat-send-btn" onclick="sendUserMessage()"><i class="fa-solid fa-paper-plane"></i></button>
         </div>
     </div>
 
-    <!-- Portrait Books Section (9 Books Grid with Portrait Images) -->
     <section class="portrait-books-section">
-        <h2 class="section-title">Featured Publications</h2>
+        <h2 class="section-title">PUBLISHED BOOKS</h2>
         <div class="portrait-grid">
             
             <div class="portrait-card">
                 <div class="portrait-img-box">
-                    <img src="https://picsum.photos/600/900?random=1" alt="Book 1">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFM0HidE-LVJmERpe8__VMimxk9GpOYUYGRrD3sLr1yD1HnVGqCJ1yQI22cuo5DaLqA-GiVWk3uuggBr7KyUXmshSJ0SjRL6nwgZEvIP9KzYtsojTTV4HatGJBohFwK0LWoeIkajvEH8VW7EQCr2jf8gzWSZyEj1IWwtwEOXWlyHI8LYm4e-BGq5X-U8ib/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 1">
                 </div>
                 <div class="portrait-content">
-                    <h3 class="portrait-heading">The Digital Renaissance</h3>
+                    <h3 class="portrait-heading">Courtroom 302 The Final Verdict</h3>
                     <p class="portrait-desc">An extensive guide navigating modern independent publishing workflows and advanced ebook distribution networks.</p>
-                    <a href="https://www.gla.ac.in/page1" class="read-book-btn">Read Book</a>
+                    <a href="https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1" class="read-book-btn">Read Book</a>
                 </div>
             </div>
 
             <div class="portrait-card">
                 <div class="portrait-img-box">
-                    <img src="https://picsum.photos/600/900?random=2" alt="Book 2">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 2">
                 </div>
                 <div class="portrait-content">
                     <h3 class="portrait-heading">Mastering Creative Writing</h3>
                     <p class="portrait-desc">Unlocking narrative structures, character depth arcs, and audience engagement techniques for modern authors.</p>
-                    <a href="https://www.gla.ac.in/page2" class="read-book-btn">Read Book</a>
+                    <a href="https://www.maniebook.online/2026/03/courtroom-302.html?m=1" class="read-book-btn">Read Book</a>
                 </div>
             </div>
 
             <div class="portrait-card">
                 <div class="portrait-img-box">
-                    <img src="https://picsum.photos/600/900?random=3" alt="Book 3">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbTG4o4HaUFd4Rh9sXMCHTYKKhvY4exlxqoevvRiVYJmZti7q_ChsrF40jganvZ_TLAlMqXenulioO4HwMlhM3iF1ZrPBXNfv-vgAwI2rZCNJNrYoL9tvLe8NeAe5Fj9VpjF4Nu8glkAeWnIExNk2C6rVkiVd0yZwHApFmBJZ6uM4uGdwIr2-ZqKb2brZP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 3">
                 </div>
                 <div class="portrait-content">
                     <h3 class="portrait-heading">Global Storytelling</h3>
                     <p class="portrait-desc">Connecting cross-cultural narratives with international reader communities across secure digital publishing lines.</p>
-                    <a href="https://www.gla.ac.in/page3" class="read-book-btn">Read Book</a>
+                    <a href="https://www.maniebook.online/2026/03/think-like-thinker.html" class="read-book-btn">Read Book</a>
                 </div>
             </div>
 
             <div class="portrait-card">
                 <div class="portrait-img-box">
-                    <img src="https://picsum.photos/600/900?random=4" alt="Book 4">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNClR3ODYJRzVNmjVfRONyB9eW5KusWWjUuupfIV_O2K_00ZpYnJpzU5EoGV8aIS6WcBaQfEI4ZMOm4ztNntD2y70LJBWxqXSDtJimIYVGGCtNjAlPqVTTovfGJeqkE6USLf3HIv1H32IVpA0lOqsuta_8bh4NZV6a5ZHrxp3D1_-8s-iZr0h_4GK3hJQr/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%205.jpeg" alt="Book 4">
                 </div>
                 <div class="portrait-content">
                     <h3 class="portrait-heading">Monetizing E-Books</h3>
                     <p class="portrait-desc">Explore practical frameworks for maximizing revenue streams, creator funds, and direct audience memberships.</p>
-                    <a href="https://www.gla.ac.in/page4" class="read-book-btn">Read Book</a>
+                    <a href="https://www.maniebook.online/2026/01/blog-post_15.html?m=1" class="read-book-btn">Read Book</a>
                 </div>
             </div>
 
             <div class="portrait-card">
                 <div class="portrait-img-box">
-                    <img src="https://picsum.photos/600/900?random=5" alt="Book 5">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuKb9WGwm3BOHt2qDZSEyD_Z3InCBKsPndBbuoUV1xjksZFxp18_XHrGKDXBbUFBWXX8ttKeyC9y2Ovk32nDz2b_MQfv9Gn4rvdk-k-AVC_elGAiTvKCl2mWdDGiR90S_GuYs9uK99OOH5z3-tjPKZNXY_NUji2ewIb5QLLydCG-lgVzrvpc8fTXfyQrZV/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%201.jpeg" alt="Book 5">
                 </div>
                 <div class="portrait-content">
                     <h3 class="portrait-heading">The Sci-Fi Blueprint</h3>
                     <p class="portrait-desc">Building intricate futuristic worlds, cybernetic economies, and speculative sci-fi landscapes that captivate readers.</p>
-                    <a href="https://www.gla.ac.in/page5" class="read-book-btn">Read Book</a>
+                    <a href="https://www.maniebook.online/2025/12/emotion-ek-hawa-ki-tarah-science-of.html?m=1" class="read-book-btn">Read Book</a>
                 </div>
             </div>
 
             <div class="portrait-card">
                 <div class="portrait-img-box">
-                    <img src="https://picsum.photos/600/900?random=6" alt="Book 6">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAdwVanqCKjxoSSTIiHpn1kcJm5f58N4maIpq35VZppyHlncwjBCMLjsamQrl0TTyBEk2XzLTR180dAdvnowbFPCYEjd2DSwvKnP6Eq5o1hofkaTOVTiatNOD6hgwzE1IX9Z_4v_5irVjTG9JY1snT764baXGtoLo-pok14rM8cEESA98nAtzZNUhjPhsR/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%209.jpeg" alt="Book 6">
                 </div>
                 <div class="portrait-content">
                     <h3 class="portrait-heading">Poetry of the Modern Era</h3>
                     <p class="portrait-desc">Expressing raw human experience through compact lyrical arrangements designed for digital literary platforms.</p>
-                    <a href="https://www.gla.ac.in/page6" class="read-book-btn">Read Book</a>
+                    <a href="https://www.maniebook.online/2026/01/two-lives-one-person_9.html?m=1" class="read-book-btn">Read Book</a>
                 </div>
             </div>
 
             <div class="portrait-card">
                 <div class="portrait-img-box">
-                    <img src="https://picsum.photos/600/900?random=7" alt="Book 7">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNvVaOKeBpgiCg2bKPRwEekpNMeJmIQJehjAHdJsHK94TH1PbJ2bx3zrBns0G0V6RZidO2q18hrRSAgcDAC2DiSOM5KeDCQIwsPj3BhqBgZS5Bu2BpZ1H8V6agRmbTrBf7FiTqyU2iIqhZZoZXNlecAf7AqhlTZSS-xCx06Q_al-s-RjB8ww1DoxL5pTIB/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2013.jpeg" alt="Book 7">
                 </div>
                 <div class="portrait-content">
                     <h3 class="portrait-heading">Author Branding & Media</h3>
                     <p class="portrait-desc">Strategies to establish a commanding online presence, leverage social channels, and grow a loyal subscriber base.</p>
-                    <a href="https://www.gla.ac.in/page7" class="read-book-btn">Read Book</a>
+                    <a href="https://www.maniebook.online/2025/12/the-taste-of-struggle-story-of-struggle.html?m=1" class="read-book-btn">Read Book</a>
                 </div>
             </div>
 
             <div class="portrait-card">
                 <div class="portrait-img-box">
-                    <img src="https://picsum.photos/600/900?random=8" alt="Book 8">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWgMU8myn9LbMfqjRvAIbQb-IjTc0NoESeYsRw7GrcDF5RmdBQv_6dBzhtgCcmkReOe-XS34qr9Wl-o3V0D8rtdmI8ryXLY5JD7_TcGbNnr8YVdAZIlPIP6f8m_1MEllgaS6dyeGLatvJyCU9pxaZ7V83aPDk0dllYQfBxrVSidUIxQ1ZfZnJfg9447mbe/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2015.jpeg" alt="Book 8">
                 </div>
                 <div class="portrait-content">
                     <h3 class="portrait-heading">The Art of Editing</h3>
                     <p class="portrait-desc">Refining prose, trimming narrative fat, and polishing manuscripts to perfection before hitting print or release.</p>
-                    <a href="https://www.gla.ac.in/page8" class="read-book-btn">Read Book</a>
+                    <a href="https://www.maniebook.online/2025/12/blog-post.html?m=1" class="read-book-btn">Read Book</a>
                 </div>
             </div>
+            
+            
 
             <div class="portrait-card">
                 <div class="portrait-img-box">
-                    <img src="https://picsum.photos/600/900?random=9" alt="Book 9">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht8BwvoHsfW6sJ21SXY9P7x3hjYDUtI_b1Tv-_TFMZe4ZZS5WUmVVQ1rlb954QDkMLDP_BXKJ1OSdu8M9RtsdlQg-mwS5v7W4xTnHKYsrWiaxMhbT5k6AeoMyKup6KUjTR0tLjZyOoT4793ibQrloVW2Psi8xw6KLwkMOlZBfDvkF1YibfBPMfT5CoykjU/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2011.jpeg" alt="Book 9">
                 </div>
                 <div class="portrait-content">
                     <h3 class="portrait-heading">Indie Author Success</h3>
                     <p class="portrait-desc">Case studies and step-by-step pathways taken by bestselling indie authors who scaled from zero to global reach.</p>
-                    <a href="https://www.gla.ac.in/page9" class="read-book-btn">Read Book</a>
+                    <a href="https://www.maniebook.online/2025/12/the-child-who-wasnt-mine_27.html?m=1" class="read-book-btn">Read Book</a>
                 </div>
             </div>
+            
+            <div class="portrait-card">
+                <div class="portrait-img-box">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh_cIH65hMi_Pwm5gt2pmcgn2lFzPjsbiAC0t3QaLGikzUwcVeUd0Jqqob4hyphenhyphen6hi1GNMZCFudhYsyD7WaMmG5NzukDMvMIXYMeiKF33_ovVGIodPpd9j_YXMcCzoqYzyPBF1KZtrpqgrr3vcqypKAZfCkejP6htarY2LTh4FruzvyaZlRDq72rhyphenhyphenT3nbrf/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2014.jpeg" alt="Book 9">
+                </div>
+                <div class="portrait-content">
+                    <h3 class="portrait-heading">Indie Author Success</h3>
+                    <p class="portrait-desc">Case studies and step-by-step pathways taken by bestselling indie authors who scaled from zero to global reach.</p>
+                    <a href="https://www.maniebook.online/2025/12/blog-post_20.html?m=1" class="read-book-btn">Read Book</a>
+                </div>
+            </div>
+
+            
+            
+            
 
         </div>
     </section>
