@@ -395,6 +395,26 @@
                 width: 100%;
             }
         }
+        
+        
+        .important-note {
+  color: red;
+  font-weight: bold;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+</style>
+        
+        
+        
     </style>
 </head>
 <body>
@@ -420,6 +440,18 @@
         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgZGhZHC0NjPBXw28FQMz9q_gvu97Bi9VuoZgOvjTd_o7TXK_SXDJTPdDjcfh3gjPFGkurypImLCM0yltA671uNQDYOoko92pb03IQMuNV2rtd5kL2JpbyCgTQDv8NRb7-kR5ZTjM-cidAFkb5efmMzpyFt3nCxujB2pRxJmNjrd8PgZheFHpYNW3yzKjk/s1600/Untitled%20design%20(2).png" alt="Mobile Banner" class="banner-img mobile-banner">
     </section>
 <br>
+<center>
+  <p>
+    <strong>
+      <span class="important-note">Important Note:</span>
+    </strong>
+    <br>
+    If approximately 5 books have already been published on the official website,
+    authors can sign up for an Author Account. Please note that signing up for an
+    Author Account is not permitted for accounts associated with only one published
+    book. Such registrations may be considered invalid.
+  </p>
+</center>
     <section class="login-section" id="login-container-box">
         <h2>Author Portal Login</h2>
         <form id="secureLoginForm" onsubmit="handleLogin(event)">
@@ -436,56 +468,15 @@
         </form>
     </section>
 
-    <section class="news-section">
-        <h2 class="section-title">Latest News</h2>
-        <div class="news-grid">
-            
-            <div class="news-card">
-                <div class="news-img-container">
-                    <img src="https://picsum.photos/800/1200?random=10" alt="News 1">
-                </div>
-                <div class="news-content">
-                    <h3 class="news-heading">Top Publishing Trends</h3>
-                    <div class="news-subtext">Mani E-Book</div>
-                    <p class="news-desc">Explore the futuristic trends in digital writing and how independent authors are maximizing growth.</p>
-                    <a href="https://www.gla.ac.in" class="redirect-btn">Read More</a>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-img-container">
-                    <img src="https://picsum.photos/600/600?random=11" alt="News 2">
-                </div>
-                <div class="news-content">
-                    <h3 class="news-heading">Global Author Meetup</h3>
-                    <div class="news-subtext">Mani E-Book</div>
-                    <p class="news-desc">Join thousands of global authors discussing community building, drafting stories, and distribution.</p>
-                    <a href="https://www.gla.ac.in" class="redirect-btn">Read More</a>
-                </div>
-            </div>
-
-            <div class="news-card">
-                <div class="news-img-container">
-                    <img src="https://picsum.photos/1200/500?random=12" alt="News 3">
-                </div>
-                <div class="news-content">
-                    <h3 class="news-heading">New Monetization Tools</h3>
-                    <div class="news-subtext">Mani E-Book</div>
-                    <p class="news-desc">Learn about the latest platform rollouts designed to enhance reader retention and e-book sales.</p>
-                    <a href="https://www.gla.ac.in" class="redirect-btn">Read More</a>
-                </div>
-            </div>
-
-        </div>
-    </section>
+    
 
     <footer>
         <div class="footer-left">
-            <img src="https://picsum.photos/100/100?random=20" alt="Country Flag" class="footer-circle-img">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg?utm_source=simple.wikipedia.org&utm_campaign=index&utm_content=original" alt="Country Flag" class="footer-circle-img">
             <span>IN</span>
         </div>
         <div class="footer-right">
-            Copyright 2026 mani ebook authors india
+            &copy; Copyright 2026 Mani E-Book Authors India
         </div>
     </footer>
 
