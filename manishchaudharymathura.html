@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Manish Chaudhary</title>
+    <link rel="icon" type="image/x-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsrBFy0_X7E4cdmvc7OnIhYLLsCzIucn32nDFLgymbJwck5tF-J442ASqrrkAV18LN08jDNE_lLp7jLKdcI8x8f_TTxbFRJjXiFQnF6JqhtiDoZSmjBKonklTpvZ3nPbaNIPmri4rIecQROXSv1UqgjiOYhRUDMbOlN-ihucNG7ERThPP_BkNjoBMfbBRZ/s2048/IMG_1017.jpeg">
+    <meta name="description" content="Manish Chaudhary is a passionate author and writer associated with Mani E-Book. He has written several books that have been published on the Mani E-Book platform, reflecting his creativity and diverse literary interests. His published works include titles such as Vardi Ke Uspaar, Courtroom 302, Two Lives One Person, and Think Like a Thinker.">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles & Security (Disable Copy/Save/Inspect) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Styles */
+        header {
+            background-color: #870000;
+            color: #fff;
+            padding: 12px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            height: auto;
+        }
+
+        .nav-logo-img {
+            height: 65px;
+            max-width: 200px;
+            width: auto;
+            object-fit: contain;
+            display: block;
+            pointer-events: none;
+        }
+
+        @media (max-width: 768px) {
+            .nav-logo-img {
+                height: 40px;
+                max-width: 130px;
+            }
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .signup-btn-nav, .login-btn-nav {
+            background: linear-gradient(45deg, #FFE32E, #FFE32E);
+            color: darkred;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            animation: pulseGlow 2s infinite;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 227, 46, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(255, 227, 46, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 227, 46, 0); }
+        }
+
+        /* Fullscreen Loading Overlay */
+        #loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            color: #fff;
+        }
+
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 5px solid #333;
+            border-top: 5px solid #2ed573;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Creator Profile Section - Moved down with increased top margin */
+        .creator-profile-section {
+            max-width: 1200px;
+            margin: 102px auto 30px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .profile-card {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .profile-top-row {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .profile-left-info {
+            display: flex;
+            align-items: flex-end;
+            gap: 20px;
+        }
+
+        .profile-avatar-wrapper {
+            position: relative;
+            margin-top: -80px;
+        }
+
+        .profile-avatar {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            background: #eee;
+            pointer-events: none;
+        }
+
+        .profile-names h4 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #111;
+            font-family: 'Cinzel', serif;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Verified Tick Small Image Style - Fixed mobile click/hover layout positioning */
+        .verified-tick-wrapper {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            vertical-align: middle;
+            cursor: pointer;
+        }
+
+        .verified-tick-img {
+            width: 18px;
+            height: 18px;
+            object-fit: contain;
+            display: block;
+            pointer-events: auto;
+        }
+
+        .profile-names p {
+            font-size: 13px;
+            color: #666;
+            font-weight: 400;
+        }
+
+        .profile-stats-group {
+            display: flex;
+            gap: 25px;
+            background: #fdfdfd;
+            border: 1px solid #eaeaea;
+            padding: 12px 20px;
+            border-radius: 8px;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            display: block;
+            font-size: 18px;
+            font-weight: 700;
+            color: #111;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #777;
+        }
+
+        .profile-bottom-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
+
+        .profile-bio {
+            font-size: 14px;
+            color: #444;
+            max-width: 700px;
+            line-height: 1.6;
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 9px 22px;
+            border-radius: 6px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all 0.2s ease;
+        }
+
+        .follow-btn {
+            background-color: #0097e6;
+            color: white;
+        }
+
+        .follow-btn.following {
+            background-color: #b2bec3;
+            color: #2d3436;
+        }
+
+        .message-btn {
+            background-color: #f1f2f6;
+            color: #333;
+            border: 1px solid #dcdde1;
+        }
+
+        .message-btn:hover {
+            background-color: #dfe4ea;
+        }
+
+        /* Toggle Sections (Books & Quotes Buttons Container) */
+        .content-switch-section {
+            max-width: 1200px;
+            margin: 30px auto 10px auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .switch-tab-btn {
+            background-color: #e2e8f0;
+            color: #333;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        @media (max-width: 768px) {
+            .switch-tab-btn {
+                padding: 6px 14px;
+                font-size: 11px;
+            }
+        }
+
+        .switch-tab-btn.active {
+            background-color: #870000;
+            color: #fff;
+            box-shadow: 0 4px 10px rgba(135, 0, 0, 0.3);
+        }
+
+        /* Gallery Sections Container */
+        .gallery-container {
+            max-width: 1200px;
+            margin: 20px auto 50px auto;
+            padding: 0 20px;
+        }
+
+        .content-box {
+            display: none;
+        }
+
+        .content-box.active {
+            display: block;
+        }
+
+        /* Portrait Book Grid Section */
+        .portrait-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .portrait-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+
+        .portrait-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .portrait-img-box {
+            width: 65%;
+            max-width: 200px;
+            aspect-ratio: 1 / 1.414;
+            margin: 20px auto 10px auto;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+        }
+
+        .portrait-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .portrait-content {
+            padding: 15px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: center;
+        }
+
+        .portrait-heading {
+            font-size: 16px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 6px;
+        }
+
+        .portrait-desc {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .read-book-btn {
+            display: block;
+            text-align: center;
+            background-color: #870000;
+            color: #fff;
+            padding: 9px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .read-book-btn:hover {
+            background-color: #650000;
+        }
+
+        /* Quotes Section - Desktop: 3 in a line, reduced height; Mobile: 2 in a line, auto height to never cut content */
+        .quotes-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .quote-card-text {
+            background: #fff;
+            border-radius: 8px;
+            padding: 20px 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            height: 200px; /* Reduced height for desktop view */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            transition: transform 0.3s ease;
+            border: 1px solid #eaeaea;
+            overflow: hidden;
+        }
+
+        .quote-card-text:hover {
+            transform: scale(1.02);
+        }
+
+        .quote-icon-top {
+            font-size: 20px;
+            color: #870000;
+            margin-bottom: 4px;
+        }
+
+        .quote-text-body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px;
+            color: #333;
+            line-height: 1.4;
+            flex-grow: 1;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+        }
+
+        .quote-author-name {
+            font-size: 11px;
+            font-weight: 700;
+            color: #870000;
+            margin-top: 6px;
+            text-align: right;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* Interactive Chat Popup Modal */
+        #chat-modal {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 350px;
+            max-width: 90%;
+            height: 480px;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 2000;
+            overflow: hidden;
+            border: 1px solid #ddd;
+        }
+
+        .chat-header {
+            background: #870000;
+            color: #fff;
+            padding: 12px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .chat-user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chat-user-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1px solid #fff;
+            pointer-events: none;
+        }
+
+        .chat-user-details h4 {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .chat-status {
+            font-size: 11px;
+            color: #2ed573;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #2ed573;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .chat-close-btn {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .chat-body {
+            flex-grow: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background: #f7f8fa;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .chat-message {
+            max-width: 80%;
+            padding: 10px 14px;
+            border-radius: 10px;
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .chat-message.incoming {
+            background: #fff;
+            color: #333;
+            align-self: flex-start;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+
+        .chat-message.outgoing {
+            background: #870000;
+            color: #fff;
+            align-self: flex-end;
+        }
+
+        .query-options-container {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-top: 5px;
+        }
+
+        .query-option-box {
+            background: #eef2f7;
+            border: 1px solid #d2dce6;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #0066cc;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .query-option-box:hover {
+            background: #e1eaf3;
+        }
+
+        .chat-footer {
+            padding: 10px 15px;
+            background: #fff;
+            border-top: 1px solid #eee;
+            display: flex;
+            gap: 8px;
+        }
+
+        .chat-footer input {
+            flex-grow: 1;
+            padding: 8px 12px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            font-size: 13px;
+            outline: none;
+        }
+
+        .chat-send-btn {
+            background: #870000;
+            color: #fff;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: #111;
+            color: #fff;
+            padding: 20px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .footer-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-circle-img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #fff;
+            pointer-events: none;
+        }
+
+        .footer-left span {
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 1px;
+        }
+
+        .footer-right {
+            font-size: 13px;
+            color: #aaa;
+            text-align: right;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 900px) {
+            .portrait-grid {
+                grid-template-columns: 1fr;
+                max-width: 450px;
+                margin: 0 auto;
+            }
+            .quotes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                max-width: 100%;
+            }
+            .profile-top-row {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .profile-left-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            .profile-avatar-wrapper {
+                margin-top: -60px;
+            }
+            .profile-bottom-row {
+                flex-direction: column;
+                text-align: center;
+            }
+            .profile-actions {
+                justify-content: center;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portrait-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            /* Quotes grid strictly 2 in a line on mobile view with auto height so text never gets cut */
+            .quotes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .quote-card-text {
+                height: auto;
+                min-height: 160px;
+                padding: 12px 10px;
+            }
+            .quote-text-body {
+                font-size: 11px;
+                -webkit-line-clamp: unset; /* Prevent clipping on mobile so text never cuts off */
+                overflow: visible;
+            }
+            .portrait-content {
+                padding: 10px;
+            }
+            .portrait-heading {
+                font-size: 13px;
+            }
+            .portrait-desc {
+                font-size: 11px;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+            }
+            .read-book-btn {
+                font-size: 11px;
+                padding: 6px;
+            }
+            .footer-left {
+                display: none;
+            }
+            footer {
+                justify-content: center;
+                text-align: center;
+            }
+            .footer-right {
+                text-align: center;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+
+    <div id="loading-overlay">
+        <div class="spinner"></div>
+        <p>Please Wait...</p>
+    </div>
+
+    <header>
+        <div class="logo-container">
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQCyVczzDtpG_c0-6D52NjM1erZWYL1vgBjX2-EdGkbuxuOybTXkF8ldgzdp3SzFqq0sq6u68FQr5UzX7hDLqeXTF71hAgGy4ULUg3rUs4V_KZygUE73fw3fv-PfOGLHJkM06ZI3jtvRXoBbg_abbJfi5h4_KGp_lYW6rAI4HIR8FuAbHdkHZECtanPAAj/s1600/Jewellery.png" alt="Mani E-Books Logo" class="nav-logo-img">
+        </div>
+        <div class="nav-buttons">
+            <button class="login-btn-nav" onclick="handleSignupClick('https://authors.maniebook.online/')">Login</button>
+            <button class="signup-btn-nav" onclick="handleSignupClick('https://docs.google.com/forms/d/e/1FAIpQLSc67Qao1Pv2_irohuhwXUsRT84HRQCR-9-YCzgP0VQsgE2dvw/viewform')">Sign Up</button>
+        </div>
+    </header>
+
+    <section class="creator-profile-section">
+        <div class="profile-card">
+            <div class="profile-top-row">
+                <div class="profile-left-info">
+                    <div class="profile-avatar-wrapper">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK8qozBraXQDYL4TcC3qbFx8TxushugearsNx2BNKjQOOZzoZb7D5AO-4q6-xi2g0uK9kjNuiL8VBxHJGPWfzSnRjEZwQjE3b-tTp6DHyAELpS0oo7EiICVsxtBLxBfoex4N_GvoV8aRNpvh2GDIZNCOI_8YI7wKvQC0ijOIamD-stMYqEqcPuy9NLgHAP/s320/143C6587-155A-4ADC-85E2-299812839513.jpeg" alt="Manish Profile" class="profile-avatar">
+                    </div>
+                    <div class="profile-names">
+                        <h4>
+                            Manish Chaudhary
+                            <span class="verified-tick-wrapper">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" alt="Verified" class="verified-tick-img" title="This account verified by maniebook">
+                            </span>
+                        </h4>
+                        <p>Author & Writer</p>
+                    </div>
+                </div>
+                <div class="profile-stats-group">
+                    <div class="stat-item">
+                        <span class="stat-num">10</span>
+                        <span class="stat-label">Books</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-num">16K</span>
+                        <span class="stat-label">Follower</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-bottom-row">
+                <div class="profile-bio">
+                    Manish Chaudhary is a passionate author and writer associated with Mani E-Book. He has written several books that have been published on the Mani E-Book platform, reflecting his creativity and diverse literary interests. His published works include titles such as Vardi Ke Uspaar, Courtroom 302, Two Lives One Person, and Think Like a Thinker.
+                </div>
+                <div class="profile-actions">
+                    <button id="followBtn" class="action-btn follow-btn" onclick="toggleFollow()">Follow</button>
+                    <button class="action-btn message-btn" onclick="openChatModal()">Message</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="content-switch-section">
+        <button id="booksTabBtn" class="switch-tab-btn active" onclick="switchTab('books')">Published Books</button>
+        <button id="quotesTabBtn" class="switch-tab-btn" onclick="switchTab('quotes')">Quotes</button>
+    </div>
+
+    <div class="gallery-container">
+        
+        <div id="booksContentBox" class="content-box active">
+            <div class="portrait-grid">
+                
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFM0HidE-LVJmERpe8__VMimxk9GpOYUYGRrD3sLr1yD1HnVGqCJ1yQI22cuo5DaLqA-GiVWk3uuggBr7KyUXmshSJ0SjRL6nwgZEvIP9KzYtsojTTV4HatGJBohFwK0LWoeIkajvEH8VW7EQCr2jf8gzWSZyEj1IWwtwEOXWlyHI8LYm4e-BGq5X-U8ib/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 1">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">Courtroom 302 The Final Verdict</h3>
+                        <p class="portrait-desc">कानून की किताबें, न्याय की तराजू और काले कोट पहने वकीलों की फौज—यह सब उस व्यवस्था की नुमाइंदगी करते हैं जिसके सहारे समाज में न्याय की उम्मीद जिंदा रहती है। लेकिन क्या हर बार अदालत के फैसले ही असली इंसाफ होते हैं? क्या कानून की परिधि में रहकर हर उस शख्स को सजा मिल जाती है जिसके हाथों में बेकसूरों का खून लगा होता है? 
+                        </p>
+                        <a href="https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 2">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">Courtroom 302</h3>
+                        <p class="portrait-desc">यह कहानी मेरे लिए सिर्फ एक क्राइम स्टोरी नहीं, बल्कि एक नया अनुभव है। यह मेरी पहली ऐसी कोशिश है, जिसमें मैंने अपराध, कानून और इंसानी सोच के बीच की जटिलताओं को समझने और लिखने का प्रयास किया है।
+                        </p>
+                        <a href="https://www.maniebook.online/2026/03/courtroom-302.html?m=1" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbTG4o4HaUFd4Rh9sXMCHTYKKhvY4exlxqoevvRiVYJmZti7q_ChsrF40jganvZ_TLAlMqXenulioO4HwMlhM3iF1ZrPBXNfv-vgAwI2rZCNJNrYoL9tvLe8NeAe5Fj9VpjF4Nu8glkAeWnIExNk2C6rVkiVd0yZwHApFmBJZ6uM4uGdwIr2-ZqKb2brZP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 3">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">THINK LIKE A THINKER</h3>
+                        <p class="portrait-desc">Every human life is shaped by one invisible force—thought. Before action, there is intention. Before achievement, there is belief. Before transformation, there is a shift in perception. The direction of your life is not determined solely by circumstances, opportunities, or external conditions; it is determined by the quality of your thinking.
+                        </p>
+                        <a href="https://www.maniebook.online/2026/03/think-like-thinker.html" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNClR3ODYJRzVNmjVfRONyB9eW5KusWWjUuupfIV_O2K_00ZpYnJpzU5EoGV8aIS6WcBaQfEI4ZMOm4ztNntD2y70LJBWxqXSDtJimIYVGGCtNjAlPqVTTovfGJeqkE6USLf3HIv1H32IVpA0lOqsuta_8bh4NZV6a5ZHrxp3D1_-8s-iZr0h_4GK3hJQr/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%205.jpeg" alt="Book 4">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">Vardi Ke Uspaar</h3>
+                        <p class="portrait-desc">यह किताब किसी युद्ध की कहानी नहीं है, यह उस जीवन की कथा है जो युद्ध और शांति के बीच लगातार साँस लेता है। यह उन लोगों की दास्तान है जिनके लिए ताली और प्रशंसा कभी लक्ष्य नहीं रहीं, जिनके लिए कर्तव्य ही पहचान रहा है। वर्दी यहाँ कपड़ा नहीं, एक प्रतिज्ञा है—जिसे ओढ़ने के बाद जीवन का हर निर्णय देश के नाम हो जाता है।
+                        </p>
+                        <a href="https://www.maniebook.online/2026/01/blog-post_15.html?m=1" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuKb9WGwm3BOHt2qDZSEyD_Z3InCBKsPndBbuoUV1xjksZFxp18_XHrGKDXBbUFBWXX8ttKeyC9y2Ovk32nDz2b_MQfv9Gn4rvdk-k-AVC_elGAiTvKCl2mWdDGiR90S_GuYs9uK99OOH5z3-tjPKZNXY_NUji2ewIb5QLLydCG-lgVzrvpc8fTXfyQrZV/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%201.jpeg" alt="Book 5">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">EMOTION – EK HAWA KI TARAH</h3>
+                        <p class="portrait-desc">Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust. This book is built on that simple truth. It does not promise answers or quick fixes. Instead it listens — to the hush of loss, the soft laughter of healing, the storm of disbelief, and the gentle presence of love. It names the rooms inside us and walks through them, page by page, with tenderness and honesty.
+                        </p>
+                        <a href="https://www.maniebook.online/2025/12/emotion-ek-hawa-ki-tarah-science-of.html?m=1" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAdwVanqCKjxoSSTIiHpn1kcJm5f58N4maIpq35VZppyHlncwjBCMLjsamQrl0TTyBEk2XzLTR180dAdvnowbFPCYEjd2DSwvKnP6Eq5o1hofkaTOVTiatNOD6hgwzE1IX9Z_4v_5irVjTG9JY1snT764baXGtoLo-pok14rM8cEESA98nAtzZNUhjPhsR/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%209.jpeg" alt="Book 6">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">Two Lives One Person</h3>
+                        <p class="portrait-desc">In today’s fast-paced world, most of us wear multiple hats—some visible to others, some known only to ourselves. By day, we are professionals, measured by performance, productivity, and precision. By night—or in stolen moments—we are individuals with emotions, relationships, passions, and needs that cannot be quantified. For many, these two worlds coexist, but rarely in harmony.
+                        </p>
+                        <a href="https://www.maniebook.online/2026/01/two-lives-one-person_9.html?m=1" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNvVaOKeBpgiCg2bKPRwEekpNMeJmIQJehjAHdJsHK94TH1PbJ2bx3zrBns0G0V6RZidO2q18hrRSAgcDAC2DiSOM5KeDCQIwsPj3BhqBgZS5Bu2BpZ1H8V6agRmbTrBf7FiTqyU2iIqhZZoZXNlecAf7AqhlTZSS-xCx06Q_al-s-RjB8ww1DoxL5pTIB/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2013.jpeg" alt="Book 7">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">The Taste of Struggle</h3>
+                        <p class="portrait-desc">Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions. This book is not about extraordinary talent or overnight success. It is about ordinary people carrying invisible weight—and choosing not to give up.
+                        </p>
+                        <a href="https://www.maniebook.online/2025/12/the-taste-of-struggle-story-of-struggle.html?m=1" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWgMU8myn9LbMfqjRvAIbQb-IjTc0NoESeYsRw7GrcDF5RmdBQv_6dBzhtgCcmkReOe-XS34qr9Wl-o3V0D8rtdmI8ryXLY5JD7_TcGbNnr8YVdAZIlPIP6f8m_1MEllgaS6dyeGLatvJyCU9pxaZ7V83aPDk0dllYQfBxrVSidUIxQ1ZfZnJfg9447mbe/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2015.jpeg" alt="Book 8">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">त्रिलोकनाथ शंभू</h3>
+                        <p class="portrait-desc">यह पुस्तक किसी सिद्धांत को स्थापित करने के लिए नहीं लिखी गई है, न ही किसी निष्कर्ष पर पहुँचने के आग्रह से। यह एक यात्रा का दस्तावेज़ है—एक ऐसी यात्रा, जो शब्दों से शुरू होकर मौन में समाप्त होती है। “त्रिलोकनाथ शंभू: समय से परे एक सत्य” मेरे लिए लेखन नहीं, स्मरण रहा है। स्मरण उस सत्य का, जिसे हम जानते हुए भी भूल जाते हैं。</p>
+                        <a href="https://www.maniebook.online/2025/12/blog-post.html?m=1" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht8BwvoHsfW6sJ21SXY9P7x3hjYDUtI_b1Tv-_TFMZe4ZZS5WUmVVQ1rlb954QDkMLDP_BXKJ1OSdu8M9RtsdlQg-mwS5v7W4xTnHKYsrWiaxMhbT5k6AeoMyKup6KUjTR0tLjZyOoT4793ibQrloVW2Psi8xw6KLwkMOlZBfDvkF1YibfBPMfT5CoykjU/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2011.jpeg" alt="Book 9">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">The Child Who Wasn’t Mine</h3>
+                        <p class="portrait-desc">Life often presents us with moments we cannot plan, people we do not expect, and responsibilities that arrive silently, without warning. The Child Who Wasn’t Mine is one such story—a story about love that transcends bloodlines, about devotion that defies societal expectations, and about a man who chose to give his entire life to a child not born to him.
+                        </p>
+                        <a href="https://www.maniebook.online/2025/12/the-child-who-wasnt-mine_27.html?m=1" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+                
+                <div class="portrait-card">
+                    <div class="portrait-img-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh_cIH65hMi_Pwm5gt2pmcgn2lFzPjsbiAC0t3QaLGikzUwcVeUd0Jqqob4hyphenhyphen6hi1GNMZCFudhYsyD7WaMmG5NzukDMvMIXYMeiKF33_ovVGIodPpd9j_YXMcCzoqYzyPBF1KZtrpqgrr3vcqypKAZfCkejP6htarY2LTh4FruzvyaZlRDq72rhyphenhyphenT3nbrf/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2014.jpeg" alt="Book 10">
+                    </div>
+                    <div class="portrait-content">
+                        <h3 class="portrait-heading">बीते कल की कीमत</h3>
+                        <p class="portrait-desc">हम ज़िंदगी को अक्सर आगे की तरफ़ देखते हुए जीते हैं—अगले दिन, अगले साल, अगले लक्ष्य की तरफ़। लेकिन सच यह है कि हमारे कदम जितने आगे बढ़ते हैं, हमारी यादें उतनी ही पीछे खींचती हैं। और इन्हीं यादों के बीच कहीं हम यह समझने लगते हैं कि जो बीत गया, उसकी कीमत हमें अब चुकानी पड़ रही है।</p>
+                        <a href="https://www.maniebook.online/2025/12/blog-post_20.html?m=1" class="read-book-btn">Read Book</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Quotes Section Replaced with Text Cards, Quote Icons and Bold Names in English Transcity Style -->
+        <div id="quotesContentBox" class="content-box">
+            <div class="quotes-grid">
+                
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"Words have the power to reshape realities and heal the silent spaces within the human heart."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"Every struggle is an unwritten chapter that eventually builds the masterpiece of your destiny."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"True power lies not in controlling others, but in mastering the thoughts that define your own existence."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"A uniform is not just cloth; it is an oath taken when the rest of the world chooses to step back."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"Emotions are like wind—you cannot hold them, but you can always feel the impact they leave behind."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"We all live two lives: one that the world witnesses, and another that silently echoes inside our souls."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"Justice is not always found in legal documents; sometimes it resides deep inside human conscience."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"Memories are anchors pulling us backward while life relentlessly forces us to move forward."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"Devotion knows no bloodlines; true love is defined by the responsibilities we willingly embrace."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+                <div class="quote-card-text">
+                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                    <div class="quote-text-body">"Silence often carries answers that thousands of spoken words fail to express or explain."</div>
+                    <div class="quote-author-name">Manish Chaudhary</div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="chat-modal">
+        <div class="chat-header">
+            <div class="chat-user-info">
+                <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK8qozBraXQDYL4TcC3qbFx8TxushugearsNx2BNKjQOOZzoZb7D5AO-4q6-xi2g0uK9kjNuiL8VBxHJGPWfzSnRjEZwQjE3b-tTp6DHyAELpS0oo7EiICVsxtBLxBfoex4N_GvoV8aRNpvh2GDIZNCOI_8YI7wKvQC0ijOIamD-stMYqEqcPuy9NLgHAP/s320/143C6587-155A-4ADC-85E2-299812839513.jpeg" alt="Manish" class="chat-user-avatar">
+                <div class="chat-user-details">
+                    <h4>Manish Chaudhary</h4>
+                    <span class="chat-status"><span class="status-dot"></span>Online</span>
+                </div>
+            </div>
+            <button class="chat-close-btn" onclick="closeChatModal()">&times;</button>
+        </div>
+        <div class="chat-body" id="chatBody"></div>
+        <div class="chat-footer">
+            <input type="text" id="chatInputText" placeholder="Type a message..." onkeypress="handleChatKeyPress(event)">
+            <button class="chat-send-btn" onclick="sendUserMessage()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="footer-left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg" alt="Country Flag" class="footer-circle-img">
+            <span>IN</span>
+        </div>
+        <div class="footer-right">
+            © Copyright 2026 Mani E-Book Authors India
+        </div>
+    </footer>
+
+    <script>
+        // Disable Developer Tools Shortcuts & Source Viewing
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) || (e.ctrlKey && e.key === 'U')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // Tab Switching Logic for Books and Quotes boxes
+        function switchTab(tabName) {
+            const booksBox = document.getElementById('booksContentBox');
+            const quotesBox = document.getElementById('quotesContentBox');
+            const booksBtn = document.getElementById('booksTabBtn');
+            const quotesBtn = document.getElementById('quotesTabBtn');
+
+            if (tabName === 'books') {
+                booksBox.classList.add('active');
+                quotesBox.classList.remove('active');
+                booksBtn.classList.add('active');
+                quotesBtn.classList.remove('active');
+            } else if (tabName === 'quotes') {
+                quotesBox.classList.add('active');
+                booksBox.classList.remove('active');
+                quotesBtn.classList.add('active');
+                booksBtn.classList.remove('active');
+            }
+        }
+
+        // Follow / Unfollow Persistent Logic
+        function checkFollowState() {
+            const isFollowing = localStorage.getItem('mani_author_followed') === 'true';
+            const btn = document.getElementById('followBtn');
+            if (isFollowing) {
+                btn.textContent = 'Following';
+                btn.classList.add('following');
+            } else {
+                btn.textContent = 'Follow';
+                btn.classList.remove('following');
+            }
+        }
+
+        function toggleFollow() {
+            const isFollowing = localStorage.getItem('mani_author_followed') === 'true';
+            if (isFollowing) {
+                localStorage.setItem('mani_author_followed', 'false');
+            } else {
+                localStorage.setItem('mani_author_followed', 'true');
+            }
+            checkFollowState();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            checkFollowState();
+            loadPersistentChatHistory();
+        });
+
+        // Chat Popup Modal Logic
+        function openChatModal() {
+            document.getElementById('chat-modal').style.display = 'flex';
+            const chatBody = document.getElementById('chatBody');
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function closeChatModal() {
+            document.getElementById('chat-modal').style.display = 'none';
+        }
+
+        function handleChatKeyPress(e) {
+            if (e.key === 'Enter') {
+                sendUserMessage();
+            }
+        }
+
+        function saveChatToStorage(htmlContent) {
+            localStorage.setItem('mani_chat_history', htmlContent);
+        }
+
+        function loadPersistentChatHistory() {
+            const savedHistory = localStorage.getItem('mani_chat_history');
+            const chatBody = document.getElementById('chatBody');
+            if (savedHistory !== null) {
+                chatBody.innerHTML = savedHistory;
+            } else {
+                chatBody.innerHTML = '';
+                saveChatToStorage('');
+            }
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        function sendUserMessage() {
+            const inputField = document.getElementById('chatInputText');
+            const userText = inputField.value.trim();
+            if (!userText) return;
+
+            const chatBody = document.getElementById('chatBody');
+            
+            const userMsgDiv = document.createElement('div');
+            userMsgDiv.className = 'chat-message outgoing';
+            userMsgDiv.textContent = userText;
+            chatBody.appendChild(userMsgDiv);
+            
+            inputField.value = '';
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            saveChatToStorage(chatBody.innerHTML);
+
+            const lowerText = userText.toLowerCase();
+            if (lowerText === 'hii' || lowerText === 'hi' || lowerText === 'hey') {
+                return;
+            }
+
+            setTimeout(() => {
+                const incomingMsgDiv = document.createElement('div');
+                incomingMsgDiv.className = 'chat-message incoming';
+                incomingMsgDiv.textContent = "Select your query:";
+                chatBody.appendChild(incomingMsgDiv);
+
+                const optionsDiv = document.createElement('div');
+                optionsDiv.className = 'query-options-container';
+                optionsDiv.innerHTML = `
+                    <a href="https://www.gla.ac.in/connect" class="query-option-box" target="_blank">Connect Me</a>
+                    <a href="https://www.gla.ac.in/books" class="query-option-box" target="_blank">Read My Books</a>
+                    <a href="https://wa.me/" class="query-option-box" target="_blank">Connect WhatsApp</a>
+                `;
+                chatBody.appendChild(optionsDiv);
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                saveChatToStorage(chatBody.innerHTML);
+            }, 1000);
+        }
+
+        function handleSignupClick(redirectUrl) {
+            const overlay = document.getElementById('loading-overlay');
+            overlay.style.display = 'flex';
+            
+            setTimeout(() => {
+                window.location.href = redirectUrl;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
