@@ -3,29 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <title>Mani E-Book Authors - Official Digital Publishing Platform</title>
     <link rel="icon" type="image/x-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjsrBFy0_X7E4cdmvc7OnIhYLLsCzIucn32nDFLgymbJwck5tF-J442ASqrrkAV18LN08jDNE_lLp7jLKdcI8x8f_TTxbFRJjXiFQnF6JqhtiDoZSmjBKonklTpvZ3nPbaNIPmri4rIecQROXSv1UqgjiOYhRUDMbOlN-ihucNG7ERThPP_BkNjoBMfbBRZ/s2048/IMG_1017.jpeg">
     <meta name="description" content="Discover top publishing trends, global author meetups, and digital writing resources with Mani E-Book Authors. Join our secure creator community today.">
-
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* Global Styles & Reset */
+        /* Global Styles & Reset with Anti-Copy & Anti-Select */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
-
         body {
             background-color: #f9f9f9;
             color: #333;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
-
+        /* Disable dragging for all images */
+        img {
+            -webkit-user-drag: none;
+            -khtml-user-drag: none;
+            -moz-user-drag: none;
+            -o-user-drag: none;
+            pointer-events: none;
+        }
         /* Navbar Styles */
         header {
             background-color: #870000;
@@ -38,32 +46,27 @@
             top: 0;
             z-index: 1000;
         }
-
         .logo-container {
             display: flex;
             align-items: center;
             gap: 12px;
             overflow: hidden;
         }
-
         .book-icon {
             font-size: 24px;
             color: #fff;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             animation: bounceIcon 2s infinite alternate;
         }
-
         @keyframes bounceIcon {
             0% { transform: translateY(0) scale(1); }
             100% { transform: translateY(-3px) scale(1.1); }
         }
-
         .animated-text-group {
             display: flex;
             flex-direction: column;
             animation: fadeOutCycle 9s infinite;
         }
-
         .logo-main {
             font-size: 24px;
             font-weight: 700;
@@ -72,7 +75,6 @@
             color: #fff;
             animation: slideInLeft 0.8s ease forwards;
         }
-
         .logo-sub {
             font-size: 11px;
             font-family: 'Courier New', Courier, monospace;
@@ -80,18 +82,14 @@
             color: #fff;
             animation: slideInLeft 1.2s ease forwards;
         }
-
         @keyframes slideInLeft {
             0% { transform: translateX(-50px); opacity: 0; }
             100% { transform: translateX(0); opacity: 1; }
         }
-
         @keyframes fadeOutCycle {
             0%, 75% { opacity: 1; }
             85%, 100% { opacity: 0; }
         }
-
-        /* Signup Button in Navbar */
         .signup-btn-nav {
             background: linear-gradient(45deg, #FFE32E, #FFE32E);
             color: darkred;
@@ -104,15 +102,13 @@
             animation: pulseGlow 2s infinite;
             text-decoration: none;
             display: inline-block;
+            pointer-events: auto; /* Keep buttons interactive */
         }
-
         @keyframes pulseGlow {
             0% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0.7); }
             70% { box-shadow: 0 0 0 10px rgba(255, 71, 87, 0); }
             100% { box-shadow: 0 0 0 0 rgba(255, 71, 87, 0); }
         }
-
-        /* Fullscreen Loading Overlay */
         #loading-overlay {
             position: fixed;
             top: 0;
@@ -127,7 +123,6 @@
             z-index: 9999;
             color: #fff;
         }
-
         .spinner {
             width: 50px;
             height: 50px;
@@ -137,17 +132,13 @@
             animation: spin 1s linear infinite;
             margin-bottom: 15px;
         }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
-        /* Banner Section */
         .banner-section {
             width: 100%;
         }
-
         .banner-img {
             width: 100%;
             height: auto;
@@ -155,16 +146,12 @@
             object-fit: cover;
             display: block;
         }
-
         .mobile-banner { display: none; }
         .desktop-banner { display: block; }
-
         @media (max-width: 768px) {
             .mobile-banner { display: block; }
             .desktop-banner { display: none; }
         }
-
-        /* Login Section */
         .login-section {
             max-width: 400px;
             margin: 40px auto;
@@ -172,34 +159,34 @@
             background: #ffffff;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            pointer-events: auto; /* Allow typing in login form */
         }
-
         .login-section h2 {
             text-align: center;
             margin-bottom: 20px;
             font-size: 22px;
             color: #222;
         }
-
         .input-group {
             margin-bottom: 15px;
         }
-
         .input-group label {
             display: block;
             margin-bottom: 5px;
             font-size: 14px;
             font-weight: 600;
         }
-
         .input-group input {
             width: 100%;
             padding: 10px 12px;
             border: 1px solid #ddd;
             border-radius: 5px;
             font-size: 14px;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
         }
-
         .login-btn {
             width: 100%;
             padding: 11px;
@@ -211,12 +198,11 @@
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s;
+            pointer-events: auto;
         }
-
         .login-btn:hover {
             background-color: #333;
         }
-
         #login-msg {
             text-align: center;
             margin-top: 12px;
@@ -224,107 +210,6 @@
             font-weight: 600;
             transition: opacity 0.3s ease;
         }
-
-        /* Latest News Section */
-        .news-section {
-            padding: 50px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 28px;
-            font-weight: 700;
-            margin-bottom: 40px;
-            color: #111;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .news-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.3s ease;
-        }
-
-        .news-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .news-img-container {
-            width: 100%;
-            height: 180px;
-            background-color: #eee;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .news-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .news-content {
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .news-heading {
-            font-size: 18px;
-            font-weight: 700;
-            margin-bottom: 5px;
-            color: #222;
-        }
-
-        .news-subtext {
-            font-size: 12px;
-            color: #e84118;
-            font-weight: 600;
-            margin-bottom: 10px;
-        }
-
-        .news-desc {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.5;
-            flex-grow: 1;
-        }
-
-        .redirect-btn {
-            display: inline-block;
-            text-align: center;
-            background-color: #0097e6;
-            color: white;
-            padding: 10px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .redirect-btn:hover {
-            background-color: #0081c2;
-        }
-
-        /* Footer Section */
         footer {
             background-color: #111;
             color: #fff;
@@ -334,13 +219,11 @@
             align-items: center;
             margin-top: 50px;
         }
-
         .footer-left {
             display: flex;
             align-items: center;
             gap: 12px;
         }
-
         .footer-circle-img {
             width: 40px;
             height: 40px;
@@ -348,40 +231,21 @@
             object-fit: cover;
             border: 2px solid #fff;
         }
-
         .footer-left span {
             font-weight: 700;
             font-size: 16px;
             letter-spacing: 1px;
         }
-
         .footer-right {
             font-size: 13px;
             color: #aaa;
             text-align: right;
         }
-
-        /* Responsive Breakpoints */
-        @media (max-width: 900px) {
-            .news-grid {
-                grid-template-columns: 1fr;
-                max-width: 450px;
-                margin: 0 auto;
-            }
-        }
-
         @media (max-width: 768px) {
             .login-section {
                 max-width: 90%;
                 margin: 20px auto;
                 padding: 20px;
-            }
-            .login-section h2 {
-                font-size: 18px;
-            }
-            .input-group input {
-                padding: 8px 10px;
-                font-size: 13px;
             }
             .footer-left {
                 display: none;
@@ -395,161 +259,166 @@
                 width: 100%;
             }
         }
-        
-        
-        .important-note {
-  color: red;
-  font-weight: bold;
-  animation: blink 1s infinite;
-}
-
-@keyframes blink {
-  0%, 50% {
-    opacity: 1;
-  }
-  51%, 100% {
-    opacity: 0;
-  }
-}
-</style>
-        
-        
-        
+        .important-note { 
+            color: red; 
+            font-weight: bold; 
+            animation: blink 1s infinite;
+        }
+        @keyframes blink { 
+            0%, 50% { opacity: 1; } 
+            51%, 100% { opacity: 0; } 
+        }
     </style>
 </head>
 <body>
-
-    <div id="loading-overlay">
-        <div class="spinner"></div>
-        <p>Preparing Sign Up Portal...</p>
+    <div id="loading-overlay">        
+        <div class="spinner"></div>        
+        <p>Preparing Sign Up Portal...</p>    
     </div>
-
-    <header>
-        <div class="logo-container">
-            <i class="fa-solid fa-book-open book-icon"></i>
-            <div class="animated-text-group">
-                <span class="logo-main">MANI</span>
-                <span class="logo-sub">E-Book Authors</span>
-            </div>
-        </div>
-        <button class="signup-btn-nav" onclick="handleSignupClick('https://docs.google.com/forms/d/e/1FAIpQLSc67Qao1Pv2_irohuhwXUsRT84HRQCR-9-YCzgP0VQsgE2dvw/viewform')">Sign Up</button>
+    
+    <header>        
+        <div class="logo-container">            
+            <i class="fa-solid fa-book-open book-icon"></i>            
+            <div class="animated-text-group">                
+                <span class="logo-main">MANI</span>                
+                <span class="logo-sub">E-Book Authors</span>            
+            </div>        
+        </div>        
+        <button class="signup-btn-nav" onclick="handleSignupClick('https://docs.google.com/forms/d/e/1FAIpQLSc67Qao1Pv2_irohuhwXUsRT84HRQCR-9-YCzgP0VQsgE2dvw/viewform')">Sign Up</button>    
     </header>
 
-    <section class="banner-section">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgZGhZHC0NjPBXw28FQMz9q_gvu97Bi9VuoZgOvjTd_o7TXK_SXDJTPdDjcfh3gjPFGkurypImLCM0yltA671uNQDYOoko92pb03IQMuNV2rtd5kL2JpbyCgTQDv8NRb7-kR5ZTjM-cidAFkb5efmMzpyFt3nCxujB2pRxJmNjrd8PgZheFHpYNW3yzKjk/s1600/Untitled%20design%20(2).png" alt="Desktop Banner" class="banner-img desktop-banner">
-        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgZGhZHC0NjPBXw28FQMz9q_gvu97Bi9VuoZgOvjTd_o7TXK_SXDJTPdDjcfh3gjPFGkurypImLCM0yltA671uNQDYOoko92pb03IQMuNV2rtd5kL2JpbyCgTQDv8NRb7-kR5ZTjM-cidAFkb5efmMzpyFt3nCxujB2pRxJmNjrd8PgZheFHpYNW3yzKjk/s1600/Untitled%20design%20(2).png" alt="Mobile Banner" class="banner-img mobile-banner">
+    <section class="banner-section">        
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgZGhZHC0NjPBXw28FQMz9q_gvu97Bi9VuoZgOvjTd_o7TXK_SXDJTPdDjcfh3gjPFGkurypImLCM0yltA671uNQDYOoko92pb03IQMuNV2rtd5kL2JpbyCgTQDv8NRb7-kR5ZTjM-cidAFkb5efmMzpyFt3nCxujB2pRxJmNjrd8PgZheFHpYNW3yzKjk/s1600/Untitled%20design%20(2).png" alt="Desktop Banner" class="banner-img desktop-banner">        
+        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjgZGhZHC0NjPBXw28FQMz9q_gvu97Bi9VuoZgOvjTd_o7TXK_SXDJTPdDjcfh3gjPFGkurypImLCM0yltA671uNQDYOoko92pb03IQMuNV2rtd5kL2JpbyCgTQDv8NRb7-kR5ZTjM-cidAFkb5efmMzpyFt3nCxujB2pRxJmNjrd8PgZheFHpYNW3yzKjk/s1600/Untitled%20design%20(2).png" alt="Mobile Banner" class="banner-img mobile-banner">    
     </section>
-<br>
-<center>
-  <p>
-    <strong>
-      <span class="important-note">Important Note:</span>
-    </strong>
-    <br>
-    If approximately 5 books have already been published on the official website,
-    authors can sign up for an Author Account. Please note that signing up for an
-    Author Account is not permitted for accounts associated with only one published
-    book. Such registrations may be considered invalid.
-  </p>
-</center>
-    <section class="login-section" id="login-container-box">
-        <h2>Author Portal Login</h2>
-        <form id="secureLoginForm" onsubmit="handleLogin(event)">
-            <div class="input-group">
-                <label for="username">Username</label>
-                <input type="text" id="username" placeholder="Enter username" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" placeholder="Enter password" required>
-            </div>
-            <button type="submit" class="login-btn">Login</button>
-            <p id="login-msg"></p>
-        </form>
-    </section>
-
     
+    <br><center>  
+      <p>    
+        <strong>      
+          <span class="important-note">Important Note:</span>    
+        </strong>    
+        <br>    
+        If approximately 5 books have already been published on the official website,    
+        authors can sign up for an Author Account. Please note that signing up for an    
+        Author Account is not permitted for accounts associated with only one published    
+        book. Such registrations may be considered invalid.  
+      </p>
+    </center>
 
-    <footer>
-        <div class="footer-left">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg?utm_source=simple.wikipedia.org&utm_campaign=index&utm_content=original" alt="Country Flag" class="footer-circle-img">
-            <span>IN</span>
-        </div>
-        <div class="footer-right">
-            &copy; Copyright 2026 Mani E-Book Authors India
-        </div>
+    <section class="login-section" id="login-container-box">        
+        <h2>Author Portal Login</h2>        
+        <form id="secureLoginForm" onsubmit="handleLogin(event)">            
+            <div class="input-group">                
+                <label for="username">Username</label>                
+                <input type="text" id="username" placeholder="Enter username" required>            
+            </div>            
+            <div class="input-group">                
+                <label for="password">Password</label>                
+                <input type="password" id="password" placeholder="Enter password" required>            
+            </div>            
+            <button type="submit" class="login-btn">Login</button>            
+            <p id="login-msg"></p>        
+        </form>    
+    </section>
+    
+    <footer>        
+        <div class="footer-left">            
+            <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Flag_of_India.svg?utm_source=simple.wikipedia.org&utm_campaign=index&utm_content=original" alt="Country Flag" class="footer-circle-img">            
+            <span>IN</span>        
+        </div>        
+        <div class="footer-right">            
+            &copy; Copyright 2026 Mani E-Book Authors India        
+        </div>    
     </footer>
 
     <script>
-        const _0x1a2b = [
-            "bWFuaTE=", "cGFzczEwMQ==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2Ux",
-            "YXV0aG9yMg==", "cGFzczEwMg==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2Uy",
-            "d3JpdGVyMw==", "cGFzczEwMw==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2Uz",
-            "YWRtaW40", "cGFzczEwNA==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U0",
-            "dXNlcjU=", "cGFzczEwNQ==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U1",
-            "Y3JlYXRvcg==", "cGFzczEwNg==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U2",
-            "cHViNw==", "cGFzczEwNw==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U3",
-            "cmVhZGVyOA==", "cGFzczEwOA==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U4",
-            "ZWRpdG9yOQ==", "cGFzczEwOQ==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U5",
-            "ZXhwZXJ0MTA=", "cGFzczExMA==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2UxMA=="
+        // Disable Right-Click Context Menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Disable Keyboard Shortcuts for Inspect, View Source, and Copy
+        document.addEventListener('keydown', function(e) {
+            // Prevent F12
+            if (e.key === 'F12' || e.keyCode === 123) {
+                e.preventDefault();
+                return false;
+            }
+            // Prevent Ctrl+U (View Source) and Ctrl+Shift+I / Ctrl+Shift+J / Ctrl+Shift+C (DevTools)
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'c' || e.key === 'C')) {
+                e.preventDefault();
+                return false;
+            }
+            if (e.ctrlKey && e.shiftKey && (e.key === 'i' || e.key === 'I' || e.key === 'j' || e.key === 'J' || e.key === 'c' || e.key === 'C')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        const _0x1a2b = [            
+            "bWFuaTE=", "cGFzczEwMQ==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2Ux",            
+            "YXV0aG9yMg==", "cGFzczEwMg==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2Uy",            
+            "d3JpdGVyMw==", "cGFzczEwMw==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2Uz",            
+            "YWRtaW40", "cGFzczEwNA==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U0",            
+            "dXNlcjU=", "cGFzczEwNQ==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U1",            
+            "Y3JlYXRvcg==", "cGFzczEwNg==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U2",            
+            "cHViNw==", "cGFzczEwNw==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U3",            
+            "cmVhZGVyOA==", "cGFzczEwOA==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U4",            
+            "ZWRpdG9yOQ==", "cGFzczEwOQ==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2U5",            
+            "ZXhwZXJ0MTA=", "cGFzczExMA==", "aHR0cHM6Ly93d3cuZ2xhLmFjLmluL3BhZ2UxMA=="        
         ];
 
-        function _decodeData() {
-            let db = [];
-            for (let i = 0; i < _0x1a2b.length; i += 3) {
-                db.push({
-                    u: _0x1a2b[i],
-                    p: _0x1a2b[i+1],
-                    link: atob(_0x1a2b[i+2])
-                });
-            }
-            return db;
+        function _decodeData() {            
+            let db = [];            
+            for (let i = 0; i < _0x1a2b.length; i += 3) {                
+                db.push({                    
+                    u: _0x1a2b[i],                    
+                    p: _0x1a2b[i+1],                    
+                    link: atob(_0x1a2b[i+2])                
+                });            
+            }            
+            return db;        
         }
 
-        function handleSignupClick(redirectUrl) {
-            const overlay = document.getElementById('loading-overlay');
-            overlay.style.display = 'flex';
-            
-            setTimeout(() => {
-                window.location.href = redirectUrl;
-            }, 2000);
+        function handleSignupClick(redirectUrl) {            
+            const overlay = document.getElementById('loading-overlay');            
+            overlay.style.display = 'flex';                        
+            setTimeout(() => {                
+                window.location.href = redirectUrl;            
+            }, 2000);        
         }
 
         let errorTimeout = null;
-
-        function handleLogin(event) {
-            event.preventDefault();
-            
-            const userInp = document.getElementById('username').value.trim();
-            const passInp = document.getElementById('password').value.trim();
+        function handleLogin(event) {            
+            event.preventDefault();                        
+            const userInp = document.getElementById('username').value.trim();            
+            const passInp = document.getElementById('password').value.trim();            
             const msgEl = document.getElementById('login-msg');
 
-            const encodedUser = btoa(userInp);
+            const encodedUser = btoa(userInp);            
             const encodedPass = btoa(passInp);
 
-            const userDatabase = _decodeData();
+            const userDatabase = _decodeData();            
             let matchedUser = userDatabase.find(item => item.u === encodedUser && item.p === encodedPass);
 
-            if (errorTimeout) {
-                clearTimeout(errorTimeout);
+            if (errorTimeout) {                
+                clearTimeout(errorTimeout);            
             }
 
-            if (matchedUser) {
-                msgEl.style.color = "#2ed573";
-                msgEl.textContent = "Login Successful! Redirecting...";
-                
-                setTimeout(() => {
-                    window.location.href = matchedUser.link;
-                }, 1000);
-            } else {
-                msgEl.style.color = "#ff4757";
-                msgEl.textContent = "Invalid Username or Password!";
-                
-                errorTimeout = setTimeout(() => {
-                    msgEl.textContent = "";
-                }, 2000);
-            }
-        }
+            if (matchedUser) {                
+                msgEl.style.color = "#2ed573";                
+                msgEl.textContent = "Login Successful! Redirecting...";                                
+                setTimeout(() => {                    
+                    window.location.href = matchedUser.link;                
+                }, 1000);            
+            } else {                
+                msgEl.style.color = "#ff4757";                
+                msgEl.textContent = "Invalid Username or Password!";                                
+                errorTimeout = setTimeout(() => {                    
+                    msgEl.textContent = "";                
+                }, 2000);            
+            }        
+        }    
     </script>
 </body>
 </html>
