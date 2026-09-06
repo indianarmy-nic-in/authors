@@ -180,13 +180,16 @@
             gap: 6px;
         }
 
-        /* Verified Tick Small Image Style - Fixed mobile click/hover layout positioning */
+        /* Verified Tick Small Image Style - Anti-Save Protection Enabled */
         .verified-tick-wrapper {
             position: relative;
             display: inline-flex;
             align-items: center;
             vertical-align: middle;
             cursor: pointer;
+            -webkit-user-select: none;
+            user-select: none;
+            pointer-events: none; /* Disables dragging, right-click context menu, and save triggers */
         }
 
         .verified-tick-img {
@@ -194,7 +197,8 @@
             height: 18px;
             object-fit: contain;
             display: block;
-            pointer-events: auto;
+            pointer-events: none;
+            -webkit-user-drag: none;
         }
 
         .profile-names p {
@@ -409,7 +413,7 @@
             background-color: #650000;
         }
 
-        /* Quotes Section - Desktop: 3 in a line, reduced height; Mobile: 2 in a line, auto height to never cut content */
+        /* Quotes Section - Desktop: 3 in a line; Mobile: 2 in a line, auto height with perfect flexible layout for long/short content */
         .quotes-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -419,9 +423,8 @@
         .quote-card-text {
             background: #fff;
             border-radius: 8px;
-            padding: 20px 15px;
+            padding: 18px 15px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-            height: 200px; /* Reduced height for desktop view */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -429,6 +432,8 @@
             transition: transform 0.3s ease;
             border: 1px solid #eaeaea;
             overflow: hidden;
+            height: auto;
+            min-height: 195px;
         }
 
         .quote-card-text:hover {
@@ -436,7 +441,7 @@
         }
 
         .quote-icon-top {
-            font-size: 20px;
+            font-size: 18px;
             color: #870000;
             margin-bottom: 4px;
         }
@@ -445,21 +450,31 @@
             font-family: 'Poppins', sans-serif;
             font-size: 12px;
             color: #333;
-            line-height: 1.4;
+            line-height: 1.45;
             flex-grow: 1;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
+            overflow: visible;
+            word-break: break-word;
         }
 
-        .quote-author-name {
-            font-size: 11px;
-            font-weight: 700;
-            color: #870000;
-            margin-top: 6px;
-            text-align: right;
-            font-family: 'Cinzel', serif;
+        /* Personal Signature Image Container Styles (Replaces text name securely with a small rectangle size image) */
+        .quote-signature-box {
+            margin-top: 10px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            pointer-events: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .signature-img {
+            width: 100px;
+            height: 32px;
+            object-fit: contain;
+            display: block;
+            pointer-events: none;
+            -webkit-user-drag: none;
+            filter: contrast(120%);
         }
 
         /* Interactive Chat Popup Modal */
@@ -696,20 +711,20 @@
                 grid-template-columns: repeat(2, 1fr);
                 gap: 12px;
             }
-            /* Quotes grid strictly 2 in a line on mobile view with auto height so text never gets cut */
             .quotes-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
             }
             .quote-card-text {
-                height: auto;
-                min-height: 160px;
+                min-height: 175px;
                 padding: 12px 10px;
             }
             .quote-text-body {
                 font-size: 11px;
-                -webkit-line-clamp: unset; /* Prevent clipping on mobile so text never cuts off */
-                overflow: visible;
+            }
+            .signature-img {
+                width: 85px;
+                height: 26px;
             }
             .portrait-content {
                 padding: 10px;
@@ -770,7 +785,7 @@
                         <h4>
                             Manish Chaudhary
                             <span class="verified-tick-wrapper">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" alt="Verified" class="verified-tick-img" title="This account verified">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" alt="Verified" class="verified-tick-img" title="Verified Account">
                             </span>
                         </h4>
                         <p>Author & Writer</p>
@@ -815,7 +830,7 @@
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">Courtroom 302 The Final Verdict</h3>
-                        <p class="portrait-desc">कानून की किताबें, न्याय की तराजू और काले कोट पहने वकीलों की फौज—यह सब उस व्यवस्था की नुमाइंदगी करते हैं जिसके सहारे समाज में न्याय की उम्मीद जिंदा रहती है। लेकिन क्या हर बार अदालत के फैसले ही असली इंसाफ होते हैं? क्या कानून की परिधि में रहकर हर उस शख्स को सजा मिल जाती है जिसके हाथों में बेकसूरों का खून लगा होता है? 
+                        <p class="portrait-desc">à¤à¤¾à¤¨à¥à¤¨ à¤à¥ à¤à¤¿à¤¤à¤¾à¤¬à¥à¤, à¤¨à¥à¤¯à¤¾à¤¯ à¤à¥ à¤¤à¤°à¤¾à¤à¥ à¤à¤° à¤à¤¾à¤²à¥ à¤à¥à¤ à¤ªà¤¹à¤¨à¥ à¤µà¤à¥à¤²à¥à¤ à¤à¥ à¤«à¥à¤âà¤¯à¤¹ à¤¸à¤¬ à¤à¤¸ à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾ à¤à¥ à¤¨à¥à¤®à¤¾à¤à¤à¤¦à¤à¥ à¤à¤°à¤¤à¥ à¤¹à¥à¤ à¤à¤¿à¤¸à¤à¥ à¤¸à¤¹à¤¾à¤°à¥ à¤¸à¤®à¤¾à¤ à¤®à¥à¤ à¤¨à¥à¤¯à¤¾à¤¯ à¤à¥ à¤à¤®à¥à¤®à¥à¤¦ à¤à¤¿à¤à¤¦à¤¾ à¤°à¤¹à¤¤à¥ à¤¹à¥à¥¤ à¤²à¥à¤à¤¿à¤¨ à¤à¥à¤¯à¤¾ à¤¹à¤° à¤¬à¤¾à¤° à¤à¤¦à¤¾à¤²à¤¤ à¤à¥ à¤«à¥à¤¸à¤²à¥ à¤¹à¥ à¤à¤¸à¤²à¥ à¤à¤à¤¸à¤¾à¤« à¤¹à¥à¤¤à¥ à¤¹à¥à¤? à¤à¥à¤¯à¤¾ à¤à¤¾à¤¨à¥à¤¨ à¤à¥ à¤ªà¤°à¤¿à¤§à¤¿ à¤®à¥à¤ à¤°à¤¹à¤à¤° à¤¹à¤° à¤à¤¸ à¤¶à¤à¥à¤¸ à¤à¥ à¤¸à¤à¤¾ à¤®à¤¿à¤² à¤à¤¾à¤¤à¥ à¤¹à¥ à¤à¤¿à¤¸à¤à¥ à¤¹à¤¾à¤¥à¥à¤ à¤®à¥à¤ à¤¬à¥à¤à¤¸à¥à¤°à¥à¤ à¤à¤¾ à¤à¥à¤¨ à¤²à¤à¤¾ à¤¹à¥à¤¤à¤¾ à¤¹à¥? 
                         </p>
                         <a href="https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1" class="read-book-btn">Read Book</a>
                     </div>
@@ -827,7 +842,7 @@
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">Courtroom 302</h3>
-                        <p class="portrait-desc">यह कहानी मेरे लिए सिर्फ एक क्राइम स्टोरी नहीं, बल्कि एक नया अनुभव है। यह मेरी पहली ऐसी कोशिश है, जिसमें मैंने अपराध, कानून और इंसानी सोच के बीच की जटिलताओं को समझने और लिखने का प्रयास किया है।
+                        <p class="portrait-desc">à¤¯à¤¹ à¤à¤¹à¤¾à¤¨à¥ à¤®à¥à¤°à¥ à¤²à¤¿à¤ à¤¸à¤¿à¤°à¥à¤« à¤à¤ à¤à¥à¤°à¤¾à¤à¤® à¤¸à¥à¤à¥à¤°à¥ à¤¨à¤¹à¥à¤, à¤¬à¤²à¥à¤à¤¿ à¤à¤ à¤¨à¤¯à¤¾ à¤à¤¨à¥à¤­à¤µ à¤¹à¥à¥¤ à¤¯à¤¹ à¤®à¥à¤°à¥ à¤ªà¤¹à¤²à¥ à¤à¤¸à¥ à¤à¥à¤¶à¤¿à¤¶ à¤¹à¥, à¤à¤¿à¤¸à¤®à¥à¤ à¤®à¥à¤à¤¨à¥ à¤à¤ªà¤°à¤¾à¤§, à¤à¤¾à¤¨à¥à¤¨ à¤à¤° à¤à¤à¤¸à¤¾à¤¨à¥ à¤¸à¥à¤ à¤à¥ à¤¬à¥à¤ à¤à¥ à¤à¤à¤¿à¤²à¤¤à¤¾à¤à¤ à¤à¥ à¤¸à¤®à¤à¤¨à¥ à¤à¤° à¤²à¤¿à¤à¤¨à¥ à¤à¤¾ à¤ªà¥à¤°à¤¯à¤¾à¤¸ à¤à¤¿à¤¯à¤¾ à¤¹à¥à¥¤
                         </p>
                         <a href="https://www.maniebook.online/2026/03/courtroom-302.html?m=1" class="read-book-btn">Read Book</a>
                     </div>
@@ -839,7 +854,7 @@
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">THINK LIKE A THINKER</h3>
-                        <p class="portrait-desc">Every human life is shaped by one invisible force—thought. Before action, there is intention. Before achievement, there is belief. Before transformation, there is a shift in perception. The direction of your life is not determined solely by circumstances, opportunities, or external conditions; it is determined by the quality of your thinking.
+                        <p class="portrait-desc">Every human life is shaped by one invisible forceâthought. Before action, there is intention. Before achievement, there is belief. Before transformation, there is a shift in perception. The direction of your life is not determined solely by circumstances, opportunities, or external conditions; it is determined by the quality of your thinking.
                         </p>
                         <a href="https://www.maniebook.online/2026/03/think-like-thinker.html" class="read-book-btn">Read Book</a>
                     </div>
@@ -851,7 +866,7 @@
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">Vardi Ke Uspaar</h3>
-                        <p class="portrait-desc">यह किताब किसी युद्ध की कहानी नहीं है, यह उस जीवन की कथा है जो युद्ध और शांति के बीच लगातार साँस लेता है। यह उन लोगों की दास्तान है जिनके लिए ताली और प्रशंसा कभी लक्ष्य नहीं रहीं, जिनके लिए कर्तव्य ही पहचान रहा है। वर्दी यहाँ कपड़ा नहीं, एक प्रतिज्ञा है—जिसे ओढ़ने के बाद जीवन का हर निर्णय देश के नाम हो जाता है।
+                        <p class="portrait-desc">à¤¯à¤¹ à¤à¤¿à¤¤à¤¾à¤¬ à¤à¤¿à¤¸à¥ à¤¯à¥à¤¦à¥à¤§ à¤à¥ à¤à¤¹à¤¾à¤¨à¥ à¤¨à¤¹à¥à¤ à¤¹à¥, à¤¯à¤¹ à¤à¤¸ à¤à¥à¤µà¤¨ à¤à¥ à¤à¤¥à¤¾ à¤¹à¥ à¤à¥ à¤¯à¥à¤¦à¥à¤§ à¤à¤° à¤¶à¤¾à¤à¤¤à¤¿ à¤à¥ à¤¬à¥à¤ à¤²à¤à¤¾à¤¤à¤¾à¤° à¤¸à¤¾à¤à¤¸ à¤²à¥à¤¤à¤¾ à¤¹à¥à¥¤ à¤¯à¤¹ à¤à¤¨ à¤²à¥à¤à¥à¤ à¤à¥ à¤¦à¤¾à¤¸à¥à¤¤à¤¾à¤¨ à¤¹à¥ à¤à¤¿à¤¨à¤à¥ à¤²à¤¿à¤ à¤¤à¤¾à¤²à¥ à¤à¤° à¤ªà¥à¤°à¤¶à¤à¤¸à¤¾ à¤à¤­à¥ à¤²à¤à¥à¤·à¥à¤¯ à¤¨à¤¹à¥à¤ à¤°à¤¹à¥à¤, à¤à¤¿à¤¨à¤à¥ à¤²à¤¿à¤ à¤à¤°à¥à¤¤à¤µà¥à¤¯ à¤¹à¥ à¤ªà¤¹à¤à¤¾à¤¨ à¤°à¤¹à¤¾ à¤¹à¥à¥¤ à¤µà¤°à¥à¤¦à¥ à¤¯à¤¹à¤¾à¤ à¤à¤ªà¤¡à¤¼à¤¾ à¤¨à¤¹à¥à¤, à¤à¤ à¤ªà¥à¤°à¤¤à¤¿à¤à¥à¤à¤¾ à¤¹à¥âà¤à¤¿à¤¸à¥ à¤à¤¢à¤¼à¤¨à¥ à¤à¥ à¤¬à¤¾à¤¦ à¤à¥à¤µà¤¨ à¤à¤¾ à¤¹à¤° à¤¨à¤¿à¤°à¥à¤£à¤¯ à¤¦à¥à¤¶ à¤à¥ à¤¨à¤¾à¤® à¤¹à¥ à¤à¤¾à¤¤à¤¾ à¤¹à¥à¥¤
                         </p>
                         <a href="https://www.maniebook.online/2026/01/blog-post_15.html?m=1" class="read-book-btn">Read Book</a>
                     </div>
@@ -862,8 +877,8 @@
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuKb9WGwm3BOHt2qDZSEyD_Z3InCBKsPndBbuoUV1xjksZFxp18_XHrGKDXBbUFBWXX8ttKeyC9y2Ovk32nDz2b_MQfv9Gn4rvdk-k-AVC_elGAiTvKCl2mWdDGiR90S_GuYs9uK99OOH5z3-tjPKZNXY_NUji2ewIb5QLLydCG-lgVzrvpc8fTXfyQrZV/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%201.jpeg" alt="Book 5">
                     </div>
                     <div class="portrait-content">
-                        <h3 class="portrait-heading">EMOTION – EK HAWA KI TARAH</h3>
-                        <p class="portrait-desc">Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust. This book is built on that simple truth. It does not promise answers or quick fixes. Instead it listens — to the hush of loss, the soft laughter of healing, the storm of disbelief, and the gentle presence of love. It names the rooms inside us and walks through them, page by page, with tenderness and honesty.
+                        <h3 class="portrait-heading">EMOTION â EK HAWA KI TARAH</h3>
+                        <p class="portrait-desc">Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust. This book is built on that simple truth. It does not promise answers or quick fixes. Instead it listens â to the hush of loss, the soft laughter of healing, the storm of disbelief, and the gentle presence of love. It names the rooms inside us and walks through them, page by page, with tenderness and honesty.
                         </p>
                         <a href="https://www.maniebook.online/2025/12/emotion-ek-hawa-ki-tarah-science-of.html?m=1" class="read-book-btn">Read Book</a>
                     </div>
@@ -875,7 +890,7 @@
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">Two Lives One Person</h3>
-                        <p class="portrait-desc">In today’s fast-paced world, most of us wear multiple hats—some visible to others, some known only to ourselves. By day, we are professionals, measured by performance, productivity, and precision. By night—or in stolen moments—we are individuals with emotions, relationships, passions, and needs that cannot be quantified. For many, these two worlds coexist, but rarely in harmony.
+                        <p class="portrait-desc">In todayâs fast-paced world, most of us wear multiple hatsâsome visible to others, some known only to ourselves. By day, we are professionals, measured by performance, productivity, and precision. By nightâor in stolen momentsâwe are individuals with emotions, relationships, passions, and needs that cannot be quantified. For many, these two worlds coexist, but rarely in harmony.
                         </p>
                         <a href="https://www.maniebook.online/2026/01/two-lives-one-person_9.html?m=1" class="read-book-btn">Read Book</a>
                     </div>
@@ -887,7 +902,7 @@
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">The Taste of Struggle</h3>
-                        <p class="portrait-desc">Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions. This book is not about extraordinary talent or overnight success. It is about ordinary people carrying invisible weight—and choosing not to give up.
+                        <p class="portrait-desc">Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions. This book is not about extraordinary talent or overnight success. It is about ordinary people carrying invisible weightâand choosing not to give up.
                         </p>
                         <a href="https://www.maniebook.online/2025/12/the-taste-of-struggle-story-of-struggle.html?m=1" class="read-book-btn">Read Book</a>
                     </div>
@@ -898,8 +913,8 @@
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWgMU8myn9LbMfqjRvAIbQb-IjTc0NoESeYsRw7GrcDF5RmdBQv_6dBzhtgCcmkReOe-XS34qr9Wl-o3V0D8rtdmI8ryXLY5JD7_TcGbNnr8YVdAZIlPIP6f8m_1MEllgaS6dyeGLatvJyCU9pxaZ7V83aPDk0dllYQfBxrVSidUIxQ1ZfZnJfg9447mbe/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2015.jpeg" alt="Book 8">
                     </div>
                     <div class="portrait-content">
-                        <h3 class="portrait-heading">त्रिलोकनाथ शंभू</h3>
-                        <p class="portrait-desc">यह पुस्तक किसी सिद्धांत को स्थापित करने के लिए नहीं लिखी गई है, न ही किसी निष्कर्ष पर पहुँचने के आग्रह से। यह एक यात्रा का दस्तावेज़ है—एक ऐसी यात्रा, जो शब्दों से शुरू होकर मौन में समाप्त होती है। “त्रिलोकनाथ शंभू: समय से परे एक सत्य” मेरे लिए लेखन नहीं, स्मरण रहा है। स्मरण उस सत्य का, जिसे हम जानते हुए भी भूल जाते हैं。</p>
+                        <h3 class="portrait-heading">à¤¤à¥à¤°à¤¿à¤²à¥à¤à¤¨à¤¾à¤¥ à¤¶à¤à¤­à¥</h3>
+                        <p class="portrait-desc">à¤¯à¤¹ à¤ªà¥à¤¸à¥à¤¤à¤ à¤à¤¿à¤¸à¥ à¤¸à¤¿à¤¦à¥à¤§à¤¾à¤à¤¤ à¤à¥ à¤¸à¥à¤¥à¤¾à¤ªà¤¿à¤¤ à¤à¤°à¤¨à¥ à¤à¥ à¤²à¤¿à¤ à¤¨à¤¹à¥à¤ à¤²à¤¿à¤à¥ à¤à¤ à¤¹à¥, à¤¨ à¤¹à¥ à¤à¤¿à¤¸à¥ à¤¨à¤¿à¤·à¥à¤à¤°à¥à¤· à¤ªà¤° à¤ªà¤¹à¥à¤à¤à¤¨à¥ à¤à¥ à¤à¤à¥à¤°à¤¹ à¤¸à¥à¥¤ à¤¯à¤¹ à¤à¤ à¤¯à¤¾à¤¤à¥à¤°à¤¾ à¤à¤¾ à¤¦à¤¸à¥à¤¤à¤¾à¤µà¥à¤à¤¼ à¤¹à¥âà¤à¤ à¤à¤¸à¥ à¤¯à¤¾à¤¤à¥à¤°à¤¾, à¤à¥ à¤¶à¤¬à¥à¤¦à¥à¤ à¤¸à¥ à¤¶à¥à¤°à¥ à¤¹à¥à¤à¤° à¤®à¥à¤¨ à¤®à¥à¤ à¤¸à¤®à¤¾à¤ªà¥à¤¤ à¤¹à¥à¤¤à¥ à¤¹à¥à¥¤ âà¤¤à¥à¤°à¤¿à¤²à¥à¤à¤¨à¤¾à¤¥ à¤¶à¤à¤­à¥: à¤¸à¤®à¤¯ à¤¸à¥ à¤ªà¤°à¥ à¤à¤ à¤¸à¤¤à¥à¤¯â à¤®à¥à¤°à¥ à¤²à¤¿à¤ à¤²à¥à¤à¤¨ à¤¨à¤¹à¥à¤, à¤¸à¥à¤®à¤°à¤£ à¤°à¤¹à¤¾ à¤¹à¥à¥¤ à¤¸à¥à¤®à¤°à¤£ à¤à¤¸ à¤¸à¤¤à¥à¤¯ à¤à¤¾, à¤à¤¿à¤¸à¥ à¤¹à¤® à¤à¤¾à¤¨à¤¤à¥ à¤¹à¥à¤ à¤­à¥ à¤­à¥à¤² à¤à¤¾à¤¤à¥ à¤¹à¥à¤ã</p>
                         <a href="https://www.maniebook.online/2025/12/blog-post.html?m=1" class="read-book-btn">Read Book</a>
                     </div>
                 </div>
@@ -909,8 +924,8 @@
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht8BwvoHsfW6sJ21SXY9P7x3hjYDUtI_b1Tv-_TFMZe4ZZS5WUmVVQ1rlb954QDkMLDP_BXKJ1OSdu8M9RtsdlQg-mwS5v7W4xTnHKYsrWiaxMhbT5k6AeoMyKup6KUjTR0tLjZyOoT4793ibQrloVW2Psi8xw6KLwkMOlZBfDvkF1YibfBPMfT5CoykjU/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2011.jpeg" alt="Book 9">
                     </div>
                     <div class="portrait-content">
-                        <h3 class="portrait-heading">The Child Who Wasn’t Mine</h3>
-                        <p class="portrait-desc">Life often presents us with moments we cannot plan, people we do not expect, and responsibilities that arrive silently, without warning. The Child Who Wasn’t Mine is one such story—a story about love that transcends bloodlines, about devotion that defies societal expectations, and about a man who chose to give his entire life to a child not born to him.
+                        <h3 class="portrait-heading">The Child Who Wasnât Mine</h3>
+                        <p class="portrait-desc">Life often presents us with moments we cannot plan, people we do not expect, and responsibilities that arrive silently, without warning. The Child Who Wasnât Mine is one such storyâa story about love that transcends bloodlines, about devotion that defies societal expectations, and about a man who chose to give his entire life to a child not born to him.
                         </p>
                         <a href="https://www.maniebook.online/2025/12/the-child-who-wasnt-mine_27.html?m=1" class="read-book-btn">Read Book</a>
                     </div>
@@ -921,8 +936,8 @@
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh_cIH65hMi_Pwm5gt2pmcgn2lFzPjsbiAC0t3QaLGikzUwcVeUd0Jqqob4hyphenhyphen6hi1GNMZCFudhYsyD7WaMmG5NzukDMvMIXYMeiKF33_ovVGIodPpd9j_YXMcCzoqYzyPBF1KZtrpqgrr3vcqypKAZfCkejP6htarY2LTh4FruzvyaZlRDq72rhyphenhyphenT3nbrf/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2014.jpeg" alt="Book 10">
                     </div>
                     <div class="portrait-content">
-                        <h3 class="portrait-heading">बीते कल की कीमत</h3>
-                        <p class="portrait-desc">हम ज़िंदगी को अक्सर आगे की तरफ़ देखते हुए जीते हैं—अगले दिन, अगले साल, अगले लक्ष्य की तरफ़। लेकिन सच यह है कि हमारे कदम जितने आगे बढ़ते हैं, हमारी यादें उतनी ही पीछे खींचती हैं। और इन्हीं यादों के बीच कहीं हम यह समझने लगते हैं कि जो बीत गया, उसकी कीमत हमें अब चुकानी पड़ रही है।</p>
+                        <h3 class="portrait-heading">à¤¬à¥à¤¤à¥ à¤à¤² à¤à¥ à¤à¥à¤®à¤¤</h3>
+                        <p class="portrait-desc">à¤¹à¤® à¤à¤¼à¤¿à¤à¤¦à¤à¥ à¤à¥ à¤à¤à¥à¤¸à¤° à¤à¤à¥ à¤à¥ à¤¤à¤°à¤«à¤¼ à¤¦à¥à¤à¤¤à¥ à¤¹à¥à¤ à¤à¥à¤¤à¥ à¤¹à¥à¤âà¤à¤à¤²à¥ à¤¦à¤¿à¤¨, à¤à¤à¤²à¥ à¤¸à¤¾à¤², à¤à¤à¤²à¥ à¤²à¤à¥à¤·à¥à¤¯ à¤à¥ à¤¤à¤°à¤«à¤¼à¥¤ à¤²à¥à¤à¤¿à¤¨ à¤¸à¤ à¤¯à¤¹ à¤¹à¥ à¤à¤¿ à¤¹à¤®à¤¾à¤°à¥ à¤à¤¦à¤® à¤à¤¿à¤¤à¤¨à¥ à¤à¤à¥ à¤¬à¤¢à¤¼à¤¤à¥ à¤¹à¥à¤, à¤¹à¤®à¤¾à¤°à¥ à¤¯à¤¾à¤¦à¥à¤ à¤à¤¤à¤¨à¥ à¤¹à¥ à¤ªà¥à¤à¥ à¤à¥à¤à¤à¤¤à¥ à¤¹à¥à¤à¥¤ à¤à¤° à¤à¤¨à¥à¤¹à¥à¤ à¤¯à¤¾à¤¦à¥à¤ à¤à¥ à¤¬à¥à¤ à¤à¤¹à¥à¤ à¤¹à¤® à¤¯à¤¹ à¤¸à¤®à¤à¤¨à¥ à¤²à¤à¤¤à¥ à¤¹à¥à¤ à¤à¤¿ à¤à¥ à¤¬à¥à¤¤ à¤à¤¯à¤¾, à¤à¤¸à¤à¥ à¤à¥à¤®à¤¤ à¤¹à¤®à¥à¤ à¤à¤¬ à¤à¥à¤à¤¾à¤¨à¥ à¤ªà¤¡à¤¼ à¤°à¤¹à¥ à¤¹à¥à¥¤</p>
                         <a href="https://www.maniebook.online/2025/12/blog-post_20.html?m=1" class="read-book-btn">Read Book</a>
                     </div>
                 </div>
@@ -930,68 +945,108 @@
             </div>
         </div>
 
-        <!-- Quotes Section Replaced with Text Cards, Quote Icons and Bold Names in English Transcity Style -->
+        <!-- Quotes Section Replaced with Text Cards, Quote Icons and Secure Signature Image Container -->
         <div id="quotesContentBox" class="content-box">
             <div class="quotes-grid">
                 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"Words have the power to reshape realities and heal the silent spaces within the human heart."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">We often wait for the right circumstances to align before taking a leap of faith, but mastery is not born in the comfort of certainty; it is forged in the messy arena of daily execution where courage outweighs fear.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"Every struggle is an unwritten chapter that eventually builds the masterpiece of your destiny."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">Every monumental chapter in my writing journey began with a blank page that intimidated me just as much as it inspires you, teaching me that self-doubt is merely a phantom trying to guard the gates of your true potential.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"True power lies not in controlling others, but in mastering the thoughts that define your own existence."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">The most profound stories are never invented out of thin air; they are excavated from the deep, uncomfortable caverns of our own vulnerabilities, failures, and the quiet resilience that follows our darkest hours.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"A uniform is not just cloth; it is an oath taken when the rest of the world chooses to step back."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">Do not measure your artistic or professional worth by the speed of your applause, because true legacy is built brick by brick in the solitary hours when no one is watching and validation is entirely absent.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"Emotions are like wind—you cannot hold them, but you can always feel the impact they leave behind."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">Perfectionism is nothing more than fear wearing an elegant mask; it paralyzes progress, silences authentic expression, and robs the world of the imperfect, breathing masterpieces only you can create.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"We all live two lives: one that the world witnesses, and another that silently echoes inside our souls."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">When adversity strikes and the narrative of your life takes an unexpected, painful twist, remember that a master storyteller never throws away the manuscript; they simply find a way to weave the tragedy into a breathtaking redemption.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"Justice is not always found in legal documents; sometimes it resides deep inside human conscience."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">Discipline will always outlast fleeting moments of inspiration, because motivation is a fickle visitor, whereas showing up consistently to do the heavy lifting is the true currency of lasting achievement.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"Memories are anchors pulling us backward while life relentlessly forces us to move forward."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">Your unique voice is your ultimate competitive advantage in a crowded world, so stop trying to echo the symphonies of others and dare to play the discordant, honest notes that belong exclusively to your soul.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"Devotion knows no bloodlines; true love is defined by the responsibilities we willingly embrace."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">Failure is not a permanent period at the end of your sentence, but rather a vital comma that invites you to pause, reflect, restructure your plot, and come back with a fiercer, wiser perspective.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
                 <div class="quote-card-text">
-                    <i class="fa-solid fa-quote-left quote-icon-top"></i>
-                    <div class="quote-text-body">"Silence often carries answers that thousands of spoken words fail to express or explain."</div>
-                    <div class="quote-author-name">Manish Chaudhary</div>
+                    <div>
+                        <i class="fa-solid fa-quote-left quote-icon-top"></i>
+                        <div class="quote-text-body">Dedicate your life to creating work that outlives you, touching hearts you will never meet and whispering courage into the minds of strangers long after your own pen has finally been laid to rest.</div>
+                    </div>
+                    <div class="quote-signature-box">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjxDDYgo04SfGr0-4BdrL62ziUrqK8kfL0aLogVJ_C6rTwOgnZ1iLwYeAT8Yiq8_hlFDWZzpWFpk8LJJphzICcLov00TI-f4UCtEtCx8tFz1hhsK8mRu5fFC3155GRQOxUHjArOALKafF66mvthuiCJ43z40qZc0ASJhAT4p90LkErz62FSK4sOBm-Geesm/s1600/B673906F-A4A9-4859-B9A9-4376A6B138D2.png" alt="Signature" class="signature-img">
+                    </div>
                 </div>
 
             </div>
@@ -1023,7 +1078,7 @@
             <span>IN</span>
         </div>
         <div class="footer-right">
-            © Copyright 2026 Mani E-Book Authors India
+            Â© Copyright 2026 Mani E-Book Authors India
         </div>
     </footer>
 
