@@ -10,6 +10,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Confetti Library CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
         /* Global Styles & Security (Disable Copy/Save/Inspect) */
         * {
@@ -123,7 +125,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* Creator Profile Section - Moved down with increased top margin */
+        /* Creator Profile Section */
         .creator-profile-section {
             max-width: 1200px;
             margin: 102px auto 30px auto;
@@ -180,7 +182,6 @@
             gap: 6px;
         }
 
-        /* Verified Tick Small Image Style - Anti-Save Protection Enabled */
         .verified-tick-wrapper {
             position: relative;
             display: inline-flex;
@@ -189,7 +190,6 @@
             cursor: pointer;
             -webkit-user-select: none;
             user-select: none;
-            pointer-events: none; /* Disables dragging, right-click context menu, and save triggers */
         }
 
         .verified-tick-img {
@@ -284,7 +284,7 @@
             background-color: #dfe4ea;
         }
 
-        /* Toggle Sections (Books & Quotes Buttons Container) */
+        /* Toggle Sections */
         .content-switch-section {
             max-width: 1200px;
             margin: 30px auto 10px auto;
@@ -319,7 +319,7 @@
             box-shadow: 0 4px 10px rgba(135, 0, 0, 0.3);
         }
 
-        /* Gallery Sections Container */
+        /* Gallery Container */
         .gallery-container {
             max-width: 1200px;
             margin: 20px auto 50px auto;
@@ -396,24 +396,77 @@
             flex-grow: 1;
         }
 
+        /* Book Action Bar (Read Button + Like Integration) */
+        .book-actions-bar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
         .read-book-btn {
-            display: block;
-            text-align: center;
             background-color: #870000;
             color: #fff;
-            padding: 9px;
+            padding: 7px 10px;
             border-radius: 5px;
             text-decoration: none;
-            font-size: 13px;
+            font-size: 11px;
             font-weight: 600;
+            white-space: nowrap;
             transition: background 0.2s;
+        }
+
+        @media (min-width: 769px) {
+            .read-book-btn {
+                flex-grow: 1;
+                font-size: 13px;
+                padding: 9px;
+            }
         }
 
         .read-book-btn:hover {
             background-color: #650000;
         }
 
-        /* Quotes Section - Desktop: 3 in a line; Mobile: 2 in a line, auto height with perfect flexible layout for long/short content */
+        .like-action-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: #f1f2f6;
+            padding: 6px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.2s;
+            border: 1px solid #dcdde1;
+            flex-shrink: 0;
+        }
+
+        .like-action-container:hover {
+            background: #e4e7eb;
+        }
+
+        .like-action-container i {
+            font-size: 14px;
+            color: #b2bec3; /* Default Grey */
+            transition: color 0.2s;
+        }
+
+        .like-action-container.liked i {
+            color: #1877f2; /* Facebook Blue */
+        }
+
+        .like-count-text {
+            font-size: 11px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        @media (min-width: 769px) {
+            .like-count-text {
+                font-size: 12px;
+            }
+        }
+
+        /* Quotes Section */
         .quotes-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -456,7 +509,6 @@
             word-break: break-word;
         }
 
-        /* Personal Signature Image Container Styles (Replaces text name securely with a small rectangle size image) */
         .quote-signature-box {
             margin-top: 10px;
             display: flex;
@@ -739,10 +791,6 @@
                 -webkit-box-orient: vertical;
                 overflow: hidden;
             }
-            .read-book-btn {
-                font-size: 11px;
-                padding: 6px;
-            }
             .footer-left {
                 display: none;
             }
@@ -784,8 +832,8 @@
                     <div class="profile-names">
                         <h4>
                             Manish Chaudhary
-                            <span class="verified-tick-wrapper">
-                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" alt="Verified" class="verified-tick-img" title="Verified Account">
+                            <span class="verified-tick-wrapper" title="This account is verified">
+                                <img src="https://upload.wikimedia.org/wikipedia/commons/e/e4/Twitter_Verified_Badge.svg" alt="Verified" class="verified-tick-img">
                             </span>
                         </h4>
                         <p>Author & Writer</p>
@@ -824,128 +872,190 @@
         <div id="booksContentBox" class="content-box active">
             <div class="portrait-grid">
                 
+                <!-- Book 1 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFM0HidE-LVJmERpe8__VMimxk9GpOYUYGRrD3sLr1yD1HnVGqCJ1yQI22cuo5DaLqA-GiVWk3uuggBr7KyUXmshSJ0SjRL6nwgZEvIP9KzYtsojTTV4HatGJBohFwK0LWoeIkajvEH8VW7EQCr2jf8gzWSZyEj1IWwtwEOXWlyHI8LYm4e-BGq5X-U8ib/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 1">
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">Courtroom 302 The Final Verdict</h3>
-                        <p class="portrait-desc">à¤à¤¾à¤¨à¥à¤¨ à¤à¥ à¤à¤¿à¤¤à¤¾à¤¬à¥à¤, à¤¨à¥à¤¯à¤¾à¤¯ à¤à¥ à¤¤à¤°à¤¾à¤à¥ à¤à¤° à¤à¤¾à¤²à¥ à¤à¥à¤ à¤ªà¤¹à¤¨à¥ à¤µà¤à¥à¤²à¥à¤ à¤à¥ à¤«à¥à¤âà¤¯à¤¹ à¤¸à¤¬ à¤à¤¸ à¤µà¥à¤¯à¤µà¤¸à¥à¤¥à¤¾ à¤à¥ à¤¨à¥à¤®à¤¾à¤à¤à¤¦à¤à¥ à¤à¤°à¤¤à¥ à¤¹à¥à¤ à¤à¤¿à¤¸à¤à¥ à¤¸à¤¹à¤¾à¤°à¥ à¤¸à¤®à¤¾à¤ à¤®à¥à¤ à¤¨à¥à¤¯à¤¾à¤¯ à¤à¥ à¤à¤®à¥à¤®à¥à¤¦ à¤à¤¿à¤à¤¦à¤¾ à¤°à¤¹à¤¤à¥ à¤¹à¥à¥¤ à¤²à¥à¤à¤¿à¤¨ à¤à¥à¤¯à¤¾ à¤¹à¤° à¤¬à¤¾à¤° à¤à¤¦à¤¾à¤²à¤¤ à¤à¥ à¤«à¥à¤¸à¤²à¥ à¤¹à¥ à¤à¤¸à¤²à¥ à¤à¤à¤¸à¤¾à¤« à¤¹à¥à¤¤à¥ à¤¹à¥à¤? à¤à¥à¤¯à¤¾ à¤à¤¾à¤¨à¥à¤¨ à¤à¥ à¤ªà¤°à¤¿à¤§à¤¿ à¤®à¥à¤ à¤°à¤¹à¤à¤° à¤¹à¤° à¤à¤¸ à¤¶à¤à¥à¤¸ à¤à¥ à¤¸à¤à¤¾ à¤®à¤¿à¤² à¤à¤¾à¤¤à¥ à¤¹à¥ à¤à¤¿à¤¸à¤à¥ à¤¹à¤¾à¤¥à¥à¤ à¤®à¥à¤ à¤¬à¥à¤à¤¸à¥à¤°à¥à¤ à¤à¤¾ à¤à¥à¤¨ à¤²à¤à¤¾ à¤¹à¥à¤¤à¤¾ à¤¹à¥? 
-                        </p>
-                        <a href="https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1" class="read-book-btn">Read Book</a>
+                        <p class="portrait-desc">कानून की किताबें, न्याय की तराजू और काले कोट पहने वकीलों की फौज—यह सब उस व्यवस्था की नुमाइंदगी करते हैं जिसके सहारे समाज में न्याय की उम्मीद जिंदा रहती है। लेकिन क्या हर बार अदालत के फैसले ही असली इंसाफ होते हैं? क्या कानून की परिधि में रहकर हर उस शख्स को सजा मिल जाती है जिसके हाथों में बेकसूरों का खून लगा होता है?</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(0)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount0">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Book 2 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 2">
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">Courtroom 302</h3>
-                        <p class="portrait-desc">à¤¯à¤¹ à¤à¤¹à¤¾à¤¨à¥ à¤®à¥à¤°à¥ à¤²à¤¿à¤ à¤¸à¤¿à¤°à¥à¤« à¤à¤ à¤à¥à¤°à¤¾à¤à¤® à¤¸à¥à¤à¥à¤°à¥ à¤¨à¤¹à¥à¤, à¤¬à¤²à¥à¤à¤¿ à¤à¤ à¤¨à¤¯à¤¾ à¤à¤¨à¥à¤­à¤µ à¤¹à¥à¥¤ à¤¯à¤¹ à¤®à¥à¤°à¥ à¤ªà¤¹à¤²à¥ à¤à¤¸à¥ à¤à¥à¤¶à¤¿à¤¶ à¤¹à¥, à¤à¤¿à¤¸à¤®à¥à¤ à¤®à¥à¤à¤¨à¥ à¤à¤ªà¤°à¤¾à¤§, à¤à¤¾à¤¨à¥à¤¨ à¤à¤° à¤à¤à¤¸à¤¾à¤¨à¥ à¤¸à¥à¤ à¤à¥ à¤¬à¥à¤ à¤à¥ à¤à¤à¤¿à¤²à¤¤à¤¾à¤à¤ à¤à¥ à¤¸à¤®à¤à¤¨à¥ à¤à¤° à¤²à¤¿à¤à¤¨à¥ à¤à¤¾ à¤ªà¥à¤°à¤¯à¤¾à¤¸ à¤à¤¿à¤¯à¤¾ à¤¹à¥à¥¤
-                        </p>
-                        <a href="https://www.maniebook.online/2026/03/courtroom-302.html?m=1" class="read-book-btn">Read Book</a>
+                        <p class="portrait-desc">यह कहानी मेरे लिए सिर्फ एक क्राइम स्टोरी नहीं, बल्कि एक नया अनुभव है। यह मेरी पहली ऐसी कोशिश है, जिसमें मैंने अपराध, कानून और इंसानी सोच के बीच की जटिलताओं को समझने और लिखने का प्रयास किया है।</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2026/03/courtroom-302.html?m=1" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(1)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount1">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Book 3 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbTG4o4HaUFd4Rh9sXMCHTYKKhvY4exlxqoevvRiVYJmZti7q_ChsrF40jganvZ_TLAlMqXenulioO4HwMlhM3iF1ZrPBXNfv-vgAwI2rZCNJNrYoL9tvLe8NeAe5Fj9VpjF4Nu8glkAeWnIExNk2C6rVkiVd0yZwHApFmBJZ6uM4uGdwIr2-ZqKb2brZP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg" alt="Book 3">
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">THINK LIKE A THINKER</h3>
-                        <p class="portrait-desc">Every human life is shaped by one invisible forceâthought. Before action, there is intention. Before achievement, there is belief. Before transformation, there is a shift in perception. The direction of your life is not determined solely by circumstances, opportunities, or external conditions; it is determined by the quality of your thinking.
-                        </p>
-                        <a href="https://www.maniebook.online/2026/03/think-like-thinker.html" class="read-book-btn">Read Book</a>
+                        <p class="portrait-desc">Every human life is shaped by one invisible force—thought. Before action, there is intention. Before achievement, there is belief. Before transformation, there is a shift in perception. The direction of your life is not determined solely by circumstances, opportunities, or external conditions; it is determined by the quality of your thinking.</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2026/03/think-like-thinker.html" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(2)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount2">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Book 4 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNClR3ODYJRzVNmjVfRONyB9eW5KusWWjUuupfIV_O2K_00ZpYnJpzU5EoGV8aIS6WcBaQfEI4ZMOm4ztNntD2y70LJBWxqXSDtJimIYVGGCtNjAlPqVTTovfGJeqkE6USLf3HIv1H32IVpA0lOqsuta_8bh4NZV6a5ZHrxp3D1_-8s-iZr0h_4GK3hJQr/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%205.jpeg" alt="Book 4">
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">Vardi Ke Uspaar</h3>
-                        <p class="portrait-desc">à¤¯à¤¹ à¤à¤¿à¤¤à¤¾à¤¬ à¤à¤¿à¤¸à¥ à¤¯à¥à¤¦à¥à¤§ à¤à¥ à¤à¤¹à¤¾à¤¨à¥ à¤¨à¤¹à¥à¤ à¤¹à¥, à¤¯à¤¹ à¤à¤¸ à¤à¥à¤µà¤¨ à¤à¥ à¤à¤¥à¤¾ à¤¹à¥ à¤à¥ à¤¯à¥à¤¦à¥à¤§ à¤à¤° à¤¶à¤¾à¤à¤¤à¤¿ à¤à¥ à¤¬à¥à¤ à¤²à¤à¤¾à¤¤à¤¾à¤° à¤¸à¤¾à¤à¤¸ à¤²à¥à¤¤à¤¾ à¤¹à¥à¥¤ à¤¯à¤¹ à¤à¤¨ à¤²à¥à¤à¥à¤ à¤à¥ à¤¦à¤¾à¤¸à¥à¤¤à¤¾à¤¨ à¤¹à¥ à¤à¤¿à¤¨à¤à¥ à¤²à¤¿à¤ à¤¤à¤¾à¤²à¥ à¤à¤° à¤ªà¥à¤°à¤¶à¤à¤¸à¤¾ à¤à¤­à¥ à¤²à¤à¥à¤·à¥à¤¯ à¤¨à¤¹à¥à¤ à¤°à¤¹à¥à¤, à¤à¤¿à¤¨à¤à¥ à¤²à¤¿à¤ à¤à¤°à¥à¤¤à¤µà¥à¤¯ à¤¹à¥ à¤ªà¤¹à¤à¤¾à¤¨ à¤°à¤¹à¤¾ à¤¹à¥à¥¤ à¤µà¤°à¥à¤¦à¥ à¤¯à¤¹à¤¾à¤ à¤à¤ªà¤¡à¤¼à¤¾ à¤¨à¤¹à¥à¤, à¤à¤ à¤ªà¥à¤°à¤¤à¤¿à¤à¥à¤à¤¾ à¤¹à¥âà¤à¤¿à¤¸à¥ à¤à¤¢à¤¼à¤¨à¥ à¤à¥ à¤¬à¤¾à¤¦ à¤à¥à¤µà¤¨ à¤à¤¾ à¤¹à¤° à¤¨à¤¿à¤°à¥à¤£à¤¯ à¤¦à¥à¤¶ à¤à¥ à¤¨à¤¾à¤® à¤¹à¥ à¤à¤¾à¤¤à¤¾ à¤¹à¥à¥¤
-                        </p>
-                        <a href="https://www.maniebook.online/2026/01/blog-post_15.html?m=1" class="read-book-btn">Read Book</a>
+                        <p class="portrait-desc">यह किताब किसी युद्ध की कहानी नहीं है, यह उस जीवन की कथा है जो युद्ध और शांति के बीच लगातार साँस लेता है। यह उन लोगों की दास्तान है जिनके लिए ताली और प्रशंसा कभी लक्ष्य नहीं रहीं, जिनके लिए कर्तव्य ही पहचान रहा है। वर्दी यहाँ कपड़ा नहीं, एक प्रतिज्ञा है—जिसे ओढ़ने के बाद जीवन का हर निर्णय देश के नाम हो जाता है।</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2026/01/blog-post_15.html?m=1" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(3)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount3">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Book 5 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuKb9WGwm3BOHt2qDZSEyD_Z3InCBKsPndBbuoUV1xjksZFxp18_XHrGKDXBbUFBWXX8ttKeyC9y2Ovk32nDz2b_MQfv9Gn4rvdk-k-AVC_elGAiTvKCl2mWdDGiR90S_GuYs9uK99OOH5z3-tjPKZNXY_NUji2ewIb5QLLydCG-lgVzrvpc8fTXfyQrZV/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%201.jpeg" alt="Book 5">
                     </div>
                     <div class="portrait-content">
-                        <h3 class="portrait-heading">EMOTION â EK HAWA KI TARAH</h3>
-                        <p class="portrait-desc">Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust. This book is built on that simple truth. It does not promise answers or quick fixes. Instead it listens â to the hush of loss, the soft laughter of healing, the storm of disbelief, and the gentle presence of love. It names the rooms inside us and walks through them, page by page, with tenderness and honesty.
-                        </p>
-                        <a href="https://www.maniebook.online/2025/12/emotion-ek-hawa-ki-tarah-science-of.html?m=1" class="read-book-btn">Read Book</a>
+                        <h3 class="portrait-heading">EMOTION EK HAWA KI TARAH</h3>
+                        <p class="portrait-desc">Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust. This book is built on that simple truth. It does not promise answers or quick fixes. Instead it listens — to the hush of loss, the soft laughter of healing, the storm of disbelief, and the gentle presence of love.</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2025/12/emotion-ek-hawa-ki-tarah-science-of.html?m=1" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(4)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount4">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Book 6 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAdwVanqCKjxoSSTIiHpn1kcJm5f58N4maIpq35VZppyHlncwjBCMLjsamQrl0TTyBEk2XzLTR180dAdvnowbFPCYEjd2DSwvKnP6Eq5o1hofkaTOVTiatNOD6hgwzE1IX9Z_4v_5irVjTG9JY1snT764baXGtoLo-pok14rM8cEESA98nAtzZNUhjPhsR/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%209.jpeg" alt="Book 6">
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">Two Lives One Person</h3>
-                        <p class="portrait-desc">In todayâs fast-paced world, most of us wear multiple hatsâsome visible to others, some known only to ourselves. By day, we are professionals, measured by performance, productivity, and precision. By nightâor in stolen momentsâwe are individuals with emotions, relationships, passions, and needs that cannot be quantified. For many, these two worlds coexist, but rarely in harmony.
-                        </p>
-                        <a href="https://www.maniebook.online/2026/01/two-lives-one-person_9.html?m=1" class="read-book-btn">Read Book</a>
+                        <p class="portrait-desc">In today’s fast-paced world, most of us wear multiple hats—some visible to others, some known only to ourselves. By day, we are professionals, measured by performance, productivity, and precision. By night—or in stolen moments—we are individuals with emotions, relationships, passions, and needs that cannot be quantified.</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2026/01/two-lives-one-person_9.html?m=1" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(5)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount5">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Book 7 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNvVaOKeBpgiCg2bKPRwEekpNMeJmIQJehjAHdJsHK94TH1PbJ2bx3zrBns0G0V6RZidO2q18hrRSAgcDAC2DiSOM5KeDCQIwsPj3BhqBgZS5Bu2BpZ1H8V6agRmbTrBf7FiTqyU2iIqhZZoZXNlecAf7AqhlTZSS-xCx06Q_al-s-RjB8ww1DoxL5pTIB/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2013.jpeg" alt="Book 7">
                     </div>
                     <div class="portrait-content">
                         <h3 class="portrait-heading">The Taste of Struggle</h3>
-                        <p class="portrait-desc">Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions. This book is not about extraordinary talent or overnight success. It is about ordinary people carrying invisible weightâand choosing not to give up.
-                        </p>
-                        <a href="https://www.maniebook.online/2025/12/the-taste-of-struggle-story-of-struggle.html?m=1" class="read-book-btn">Read Book</a>
+                        <p class="portrait-desc">Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions. This book is not about extraordinary talent or overnight success. It is about ordinary people carrying invisible weight—and choosing not to give up.</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2025/12/the-taste-of-struggle-story-of-struggle.html?m=1" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(6)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount6">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Book 8 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWgMU8myn9LbMfqjRvAIbQb-IjTc0NoESeYsRw7GrcDF5RmdBQv_6dBzhtgCcmkReOe-XS34qr9Wl-o3V0D8rtdmI8ryXLY5JD7_TcGbNnr8YVdAZIlPIP6f8m_1MEllgaS6dyeGLatvJyCU9pxaZ7V83aPDk0dllYQfBxrVSidUIxQ1ZfZnJfg9447mbe/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2015.jpeg" alt="Book 8">
                     </div>
                     <div class="portrait-content">
-                        <h3 class="portrait-heading">à¤¤à¥à¤°à¤¿à¤²à¥à¤à¤¨à¤¾à¤¥ à¤¶à¤à¤­à¥</h3>
-                        <p class="portrait-desc">à¤¯à¤¹ à¤ªà¥à¤¸à¥à¤¤à¤ à¤à¤¿à¤¸à¥ à¤¸à¤¿à¤¦à¥à¤§à¤¾à¤à¤¤ à¤à¥ à¤¸à¥à¤¥à¤¾à¤ªà¤¿à¤¤ à¤à¤°à¤¨à¥ à¤à¥ à¤²à¤¿à¤ à¤¨à¤¹à¥à¤ à¤²à¤¿à¤à¥ à¤à¤ à¤¹à¥, à¤¨ à¤¹à¥ à¤à¤¿à¤¸à¥ à¤¨à¤¿à¤·à¥à¤à¤°à¥à¤· à¤ªà¤° à¤ªà¤¹à¥à¤à¤à¤¨à¥ à¤à¥ à¤à¤à¥à¤°à¤¹ à¤¸à¥à¥¤ à¤¯à¤¹ à¤à¤ à¤¯à¤¾à¤¤à¥à¤°à¤¾ à¤à¤¾ à¤¦à¤¸à¥à¤¤à¤¾à¤µà¥à¤à¤¼ à¤¹à¥âà¤à¤ à¤à¤¸à¥ à¤¯à¤¾à¤¤à¥à¤°à¤¾, à¤à¥ à¤¶à¤¬à¥à¤¦à¥à¤ à¤¸à¥ à¤¶à¥à¤°à¥ à¤¹à¥à¤à¤° à¤®à¥à¤¨ à¤®à¥à¤ à¤¸à¤®à¤¾à¤ªà¥à¤¤ à¤¹à¥à¤¤à¥ à¤¹à¥à¥¤ âà¤¤à¥à¤°à¤¿à¤²à¥à¤à¤¨à¤¾à¤¥ à¤¶à¤à¤­à¥: à¤¸à¤®à¤¯ à¤¸à¥ à¤ªà¤°à¥ à¤à¤ à¤¸à¤¤à¥à¤¯â à¤®à¥à¤°à¥ à¤²à¤¿à¤ à¤²à¥à¤à¤¨ à¤¨à¤¹à¥à¤, à¤¸à¥à¤®à¤°à¤£ à¤°à¤¹à¤¾ à¤¹à¥à¥¤ à¤¸à¥à¤®à¤°à¤£ à¤à¤¸ à¤¸à¤¤à¥à¤¯ à¤à¤¾, à¤à¤¿à¤¸à¥ à¤¹à¤® à¤à¤¾à¤¨à¤¤à¥ à¤¹à¥à¤ à¤­à¥ à¤­à¥à¤² à¤à¤¾à¤¤à¥ à¤¹à¥à¤ã</p>
-                        <a href="https://www.maniebook.online/2025/12/blog-post.html?m=1" class="read-book-btn">Read Book</a>
+                        <h3 class="portrait-heading">त्रिलोकनाथ शंभू</h3>
+                        <p class="portrait-desc">यह पुस्तक किसी सिद्धांत को स्थापित करने के लिए नहीं लिखी गई है, न ही किसी निष्कर्ष पर पहुँचने के आग्रह से। यह एक यात्रा का दस्तावेज़ है—एक ऐसी यात्रा, जो शब्दों से शुरू होकर मौन में समाप्त होती है। “त्रिलोकनाथ शंभू: समय से परे एक सत्य” मेरे लिए लेखन नहीं, स्मरण रहा है।</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2025/12/blog-post.html?m=1" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(7)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount7">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
+                <!-- Book 9 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht8BwvoHsfW6sJ21SXY9P7x3hjYDUtI_b1Tv-_TFMZe4ZZS5WUmVVQ1rlb954QDkMLDP_BXKJ1OSdu8M9RtsdlQg-mwS5v7W4xTnHKYsrWiaxMhbT5k6AeoMyKup6KUjTR0tLjZyOoT4793ibQrloVW2Psi8xw6KLwkMOlZBfDvkF1YibfBPMfT5CoykjU/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2011.jpeg" alt="Book 9">
                     </div>
                     <div class="portrait-content">
-                        <h3 class="portrait-heading">The Child Who Wasnât Mine</h3>
-                        <p class="portrait-desc">Life often presents us with moments we cannot plan, people we do not expect, and responsibilities that arrive silently, without warning. The Child Who Wasnât Mine is one such storyâa story about love that transcends bloodlines, about devotion that defies societal expectations, and about a man who chose to give his entire life to a child not born to him.
-                        </p>
-                        <a href="https://www.maniebook.online/2025/12/the-child-who-wasnt-mine_27.html?m=1" class="read-book-btn">Read Book</a>
+                        <h3 class="portrait-heading">The Child Who Wasn’t Mine</h3>
+                        <p class="portrait-desc">Life often presents us with moments we cannot plan, people we do not expect, and responsibilities that arrive silently, without warning. The Child Who Wasn’t Mine is one such story—a story about love that transcends bloodlines, about devotion that defies societal expectations.</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2025/12/the-child-who-wasnt-mine_27.html?m=1" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(8)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount8">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 
+                <!-- Book 10 -->
                 <div class="portrait-card">
                     <div class="portrait-img-box">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh_cIH65hMi_Pwm5gt2pmcgn2lFzPjsbiAC0t3QaLGikzUwcVeUd0Jqqob4hyphenhyphen6hi1GNMZCFudhYsyD7WaMmG5NzukDMvMIXYMeiKF33_ovVGIodPpd9j_YXMcCzoqYzyPBF1KZtrpqgrr3vcqypKAZfCkejP6htarY2LTh4FruzvyaZlRDq72rhyphenhyphenT3nbrf/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2014.jpeg" alt="Book 10">
                     </div>
                     <div class="portrait-content">
-                        <h3 class="portrait-heading">à¤¬à¥à¤¤à¥ à¤à¤² à¤à¥ à¤à¥à¤®à¤¤</h3>
-                        <p class="portrait-desc">à¤¹à¤® à¤à¤¼à¤¿à¤à¤¦à¤à¥ à¤à¥ à¤à¤à¥à¤¸à¤° à¤à¤à¥ à¤à¥ à¤¤à¤°à¤«à¤¼ à¤¦à¥à¤à¤¤à¥ à¤¹à¥à¤ à¤à¥à¤¤à¥ à¤¹à¥à¤âà¤à¤à¤²à¥ à¤¦à¤¿à¤¨, à¤à¤à¤²à¥ à¤¸à¤¾à¤², à¤à¤à¤²à¥ à¤²à¤à¥à¤·à¥à¤¯ à¤à¥ à¤¤à¤°à¤«à¤¼à¥¤ à¤²à¥à¤à¤¿à¤¨ à¤¸à¤ à¤¯à¤¹ à¤¹à¥ à¤à¤¿ à¤¹à¤®à¤¾à¤°à¥ à¤à¤¦à¤® à¤à¤¿à¤¤à¤¨à¥ à¤à¤à¥ à¤¬à¤¢à¤¼à¤¤à¥ à¤¹à¥à¤, à¤¹à¤®à¤¾à¤°à¥ à¤¯à¤¾à¤¦à¥à¤ à¤à¤¤à¤¨à¥ à¤¹à¥ à¤ªà¥à¤à¥ à¤à¥à¤à¤à¤¤à¥ à¤¹à¥à¤à¥¤ à¤à¤° à¤à¤¨à¥à¤¹à¥à¤ à¤¯à¤¾à¤¦à¥à¤ à¤à¥ à¤¬à¥à¤ à¤à¤¹à¥à¤ à¤¹à¤® à¤¯à¤¹ à¤¸à¤®à¤à¤¨à¥ à¤²à¤à¤¤à¥ à¤¹à¥à¤ à¤à¤¿ à¤à¥ à¤¬à¥à¤¤ à¤à¤¯à¤¾, à¤à¤¸à¤à¥ à¤à¥à¤®à¤¤ à¤¹à¤®à¥à¤ à¤à¤¬ à¤à¥à¤à¤¾à¤¨à¥ à¤ªà¤¡à¤¼ à¤°à¤¹à¥ à¤¹à¥à¥¤</p>
-                        <a href="https://www.maniebook.online/2025/12/blog-post_20.html?m=1" class="read-book-btn">Read Book</a>
+                        <h3 class="portrait-heading">बीते कल की कीमत</h3>
+                        <p class="portrait-desc">हम ज़िंदगी को अक्सर आगे की तरफ़ देखते हुए जीते हैं—अगले दिन, अगले साल, अगले लक्ष्य की तरफ़। लेकिन सच यह है कि हमारे कदम जितने आगे बढ़ते हैं, हमारी यादें उतनी ही पीछे खींचती हैं। और इन्हीं यादों के बीच कहीं हम यह समझने लगते हैं।</p>
+                        <div class="book-actions-bar">
+                            <a href="https://www.maniebook.online/2025/12/blog-post_20.html?m=1" class="read-book-btn">Read Book</a>
+                            <div class="like-action-container" onclick="toggleBookLike(9)">
+                                <i class="fa-solid fa-thumbs-up"></i>
+                                <span class="like-count-text" id="likeCount9">0</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- Quotes Section Replaced with Text Cards, Quote Icons and Secure Signature Image Container -->
+        <!-- Quotes Section -->
         <div id="quotesContentBox" class="content-box">
             <div class="quotes-grid">
                 
@@ -1054,6 +1164,7 @@
 
     </div>
 
+    <!-- Interactive Chat Popup Modal -->
     <div id="chat-modal">
         <div class="chat-header">
             <div class="chat-user-info">
@@ -1078,7 +1189,7 @@
             <span>IN</span>
         </div>
         <div class="footer-right">
-            Â© Copyright 2026 Mani E-Book Authors India
+            © Copyright 2026 Mani E-Book Authors India
         </div>
     </footer>
 
@@ -1090,6 +1201,30 @@
                 return false;
             }
         });
+
+        // Facebook-style Click / Tap Audio Feedback Generator using Web Audio API
+        function playFacebookSound() {
+            try {
+                const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                const osc = audioCtx.createOscillator();
+                const gainNode = audioCtx.createGain();
+                
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(800, audioCtx.currentTime + 0.08);
+                
+                gainNode.gain.setValueAtTime(0.15, audioCtx.currentTime);
+                gainNode.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.08);
+                
+                osc.connect(gainNode);
+                gainNode.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.08);
+            } catch (e) {
+                // Fallback silently if audio context is restricted by browser policy
+            }
+        }
 
         // Tab Switching Logic for Books and Quotes boxes
         function switchTab(tabName) {
@@ -1111,7 +1246,44 @@
             }
         }
 
-        // Follow / Unfollow Persistent Logic
+        // ==========================================
+        // CONFIGURABLE LIKE COUNTS (You can change these values anytime in coding)
+        // ==========================================
+        const initialLikes = ["40K", "125K", "12K", "24K", "22K", "5K", "9K", "110K", "41K", "18K"];
+
+        // Initialize and Load Likes States (Read-only static control as requested)
+        function initBookLikes() {
+            for (let i = 0; i < 10; i++) {
+                const isLiked = localStorage.getItem(`book_liked_${i}`) === 'true';
+                const container = document.querySelectorAll('.like-action-container')[i];
+                const countText = document.getElementById(`likeCount${i}`);
+                
+                countText.textContent = initialLikes[i];
+
+                if (isLiked) {
+                    container.classList.add('liked');
+                } else {
+                    container.classList.remove('liked');
+                }
+            }
+        }
+
+        // Toggle Like functionality without inflating numbers (Plays sound + saves active color state)
+        function toggleBookLike(index) {
+            playFacebookSound();
+            const isLiked = localStorage.getItem(`book_liked_${index}`) === 'true';
+            const container = document.querySelectorAll('.like-action-container')[index];
+            
+            if (!isLiked) {
+                localStorage.setItem(`book_liked_${index}`, 'true');
+                container.classList.add('liked');
+            } else {
+                localStorage.setItem(`book_liked_${index}`, 'false');
+                container.classList.remove('liked');
+            }
+        }
+
+        // Follow / Unfollow Persistent Logic with Confetti and Sound Effect
         function checkFollowState() {
             const isFollowing = localStorage.getItem('mani_author_followed') === 'true';
             const btn = document.getElementById('followBtn');
@@ -1125,21 +1297,32 @@
         }
 
         function toggleFollow() {
+            playFacebookSound();
             const isFollowing = localStorage.getItem('mani_author_followed') === 'true';
             if (isFollowing) {
                 localStorage.setItem('mani_author_followed', 'false');
             } else {
                 localStorage.setItem('mani_author_followed', 'true');
+                triggerConfetti();
             }
             checkFollowState();
         }
 
+        function triggerConfetti() {
+            confetti({
+                particleCount: 120,
+                spread: 70,
+                origin: { y: 0.1 }
+            });
+        }
+
         window.addEventListener('DOMContentLoaded', () => {
             checkFollowState();
+            initBookLikes();
             loadPersistentChatHistory();
         });
 
-        // Chat Popup Modal Logic
+        // Chat Popup Modal Logic & Click Outside to Close
         function openChatModal() {
             document.getElementById('chat-modal').style.display = 'flex';
             const chatBody = document.getElementById('chatBody');
@@ -1149,6 +1332,17 @@
         function closeChatModal() {
             document.getElementById('chat-modal').style.display = 'none';
         }
+
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('chat-modal');
+            const messageBtn = document.querySelector('.message-btn');
+            
+            if (modal.style.display === 'flex') {
+                if (!modal.contains(event.target) && !messageBtn.contains(event.target)) {
+                    closeChatModal();
+                }
+            }
+        });
 
         function handleChatKeyPress(e) {
             if (e.key === 'Enter') {
