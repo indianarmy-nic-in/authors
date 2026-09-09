@@ -284,6 +284,177 @@
             background-color: #dfe4ea;
         }
 
+        /* Stylish Heading for Latest Posts */
+        .section-heading-stylish {
+            max-width: 1200px;
+            margin: 40px auto 20px auto;
+            padding: 0 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-heading-stylish h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #870000;
+            display: inline-block;
+            background: #f9f9f9;
+            padding: 0 15px;
+            position: relative;
+            z-index: 2;
+            font-family: 'Cinzel', serif;
+            letter-spacing: 1px;
+        }
+
+        .section-heading-stylish::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+            background: #e0e0e0;
+            z-index: 1;
+        }
+
+        /* Instagram Style Post Section Grid */
+        .insta-posts-container {
+            max-width: 1200px;
+            margin: 0 auto 40px auto;
+            padding: 0 20px;
+        }
+
+        .insta-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .insta-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+            transition: transform 0.2s;
+        }
+
+        .insta-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .insta-img-box {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #eee;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .insta-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
+
+        .insta-btn-box {
+            padding: 10px;
+            background: #fff;
+            text-align: center;
+        }
+
+        .view-post-btn {
+            background-color: #870000;
+            color: #fff;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.2s;
+        }
+
+        .view-post-btn:hover {
+            background-color: #650000;
+        }
+
+        /* Single Post View (Hidden by default, shown when viewing post) */
+        #single-post-view {
+            display: none;
+            max-width: 650px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .single-post-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 1px solid #eaeaea;
+            padding: 20px;
+        }
+
+        .single-post-img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: contain;
+            background: #000;
+            border-radius: 6px;
+            margin-bottom: 15px;
+        }
+
+        .single-post-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 5px;
+        }
+
+        .single-post-date {
+            font-size: 12px;
+            color: #888;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .single-post-content {
+            font-size: 14px;
+            color: #444;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            word-break: break-word;
+        }
+
+        .single-post-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .back-to-home-btn {
+            background: #333;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .back-to-home-btn:hover {
+            background: #000;
+        }
+
         /* Toggle Sections */
         .content-switch-section {
             max-width: 1200px;
@@ -317,178 +488,6 @@
             background-color: #870000;
             color: #fff;
             box-shadow: 0 4px 10px rgba(135, 0, 0, 0.3);
-        }
-
-        /* ========================================== */
-        /* INSTAGRAM POST GRID SECTION (NEW)          */
-        /* ========================================== */
-        .insta-posts-section {
-            max-width: 1200px;
-            margin: 30px auto 40px auto;
-            padding: 0 20px;
-        }
-
-        .insta-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
-        }
-
-        .insta-card {
-            background: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            transition: transform 0.2s ease;
-            border: 1px solid #eee;
-        }
-
-        .insta-card:hover {
-            transform: translateY(-3px);
-        }
-
-        .insta-img-box {
-            width: 100%;
-            aspect-ratio: 1 / 1;
-            background: #000;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .insta-img-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            pointer-events: none;
-        }
-
-        .insta-card-footer {
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            background: #fff;
-        }
-
-        .view-post-btn {
-            background-color: #870000;
-            color: #fff;
-            border: none;
-            padding: 7px 16px;
-            border-radius: 4px;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-            width: 100%;
-            text-align: center;
-        }
-
-        .view-post-btn:hover {
-            background-color: #650000;
-        }
-
-        /* SINGLE POST ISOLATED VIEW (Full Screen Overwrite) */
-        #singlePostViewContainer {
-            display: none;
-            max-width: 600px;
-            margin: 40px auto 60px auto;
-            padding: 0 20px;
-        }
-
-        .single-post-box {
-            background: #fff;
-            border-radius: 12px;
-            border: 1px solid #ddd;
-            overflow: hidden;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.1);
-            padding-bottom: 20px;
-        }
-
-        .single-post-img-wrapper {
-            width: 100%;
-            background: #000;
-            max-height: 600px;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .single-post-img-wrapper img {
-            width: 100%;
-            height: auto;
-            object-fit: contain;
-            max-height: 550px;
-        }
-
-        .single-post-details {
-            padding: 20px;
-        }
-
-        .single-post-title {
-            font-size: 18px;
-            font-weight: 700;
-            color: #111;
-            margin-bottom: 6px;
-        }
-
-        .single-post-date {
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 15px;
-        }
-
-        .single-post-content {
-            font-size: 14px;
-            color: #333;
-            line-height: 1.6;
-            margin-bottom: 20px;
-            max-height: 120px;
-            overflow: hidden;
-            position: relative;
-            transition: max-height 0.4s ease;
-        }
-
-        .single-post-content.expanded {
-            max-height: 1000px;
-        }
-
-        .read-more-text-btn {
-            color: #0066cc;
-            font-size: 12px;
-            font-weight: 600;
-            cursor: pointer;
-            margin-bottom: 15px;
-            display: inline-block;
-        }
-
-        .single-post-like-row {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-top: 1px solid #eee;
-            padding-top: 15px;
-        }
-
-        .back-to-home-btn {
-            display: inline-block;
-            margin-top: 25px;
-            background-color: #333;
-            color: #fff;
-            padding: 10px 22px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-
-        .back-to-home-btn:hover {
-            background-color: #111;
         }
 
         /* Gallery Container */
@@ -566,6 +565,16 @@
             line-height: 1.5;
             margin-bottom: 15px;
             flex-grow: 1;
+            display: -webkit-box;
+            -webkit-line-clamp: 2; /* Shows half content initially */
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .portrait-desc.expanded {
+            -webkit-line-clamp: unset;
         }
 
         /* Book Action Bar (Read Button + Like Integration) */
@@ -908,6 +917,9 @@
                 grid-template-columns: repeat(2, 1fr);
                 max-width: 100%;
             }
+            .insta-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
             .profile-top-row {
                 flex-direction: column;
                 align-items: center;
@@ -928,10 +940,6 @@
                 justify-content: center;
                 width: 100%;
             }
-            .insta-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -940,6 +948,10 @@
                 gap: 12px;
             }
             .quotes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .insta-grid {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
             }
@@ -962,10 +974,10 @@
             }
             .portrait-desc {
                 font-size: 11px;
-                display: -webkit-box;
-                -webkit-line-clamp: 3;
-                -webkit-box-orient: vertical;
-                overflow: hidden;
+            }
+            .view-post-btn {
+                font-size: 10px;
+                padding: 5px 8px;
             }
             .footer-left {
                 display: none;
@@ -977,14 +989,6 @@
             .footer-right {
                 text-align: center;
                 width: 100%;
-            }
-            .insta-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 8px;
-            }
-            .view-post-btn {
-                padding: 5px 10px;
-                font-size: 11px;
             }
         }
     </style>
@@ -1006,9 +1010,8 @@
         </div>
     </header>
 
-    <!-- Main Wrapper to Toggle Between Home and Single Post View -->
-    <div id="mainSiteWrapper">
-
+    <!-- MAIN HOMEPAGE WRAPPER -->
+    <div id="homepage-main-wrapper">
         <section class="creator-profile-section">
             <div class="profile-card">
                 <div class="profile-top-row">
@@ -1049,12 +1052,16 @@
             </div>
         </section>
 
-        <!-- INSTAGRAM POST SECTION (10 Portrait Images, Desktop: 4 per line, Mobile: 2 per line) -->
-        <section class="insta-posts-section">
+        <!-- Instagram Style Post Section (10 Portrait Images with View Post Button) -->
+        <div class="section-heading-stylish">
+            <h3>Latest Posts</h3>
+        </div>
+
+        <div class="insta-posts-container">
             <div class="insta-grid" id="instaGridContainer">
-                <!-- Dynamically rendered via JS to keep code clean and manageable -->
+                <!-- Dynamically populated or rendered via HTML items (Total 10 items) -->
             </div>
-        </section>
+        </div>
 
         <div class="content-switch-section">
             <button id="booksTabBtn" class="switch-tab-btn active" onclick="switchTab('books')">Published Books</button>
@@ -1073,7 +1080,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">Courtroom 302 The Final Verdict</h3>
-                            <p class="portrait-desc">कानून की किताबें, न्याय की तराजू और काले कोट पहने वकीलों की फौज—यह सब उस व्यवस्था की नुमाइंदगी करते हैं जिसके सहारे समाज में न्याय की उम्मीद जिंदा रहती है। लेकिन क्या हर बार अदालत के फैसले ही असली इंसाफ होते हैं? क्या कानून की परिधि में रहकर हर उस शख्स को सजा मिल जाती है जिसके हाथों में बेकसूरों का खून लगा होता है?</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">कानून की किताबें, न्याय की तराजू और काले कोट पहने वकीलों की फौज—यह सब उस व्यवस्था की नुमाइंदगी करते हैं जिसके सहारे समाज में न्याय की उम्मीद जिंदा रहती है। लेकिन क्या हर बार अदालत के फैसले ही असली इंसाफ होते हैं?</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(0)">
@@ -1091,7 +1098,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">Courtroom 302</h3>
-                            <p class="portrait-desc">यह कहानी मेरे लिए सिर्फ एक क्राइम स्टोरी नहीं, बल्कि एक नया अनुभव है। यह मेरी पहली ऐसी कोशिश है, जिसमें मैंने अपराध, कानून और इंसानी सोच के बीच की जटिलताओं को समझने और लिखने का प्रयास किया है।</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">यह कहानी मेरे लिए सिर्फ एक क्राइम स्टोरी नहीं, बल्कि एक नया अनुभव है। यह मेरी पहली ऐसी कोशिश है, जिसमें मैंने अपराध, कानून और इंसानी सोच के बीच की जटिलताओं को समझने का प्रयास किया है।</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2026/03/courtroom-302.html?m=1" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(1)">
@@ -1109,7 +1116,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">THINK LIKE A THINKER</h3>
-                            <p class="portrait-desc">Every human life is shaped by one invisible force—thought. Before action, there is intention. Before achievement, there is belief. Before transformation, there is a shift in perception. The direction of your life is not determined solely by circumstances, opportunities, or external conditions; it is determined by the quality of your thinking.</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">Every human life is shaped by one invisible force—thought. Before action, there is intention. Before achievement, there is belief. Before transformation, there is a shift in perception.</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2026/03/think-like-thinker.html" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(2)">
@@ -1127,7 +1134,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">Vardi Ke Uspaar</h3>
-                            <p class="portrait-desc">यह किताब किसी युद्ध की कहानी नहीं है, यह उस जीवन की कथा है जो युद्ध और शांति के बीच लगातार साँस लेता है। यह उन लोगों की दास्तान है जिनके लिए ताली और प्रशंसा कभी लक्ष्य नहीं रहीं, जिनके लिए कर्तव्य ही पहचान रहा है। वर्दी यहाँ कपड़ा नहीं, एक प्रतिज्ञा है—जिसे ओढ़ने के बाद जीवन का हर निर्णय देश के नाम हो जाता है।</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">यह किताब किसी युद्ध की कहानी नहीं है, यह उस जीवन की कथा है जो युद्ध और शांति के बीच लगातार साँस लेता है। यह उन लोगों की दास्तान है जिनके लिए ताली और प्रशंसा कभी लक्ष्य नहीं रहीं।</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2026/01/blog-post_15.html?m=1" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(3)">
@@ -1145,7 +1152,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">EMOTION EK HAWA KI TARAH</h3>
-                            <p class="portrait-desc">Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust. This book is built on that simple truth. It does not promise answers or quick fixes. Instead it listens — to the hush of loss, the soft laughter of healing, the storm of disbelief, and the gentle presence of love.</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust. This book is built on that simple truth.</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2025/12/emotion-ek-hawa-ki-tarah-science-of.html?m=1" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(4)">
@@ -1163,7 +1170,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">Two Lives One Person</h3>
-                            <p class="portrait-desc">In today’s fast-paced world, most of us wear multiple hats—some visible to others, some known only to ourselves. By day, we are professionals, measured by performance, productivity, and precision. By night—or in stolen moments—we are individuals with emotions, relationships, passions, and needs that cannot be quantified.</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">In today’s fast-paced world, most of us wear multiple hats—some visible to others, some known only to ourselves. By day, we are professionals, measured by performance.</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2026/01/two-lives-one-person_9.html?m=1" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(5)">
@@ -1181,7 +1188,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">The Taste of Struggle</h3>
-                            <p class="portrait-desc">Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions. This book is not about extraordinary talent or overnight success. It is about ordinary people carrying invisible weight—and choosing not to give up.</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions. This book is not about extraordinary talent or overnight success.</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2025/12/the-taste-of-struggle-story-of-struggle.html?m=1" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(6)">
@@ -1199,7 +1206,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">त्रिलोकनाथ शंभू</h3>
-                            <p class="portrait-desc">यह पुस्तक किसी सिद्धांत को स्थापित करने के लिए नहीं लिखी गई है, न ही किसी निष्कर्ष पर पहुँचने के आग्रह से। यह एक यात्रा का दस्तावेज़ है—एक ऐसी यात्रा, जो शब्दों से शुरू होकर मौन में समाप्त होती है। “त्रिलोकनाथ शंभू: समय से परे एक सत्य” मेरे लिए लेखन नहीं, स्मरण रहा है।</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">यह पुस्तक किसी सिद्धांत को स्थापित करने के लिए नहीं लिखी गई है, न ही किसी निष्कर्ष पर पहुँचने के आग्रह से। यह एक यात्रा का दस्तावेज़ है—एक ऐसी यात्रा, जो शब्दों से शुरू होती है।</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2025/12/blog-post.html?m=1" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(7)">
@@ -1217,7 +1224,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">The Child Who Wasn’t Mine</h3>
-                            <p class="portrait-desc">Life often presents us with moments we cannot plan, people we do not expect, and responsibilities that arrive silently, without warning. The Child Who Wasn’t Mine is one such story—a story about love that transcends bloodlines, about devotion that defies societal expectations.</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">Life often presents us with moments we cannot plan, people we do not expect, and responsibilities that arrive silently, without warning.</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2025/12/the-child-who-wasnt-mine_27.html?m=1" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(8)">
@@ -1235,7 +1242,7 @@
                         </div>
                         <div class="portrait-content">
                             <h3 class="portrait-heading">बीते कल की कीमत</h3>
-                            <p class="portrait-desc">हम ज़िंदगी को अक्सर आगे की तरफ़ देखते हुए जीते हैं—अगले दिन, अगले साल, अगले लक्ष्य की तरफ़। लेकिन सच यह है कि हमारे कदम जितने आगे बढ़ते हैं, हमारी यादें उतनी ही पीछे खींचती हैं। और इन्हीं यादों के बीच कहीं हम यह समझने लगते हैं।</p>
+                            <p class="portrait-desc" onclick="this.classList.toggle('expanded')">हम ज़िंदगी को अक्सर आगे की तरफ़ देखते हुए जीते हैं—अगले दिन, अगले साल, अगले लक्ष्य की तरफ़। लेकिन सच यह है कि हमारे कदम जितने आगे बढ़ते हैं।</p>
                             <div class="book-actions-bar">
                                 <a href="https://www.maniebook.online/2025/12/blog-post_20.html?m=1" class="read-book-btn">Read Book</a>
                                 <div class="like-action-container" onclick="toggleBookLike(9)">
@@ -1355,32 +1362,25 @@
 
                 </div>
             </div>
-
         </div>
+    </div>
+    <!-- END HOMEPAGE WRAPPER -->
 
-    </div> <!-- End of #mainSiteWrapper -->
-
-    <!-- Single Post Isolated View Container (Hidden by Default) -->
-    <div id="singlePostViewContainer">
-        <div class="single-post-box">
-            <div class="single-post-img-wrapper">
-                <img id="spvImage" src="" alt="Post Image">
-            </div>
-            <div class="single-post-details">
-                <h2 class="single-post-title" id="spvTitle"></h2>
-                <div class="single-post-date" id="spvDate"></div>
-                <div class="single-post-content" id="spvContent"></div>
-                <span class="read-more-text-btn" id="spvReadMoreBtn" onclick="toggleSpvContent()">... Read More</span>
-                
-                <div class="single-post-like-row">
-                    <div class="like-action-container" id="spvLikeContainer" onclick="toggleSpvLike()">
-                        <i class="fa-solid fa-thumbs-up"></i>
-                        <span class="like-count-text" id="spvLikeCount">0</span>
-                    </div>
+    <!-- SINGLE POST VIEW SECTION (Appears standalone when View Post is clicked) -->
+    <div id="single-post-view">
+        <div class="single-post-card">
+            <img id="spImage" src="" alt="Post Image" class="single-post-img">
+            <h2 id="spTitle" class="single-post-title"></h2>
+            <span id="spDate" class="single-post-date"></span>
+            <p id="spContent" class="single-post-content"></p>
+            <div class="single-post-footer">
+                <div class="like-action-container" id="spLikeContainer" onclick="toggleSinglePostLike()">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <span class="like-count-text" id="spLikeCount">0</span>
                 </div>
+                <button class="back-to-home-btn" onclick="showHomepage()">Back to Homepage</button>
             </div>
         </div>
-        <a href="javascript:void(0);" class="back-to-home-btn" onclick="goBackToHomepage()"><i class="fa-solid fa-arrow-left"></i> Back to Homepage</a>
     </div>
 
     <!-- Interactive Chat Popup Modal -->
@@ -1441,7 +1441,168 @@
                 osc.start();
                 osc.stop(audioCtx.currentTime + 0.08);
             } catch (e) {
-                // Fallback silently if audio context is restricted by browser policy
+                // Fallback silently if audio context is restricted
+            }
+        }
+
+        // ==========================================
+        // CONFIGURABLE INSTAGRAM POST DATA (10 Posts)
+        // Aap yahan values change kar sakte hain (Likes, Title, Content, Date, Images)
+        // ==========================================
+        const instaPostsData = [
+            {
+                id: 0,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFM0HidE-LVJmERpe8__VMimxk9GpOYUYGRrD3sLr1yD1HnVGqCJ1yQI22cuo5DaLqA-GiVWk3uuggBr7KyUXmshSJ0SjRL6nwgZEvIP9KzYtsojTTV4HatGJBohFwK0LWoeIkajvEH8VW7EQCr2jf8gzWSZyEj1IWwtwEOXWlyHI8LYm4e-BGq5X-U8ib/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+                title: "Courtroom 302 The Final Verdict",
+                date: "August 2026",
+                content: "कानून की किताबें, न्याय की तराजू और काले कोट पहने वकीलों की फौज—यह सब उस व्यवस्था की नुमाइंदगी करते हैं जिसके सहारे समाज में न्याय की उम्मीद जिंदा रहती है। लेकिन क्या हर बार अदालत के फैसले ही असली इंसाफ होते हैं?",
+                likes: "34K"
+            },
+            {
+                id: 1,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+                title: "Courtroom 302",
+                date: "March 2026",
+                content: "यह कहानी मेरे लिए सिर्फ एक क्राइम स्टोरी नहीं, बल्कि एक नया अनुभव है। यह मेरी पहली ऐसी कोशिश है, जिसमें मैंने अपराध, कानून और इंसानी सोच के बीच की जटिलताओं को समझने का प्रयास किया है।",
+                likes: "45K"
+            },
+            {
+                id: 2,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbTG4o4HaUFd4Rh9sXMCHTYKKhvY4exlxqoevvRiVYJmZti7q_ChsrF40jganvZ_TLAlMqXenulioO4HwMlhM3iF1ZrPBXNfv-vgAwI2rZCNJNrYoL9tvLe8NeAe5Fj9VpjF4Nu8glkAeWnIExNk2C6rVkiVd0yZwHApFmBJZ6uM4uGdwIr2-ZqKb2brZP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
+                title: "THINK LIKE A THINKER",
+                date: "March 2026",
+                content: "Every human life is shaped by one invisible force—thought. Before action, there is intention. Before achievement, there is belief. Before transformation, there is a shift in perception.",
+                likes: "767K"
+            },
+            {
+                id: 3,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNClR3ODYJRzVNmjVfRONyB9eW5KusWWjUuupfIV_O2K_00ZpYnJpzU5EoGV8aIS6WcBaQfEI4ZMOm4ztNntD2y70LJBWxqXSDtJimIYVGGCtNjAlPqVTTovfGJeqkE6USLf3HIv1H32IVpA0lOqsuta_8bh4NZV6a5ZHrxp3D1_-8s-iZr0h_4GK3hJQr/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%205.jpeg",
+                title: "Vardi Ke Uspaar",
+                date: "January 2026",
+                content: "यह किताब किसी युद्ध की कहानी नहीं है, यह उस जीवन की कथा है जो युद्ध और शांति के बीच लगातार साँस लेता है। यह उन लोगों की दास्तान है जिनके लिए ताली और प्रशंसा कभी लक्ष्य नहीं रहीं।",
+                likes: "52K"
+            },
+            {
+                id: 4,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuKb9WGwm3BOHt2qDZSEyD_Z3InCBKsPndBbuoUV1xjksZFxp18_XHrGKDXBbUFBWXX8ttKeyC9y2Ovk32nDz2b_MQfv9Gn4rvdk-k-AVC_elGAiTvKCl2mWdDGiR90S_GuYs9uK99OOH5z3-tjPKZNXY_NUji2ewIb5QLLydCG-lgVzrvpc8fTXfyQrZV/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%201.jpeg",
+                title: "EMOTION EK HAWA KI TARAH",
+                date: "December 2025",
+                content: "Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust. This book is built on that simple truth.",
+                likes: "18K"
+            },
+            {
+                id: 5,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAdwVanqCKjxoSSTIiHpn1kcJm5f58N4maIpq35VZppyHlncwjBCMLjsamQrl0TTyBEk2XzLTR180dAdvnowbFPCYEjd2DSwvKnP6Eq5o1hofkaTOVTiatNOD6hgwzE1IX9Z_4v_5irVjTG9JY1snT764baXGtoLo-pok14rM8cEESA98nAtzZNUhjPhsR/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%209.jpeg",
+                title: "Two Lives One Person",
+                date: "January 2026",
+                content: "In today’s fast-paced world, most of us wear multiple hats—some visible to others, some known only to ourselves. By day, we are professionals, measured by performance.",
+                likes: "29K"
+            },
+            {
+                id: 6,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNvVaOKeBpgiCg2bKPRwEekpNMeJmIQJehjAHdJsHK94TH1PbJ2bx3zrBns0G0V6RZidO2q18hrRSAgcDAC2DiSOM5KeDCQIwsPj3BhqBgZS5Bu2BpZ1H8V6agRmbTrBf7FiTqyU2iIqhZZoZXNlecAf7AqhlTZSS-xCx06Q_al-s-RjB8ww1DoxL5pTIB/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2013.jpeg",
+                title: "The Taste of Struggle",
+                date: "December 2025",
+                content: "Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions. This book is not about extraordinary talent or overnight success.",
+                likes: "41K"
+            },
+            {
+                id: 7,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWgMU8myn9LbMfqjRvAIbQb-IjTc0NoESeYsRw7GrcDF5RmdBQv_6dBzhtgCcmkReOe-XS34qr9Wl-o3V0D8rtdmI8ryXLY5JD7_TcGbNnr8YVdAZIlPIP6f8m_1MEllgaS6dyeGLatvJyCU9pxaZ7V83aPDk0dllYQfBxrVSidUIxQ1ZfZnJfg9447mbe/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2015.jpeg",
+                title: "त्रिलोकनाथ शंभू",
+                date: "December 2025",
+                content: "यह पुस्तक किसी सिद्धांत को स्थापित करने के लिए नहीं लिखी गई है, न ही किसी निष्कर्ष पर पहुँचने के आग्रह से। यह एक यात्रा का दस्तावेज़ है—एक ऐसी यात्रा, जो शब्दों से शुरू होती है।",
+                likes: "95K"
+            },
+            {
+                id: 8,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht8BwvoHsfW6sJ21SXY9P7x3hjYDUtI_b1Tv-_TFMZe4ZZS5WUmVVQ1rlb954QDkMLDP_BXKJ1OSdu8M9RtsdlQg-mwS5v7W4xTnHKYsrWiaxMhbT5k6AeoMyKup6KUjTR0tLjZyOoT4793ibQrloVW2Psi8xw6KLwkMOlZBfDvkF1YibfBPMfT5CoykjU/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2011.jpeg",
+                title: "The Child Who Wasn’t Mine",
+                date: "December 2025",
+                content: "Life often presents us with moments we cannot plan, people we do not expect, and responsibilities that arrive silently, without warning.",
+                likes: "63K"
+            },
+            {
+                id: 9,
+                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh_cIH65hMi_Pwm5gt2pmcgn2lFzPjsbiAC0t3QaLGikzUwcVeUd0Jqqob4hyphenhyphen6hi1GNMZCFudhYsyD7WaMmG5NzukDMvMIXYMeiKF33_ovVGIodPpd9j_YXMcCzoqYzyPBF1KZtrpqgrr3vcqypKAZfCkejP6htarY2LTh4FruzvyaZlRDq72rhyphenhyphenT3nbrf/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2014.jpeg",
+                title: "बीते कल की कीमत",
+                date: "December 2025",
+                content: "हम ज़िंदगी को अक्सर आगे की तरफ़ देखते हुए जीते हैं—अगले दिन, अगले साल, अगले लक्ष्य की तरफ़। लेकिन सच यह है कि हमारे कदम जितने आगे बढ़ते हैं।",
+                likes: "22K"
+            }
+        ];
+
+        let currentActivePostId = null;
+
+        // Render Instagram Post Grid dynamically
+        function renderInstaPosts() {
+            const gridContainer = document.getElementById('instaGridContainer');
+            gridContainer.innerHTML = '';
+
+            instaPostsData.forEach(post => {
+                const card = document.createElement('div');
+                card.className = 'insta-card';
+                card.innerHTML = `
+                    <div class="insta-img-box">
+                        <img src="${post.image}" alt="${post.title}">
+                    </div>
+                    <div class="insta-btn-box">
+                        <button class="view-post-btn" onclick="openSinglePost(${post.id})">View Post</button>
+                    </div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        // Open Single Post View (Hides everything else and shows post details)
+        function openSinglePost(postId) {
+            playFacebookSound();
+            currentActivePostId = postId;
+            const post = instaPostsData.find(p => p.id === postId);
+            if (!post) return;
+
+            document.getElementById('spImage').src = post.image;
+            document.getElementById('spTitle').textContent = post.title;
+            document.getElementById('spDate').textContent = post.date;
+            document.getElementById('spContent').textContent = post.content;
+            document.getElementById('spLikeCount').textContent = post.likes;
+
+            // Check like state from localStorage
+            const isLiked = localStorage.getItem(`insta_post_liked_${postId}`) === 'true';
+            const likeContainer = document.getElementById('spLikeContainer');
+            if (isLiked) {
+                likeContainer.classList.add('liked');
+            } else {
+                likeContainer.classList.remove('liked');
+            }
+
+            // Hide homepage wrapper and show single post view
+            document.getElementById('homepage-main-wrapper').style.display = 'none';
+            document.getElementById('single-post-view').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show Homepage back again
+        function showHomepage() {
+            playFacebookSound();
+            document.getElementById('single-post-view').style.display = 'none';
+            document.getElementById('homepage-main-wrapper').style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Toggle Like for Single Post View with permanent persistent state
+        function toggleSinglePostLike() {
+            if (currentActivePostId === null) return;
+            playFacebookSound();
+            const isLiked = localStorage.getItem(`insta_post_liked_${currentActivePostId}`) === 'true';
+            const likeContainer = document.getElementById('spLikeContainer');
+
+            if (!isLiked) {
+                localStorage.setItem(`insta_post_liked_${currentActivePostId}`, 'true');
+                likeContainer.classList.add('liked');
+            } else {
+                localStorage.setItem(`insta_post_liked_${currentActivePostId}`, 'false');
+                likeContainer.classList.remove('liked');
             }
         }
 
@@ -1466,187 +1627,6 @@
         }
 
         // ==========================================
-        // INSTAGRAM POSTS CONFIGURATION & DATA (10 Portrait Images)
-        // Yahan aap khud apne hisab se posts ki images, titles, dates, content aur likes change kar sakte hain!
-        // ==========================================
-        const instaPostsData = [
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFM0HidE-LVJmERpe8__VMimxk9GpOYUYGRrD3sLr1yD1HnVGqCJ1yQI22cuo5DaLqA-GiVWk3uuggBr7KyUXmshSJ0SjRL6nwgZEvIP9KzYtsojTTV4HatGJBohFwK0LWoeIkajvEH8VW7EQCr2jf8gzWSZyEj1IWwtwEOXWlyHI8LYm4e-BGq5X-U8ib/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
-                title: "Courtroom 302 The Final Verdict",
-                date: "August 24, 2026",
-                content: "कानून की किताबें, न्याय की तराजू और काले कोट पहने वकीलों की फौज—यह सब उस व्यवस्था की नुमाइंदगी करते हैं जिसके सहारे समाज में न्याय की उम्मीद जिंदा रहती है। लेकिन क्या हर बार अदालत के फैसले ही असली इंसाफ होते हैं? क्या कानून की परिधि में रहकर हर उस शख्स को सजा मिल जाती है जिसके हाथों में बेकसूरों का खून लगा होता है? यह कहानी इसी पेचीदगी को बेनकाब करती है।",
-                likes: "34K"
-            },
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
-                title: "Courtroom 302",
-                date: "March 12, 2026",
-                content: "यह कहानी मेरे लिए सिर्फ एक क्राइम स्टोरी नहीं, बल्कि एक नया अनुभव है। यह मेरी पहली ऐसी कोशिश है, जिसमें मैंने अपराध, कानून और इंसानी सोच के बीच की जटिलताओं को समझने और लिखने का प्रयास किया है। पात्रों के बीच का मानसिक संघर्ष पाठकों को अंदर तक झकझोर कर रख देता है।",
-                likes: "45K"
-            },
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbTG4o4HaUFd4Rh9sXMCHTYKKhvY4exlxqoevvRiVYJmZti7q_ChsrF40jganvZ_TLAlMqXenulioO4HwMlhM3iF1ZrPBXNfv-vgAwI2rZCNJNrYoL9tvLe8NeAe5Fj9VpjF4Nu8glkAeWnIExNk2C6rVkiVd0yZwHApFmBJZ6uM4uGdwIr2-ZqKb2brZP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg",
-                title: "THINK LIKE A THINKER",
-                date: "March 05, 2026",
-                content: "Every human life is shaped by one invisible force—thought. Before action, there is intention. Before achievement, there is belief. Before transformation, there is a shift in perception. The direction of your life is not determined solely by circumstances, opportunities, or external conditions; it is determined by the quality of your thinking.",
-                likes: "767K"
-            },
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNClR3ODYJRzVNmjVfRONyB9eW5KusWWjUuupfIV_O2K_00ZpYnJpzU5EoGV8aIS6WcBaQfEI4ZMOm4ztNntD2y70LJBWxqXSDtJimIYVGGCtNjAlPqVTTovfGJeqkE6USLf3HIv1H32IVpA0lOqsuta_8bh4NZV6a5ZHrxp3D1_-8s-iZr0h_4GK3hJQr/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%205.jpeg",
-                title: "Vardi Ke Uspaar",
-                date: "January 15, 2026",
-                content: "यह किताब किसी युद्ध की कहानी नहीं है, यह उस जीवन की कथा है जो युद्ध और शांति के बीच लगातार साँस लेता है। यह उन लोगों की दास्तान है जिनके लिए ताली और प्रशंसा कभी लक्ष्य नहीं रहीं, जिनके लिए कर्तव्य ही पहचान रहा है। वर्दी यहाँ कपड़ा नहीं, एक प्रतिज्ञा है—जिसे ओढ़ने के बाद जीवन का हर निर्णय देश के नाम हो जाता है।",
-                likes: "52K"
-            },
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuKb9WGwm3BOHt2qDZSEyD_Z3InCBKsPndBbuoUV1xjksZFxp18_XHrGKDXBbUFBWXX8ttKeyC9y2Ovk32nDz2b_MQfv9Gn4rvdk-k-AVC_elGAiTvKCl2mWdDGiR90S_GuYs9uK99OOH5z3-tjPKZNXY_NUji2ewIb5QLLydCG-lgVzrvpc8fTXfyQrZV/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%201.jpeg",
-                title: "EMOTION EK HAWA KI TARAH",
-                date: "December 28, 2025",
-                content: "Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust. This book is built on that simple truth. It does not promise answers or quick fixes. Instead it listens — to the hush of loss, the soft laughter of healing, the storm of disbelief, and the gentle presence of love.",
-                likes: "88K"
-            },
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAdwVanqCKjxoSSTIiHpn1kcJm5f58N4maIpq35VZppyHlncwjBCMLjsamQrl0TTyBEk2XzLTR180dAdvnowbFPCYEjd2DSwvKnP6Eq5o1hofkaTOVTiatNOD6hgwzE1IX9Z_4v_5irVjTG9JY1snT764baXGtoLo-pok14rM8cEESA98nAtzZNUhjPhsR/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%209.jpeg",
-                title: "Two Lives One Person",
-                date: "January 09, 2026",
-                content: "In today’s fast-paced world, most of us wear multiple hats—some visible to others, some known only to ourselves. By day, we are professionals, measured by performance, productivity, and precision. By night—or in stolen moments—we are individuals with emotions, relationships, passions, and needs that cannot be quantified.",
-                likes: "41K"
-            },
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNvVaOKeBpgiCg2bKPRwEekpNMeJmIQJehjAHdJsHK94TH1PbJ2bx3zrBns0G0V6RZidO2q18hrRSAgcDAC2DiSOM5KeDCQIwsPj3BhqBgZS5Bu2BpZ1H8V6agRmbTrBf7FiTqyU2iIqhZZoZXNlecAf7AqhlTZSS-xCx06Q_al-s-RjB8ww1DoxL5pTIB/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2013.jpeg",
-                title: "The Taste of Struggle",
-                date: "December 20, 2025",
-                content: "Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions. This book is not about extraordinary talent or overnight success. It is about ordinary people carrying invisible weight—and choosing not to give up when all doors seem closed.",
-                likes: "19K"
-            },
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjWgMU8myn9LbMfqjRvAIbQb-IjTc0NoESeYsRw7GrcDF5RmdBQv_6dBzhtgCcmkReOe-XS34qr9Wl-o3V0D8rtdmI8ryXLY5JD7_TcGbNnr8YVdAZIlPIP6f8m_1MEllgaS6dyeGLatvJyCU9pxaZ7V83aPDk0dllYQfBxrVSidUIxQ1ZfZnJfg9447mbe/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2015.jpeg",
-                title: "त्रिलोकनाथ शंभू",
-                date: "December 15, 2025",
-                content: "यह पुस्तक किसी सिद्धांत को स्थापित करने के लिए नहीं लिखी गई है, न ही किसी निष्कर्ष पर पहुँचने के आग्रह से। यह एक यात्रा का दस्तावेज़ है—एक ऐसी यात्रा, जो शब्दों से शुरू होकर मौन में समाप्त होती है। “त्रिलोकनाथ शंभू: समय से परे एक सत्य” मेरे लिए लेखन नहीं, स्मरण रहा है।",
-                likes: "63K"
-            },
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEht8BwvoHsfW6sJ21SXY9P7x3hjYDUtI_b1Tv-_TFMZe4ZZS5WUmVVQ1rlb954QDkMLDP_BXKJ1OSdu8M9RtsdlQg-mwS5v7W4xTnHKYsrWiaxMhbT5k6AeoMyKup6KUjTR0tLjZyOoT4793ibQrloVW2Psi8xw6KLwkMOlZBfDvkF1YibfBPMfT5CoykjU/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2011.jpeg",
-                title: "The Child Who Wasn’t Mine",
-                date: "December 27, 2025",
-                content: "Life often presents us with moments we cannot plan, people we do not expect, and responsibilities that arrive silently, without warning. The Child Who Wasn’t Mine is one such story—a story about love that transcends bloodlines, about devotion that defies societal expectations.",
-                likes: "29K"
-            },
-            {
-                image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgh_cIH65hMi_Pwm5gt2pmcgn2lFzPjsbiAC0t3QaLGikzUwcVeUd0Jqqob4hyphenhyphen6hi1GNMZCFudhYsyD7WaMmG5NzukDMvMIXYMeiKF33_ovVGIodPpd9j_YXMcCzoqYzyPBF1KZtrpqgrr3vcqypKAZfCkejP6htarY2LTh4FruzvyaZlRDq72rhyphenhyphenT3nbrf/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2014.jpeg",
-                title: "बीते कल की कीमत",
-                date: "December 20, 2025",
-                content: "हम ज़िंदगी को अक्सर आगे की तरफ़ देखते हुए जीते हैं—अगले दिन, अगले साल, अगले लक्ष्य की तरफ़। लेकिन सच यह है कि हमारे कदम जितने आगे बढ़ते हैं, हमारी यादें उतनी ही पीछे खींचती हैं। और इन्हीं यादों के बीच कहीं हम यह समझने लगते हैं कि बीते कल की कीमत क्या होती है।",
-                likes: "50K"
-            }
-        ];
-
-        let activePostIndex = null;
-
-        // Render Instagram Post Grid dynamically on Homepage
-        function renderInstaGrid() {
-            const gridContainer = document.getElementById('instaGridContainer');
-            gridContainer.innerHTML = '';
-
-            instaPostsData.forEach((post, index) => {
-                const card = document.createElement('div');
-                card.className = 'insta-card';
-                card.onclick = () => openSinglePostView(index);
-
-                card.innerHTML = `
-                    <div class="insta-img-box">
-                        <img src="${post.image}" alt="Post Image">
-                    </div>
-                    <div class="insta-card-footer">
-                        <button class="view-post-btn">View Post</button>
-                    </div>
-                `;
-                gridContainer.appendChild(card);
-            });
-        }
-
-        // Open Single Post View (Hides everything else and shows only post details, persistent like status)
-        function openSinglePostView(index) {
-            playFacebookSound();
-            activePostIndex = index;
-            const post = instaPostsData[index];
-
-            // Hide main homepage contents
-            document.getElementById('mainSiteWrapper').style.display = 'none';
-
-            // Show single post view container
-            const spvContainer = document.getElementById('singlePostViewContainer');
-            spvContainer.style.display = 'block';
-
-            // Populate data
-            document.getElementById('spvImage').src = post.image;
-            document.getElementById('spvTitle').textContent = post.title;
-            document.getElementById('spvDate').textContent = post.date;
-            
-            const contentEl = document.getElementById('spvContent');
-            const readMoreBtn = document.getElementById('spvReadMoreBtn');
-            contentEl.textContent = post.content;
-            contentEl.classList.remove('expanded');
-            readMoreBtn.textContent = '... Read More';
-            readMoreBtn.style.display = 'inline-block';
-
-            // Check like state from localStorage
-            const isLiked = localStorage.getItem(`insta_post_liked_${index}`) === 'true';
-            const likeContainer = document.getElementById('spvLikeContainer');
-            const likeCountEl = document.getElementById('spvLikeCount');
-
-            likeCountEl.textContent = post.likes;
-            if (isLiked) {
-                likeContainer.classList.add('liked');
-            } else {
-                likeContainer.classList.remove('liked');
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // Toggle Expand/Collapse Content in Single Post View
-        function toggleSpvContent() {
-            const contentEl = document.getElementById('spvContent');
-            const readMoreBtn = document.getElementById('spvReadMoreBtn');
-            
-            if (contentEl.classList.contains('expanded')) {
-                contentEl.classList.remove('expanded');
-                readMoreBtn.textContent = '... Read More';
-            } else {
-                contentEl.classList.add('expanded');
-                readMoreBtn.textContent = 'Show Less';
-            }
-        }
-
-        // Toggle Like for Single Post View (Permanent state on refresh/tab close)
-        function toggleSpvLike() {
-            if (activePostIndex === null) return;
-            playFacebookSound();
-
-            const isLiked = localStorage.getItem(`insta_post_liked_${activePostIndex}`) === 'true';
-            const likeContainer = document.getElementById('spvLikeContainer');
-
-            if (!isLiked) {
-                localStorage.setItem(`insta_post_liked_${activePostIndex}`, 'true');
-                likeContainer.classList.add('liked');
-            } else {
-                localStorage.setItem(`insta_post_liked_${activePostIndex}`, 'false');
-                likeContainer.classList.remove('liked');
-            }
-        }
-
-        // Back to Homepage Button Action
-        function goBackToHomepage() {
-            playFacebookSound();
-            document.getElementById('singlePostViewContainer').style.display = 'none';
-            document.getElementById('mainSiteWrapper').style.display = 'block';
-            activePostIndex = null;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        // ==========================================
         // CONFIGURABLE LIKE COUNTS FOR BOOKS
         // ==========================================
         const initialLikes = ["40K", "125K", "12K", "24K", "22K", "5K", "9K", "110K", "41K", "18K"];
@@ -1654,7 +1634,7 @@
         function initBookLikes() {
             for (let i = 0; i < 10; i++) {
                 const isLiked = localStorage.getItem(`book_liked_${i}`) === 'true';
-                const container = document.querySelectorAll('.gallery-container .like-action-container')[i];
+                const container = document.querySelectorAll('.like-action-container')[i];
                 const countText = document.getElementById(`likeCount${i}`);
                 
                 if (countText) {
@@ -1674,14 +1654,14 @@
         function toggleBookLike(index) {
             playFacebookSound();
             const isLiked = localStorage.getItem(`book_liked_${index}`) === 'true';
-            const container = document.querySelectorAll('.gallery-container .like-action-container')[index];
+            const container = document.querySelectorAll('.like-action-container')[index];
             
             if (!isLiked) {
                 localStorage.setItem(`book_liked_${index}`, 'true');
-                if (container) container.classList.add('liked');
+                container.classList.add('liked');
             } else {
                 localStorage.setItem(`book_liked_${index}`, 'false');
-                if (container) container.classList.remove('liked');
+                container.classList.remove('liked');
             }
         }
 
@@ -1721,7 +1701,7 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            renderInstaGrid();
+            renderInstaPosts();
             checkFollowState();
             initBookLikes();
             loadPersistentChatHistory();
@@ -1742,8 +1722,8 @@
             const modal = document.getElementById('chat-modal');
             const messageBtn = document.querySelector('.message-btn');
             
-            if (modal.style.display === 'flex') {
-                if (!modal.contains(event.target) && !messageBtn.contains(event.target)) {
+            if (modal && modal.style.display === 'flex') {
+                if (!modal.contains(event.target) && messageBtn && !messageBtn.contains(event.target)) {
                     closeChatModal();
                 }
             }
@@ -1762,6 +1742,7 @@
         function loadPersistentChatHistory() {
             const savedHistory = localStorage.getItem('mani_chat_history');
             const chatBody = document.getElementById('chatBody');
+            if (!chatBody) return;
             if (savedHistory !== null) {
                 chatBody.innerHTML = savedHistory;
             } else {
