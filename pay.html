@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DEPENDS ARTNOO TICHIL</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Mobile App Frame Container (Secure 3D Look) */
+        .app-frame {
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            max-height: 850px;
+            background: #ffffff;
+            color: #1e293b;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 0 10px #1e293b;
+            border-radius: 30px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media(max-width: 480px) {
+            .app-frame {
+                max-height: 100vh;
+                border-radius: 0;
+                box-shadow: none;
+            }
+        }
+
+        /* 1. Preloader Animation (Exact 2 Seconds + Full Screen) */
+        #preloader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.6s ease;
+        }
+
+        .loader-3d-cube {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            animation: spin3D 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) infinite;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+        }
+
+        .preloader-text {
+            margin-top: 20px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #38bdf8;
+            letter-spacing: 1px;
+        }
+
+        @keyframes spin3D {
+            0% { transform: rotate(0deg) scale(1); }
+            50% { transform: rotate(180deg) scale(1.1); }
+            100% { transform: rotate(360deg) scale(1); }
+        }
+
+        /* Scrollable Content Area */
+        .content-scroll-area {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding-bottom: 70px;
+        }
+
+        .content-scroll-area::-webkit-scrollbar {
+            width: 4px;
+        }
+        .content-scroll-area::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        /* 2. Header Image (Full width corner-to-corner, 300px height) */
+        .header-img-container {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .header-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1.02);
+            transition: transform 0.5s ease;
+        }
+
+        /* 3. Heading */
+        .main-heading {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 800;
+            color: #0f172a;
+            margin: 18px 15px 8px 15px;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+        }
+
+        /* 4. Sub-header with Custom Round Image */
+        .sub-header-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+            padding: 0 15px;
+        }
+
+        .custom-bank-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 1.5px solid #10b981;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .sub-header-info span {
+            font-size: 13px;
+            font-weight: 700;
+            color: #475569;
+            letter-spacing: 0.5px;
+        }
+
+        /* 5. Three Columns 3D Boxes */
+        .columns-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 0 16px;
+            margin-bottom: 25px;
+        }
+
+        .column-box {
+            flex: 1;
+            background: linear-gradient(145deg, #ffffff, #f1f5f9);
+            border: 1px solid #e2e8f0;
+            border-radius: 14px;
+            padding: 16px 8px;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 6px 15px -3px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .column-box:active {
+            transform: translateY(3px);
+        }
+
+        .column-box i {
+            font-size: 22px;
+            color: #10b981;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .column-box span {
+            font-size: 11px;
+            font-weight: 700;
+            color: #334155;
+            display: block;
+        }
+
+        /* Views Management */
+        .view-section {
+            display: none;
+            padding: 20px 16px;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .active-view {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Debit Card 3D Flip View */
+        .card-view-container {
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .card-scene {
+            width: 100%;
+            max-width: 330px;
+            height: 200px;
+            margin: 20px auto;
+            perspective: 1200px;
+            cursor: pointer;
+        }
+
+        .card-object {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.25);
+            border-radius: 16px;
+        }
+
+        .card-object.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .card-front {
+            background: linear-gradient(135deg, #0f172a, #1e3a8a, #3b82f6);
+            color: #fff;
+            padding: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            text-align: left;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #fff;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .magnetic-strip {
+            width: 100%;
+            height: 38px;
+            background: #000;
+            margin-bottom: 15px;
+        }
+
+        .signature-cvv-box {
+            padding: 0 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .signature-strip {
+            background: #e2e8f0;
+            color: #0f172a;
+            padding: 4px 12px;
+            font-style: italic;
+            font-size: 11px;
+            width: 72%;
+            border-radius: 3px;
+        }
+
+        .cvv-badge {
+            background: #ffffff;
+            color: #0f172a;
+            padding: 4px 8px;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .back-btn-common {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 11px 24px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+        }
+
+        /* PIN Input Box */
+        .pin-container {
+            max-width: 320px;
+            margin: 30px auto;
+            text-align: center;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 1px solid #f1f5f9;
+        }
+
+        .pin-container h3 {
+            margin-bottom: 14px;
+            font-size: 17px;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .pin-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 22px;
+            text-align: center;
+            letter-spacing: 10px;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            outline: none;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        .pin-input:focus {
+            border-color: #10b981;
+            background: #fff;
+        }
+
+        .submit-pin-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Loading View */
+        #balance-loading {
+            display: none;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .spinner-loader {
+            width: 45px;
+            height: 45px;
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Balance Result View */
+        #balance-result-view {
+            padding: 0;
+            text-align: center;
+        }
+
+        .green-header-banner {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 22px 15px;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+        }
+
+        .slider-banner-container {
+            height: 28px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin-top: 8px;
+        }
+
+        .slider-text-track {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: slideUp 6s infinite;
+        }
+
+        .slider-item {
+            height: 28px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.95;
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(0); }
+            33% { transform: translateY(-28px); }
+            66% { transform: translateY(-56px); }
+            100% { transform: translateY(0); }
+        }
+
+        .balance-display-box {
+            margin: 35px 20px;
+            padding: 24px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 1px solid #f1f5f9;
+        }
+
+        .balance-title-label {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .balance-amount {
+            font-size: 28px;
+            font-weight: 800;
+            color: #10b981;
+        }
+
+        .done-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            width: 85%;
+            padding: 13px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.35);
+            margin-bottom: 25px;
+        }
+
+        /* Fixed App Footer */
+        .app-fixed-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+        }
+
+        .footer-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            cursor: pointer;
+            color: #64748b;
+            transition: color 0.2s;
+        }
+
+        .footer-nav-item.active, .footer-nav-item:hover {
+            color: #10b981;
+        }
+
+        .footer-nav-item i {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        .footer-nav-item span {
+            font-size: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-frame">
+        
+        <!-- 1. Preloader Animation (Exact 2 Seconds) -->
+        <div id="preloader">
+            <div class="loader-3d-cube"></div>
+            <div class="preloader-text">SECURE SYSTEM LOADING...</div>
+        </div>
+
+        <!-- Scrollable Body Content -->
+        <div class="content-scroll-area">
+            
+            <!-- MAIN HOME PAGE VIEW -->
+            <div id="home-view" class="view-section active-view">
+                <!-- Header Image (Full width corner-to-corner, 300px height) -->
+                <div class="header-img-container">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" alt="Header Banner">
+                </div>
+
+                <!-- Heading -->
+                <h1 class="main-heading">DEPENDS ARTNOO TICHIL</h1>
+
+                <!-- Sub Header with Custom Round Image -->
+                <div class="sub-header-info">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=100&q=80" alt="Bank Logo" class="custom-bank-logo">
+                    <span>STATE BANK INFIAD</span>
+                </div>
+
+                <!-- Three Column Boxes -->
+                <div class="columns-wrapper">
+                    <!-- 1. Scanner Button (PhonePe/Paytm Direct App Intent) -->
+                    <div class="column-box" onclick="openPaymentApp()">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <span>Scan & Pay</span>
+                    </div>
+
+                    <!-- 2. Check Card Button -->
+                    <div class="column-box" onclick="switchView('card-view')">
+                        <i class="fa-solid fa-credit-card"></i>
+                        <span>Check Card</span>
+                    </div>
+
+                    <!-- 3. Check Balance Button -->
+                    <div class="column-box" onclick="switchView('pin-view')">
+                        <i class="fa-solid fa-wallet"></i>
+                        <span>Check Balance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEBIT CARD FLIP VIEW -->
+            <div id="card-view" class="view-section card-view-container">
+                <h3 style="margin-bottom: 6px; color: #0f172a; font-size: 16px;">Debit Card Details</h3>
+                <p style="font-size: 11px; color: #64748b; margin-bottom: 15px;">फ्लिप करने के लिए कार्ड पर क्लिक करें</p>
+                
+                <div class="card-scene" onclick="toggleCardFlip()">
+                    <div class="card-object" id="cardObject">
+                        <div class="card-face card-front">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span style="font-size: 13px; font-weight: bold;">STATE BANK INFIAD</span>
+                                <i class="fa-solid fa-sim-card" style="font-size: 26px; color: #fbbf24;"></i>
+                            </div>
+                            <div style="font-size: 17px; letter-spacing: 2.5px; font-family: monospace; margin: 10px 0;">•••• •••• •••• 4892</div>
+                            <div style="display: flex; justify-content: space-between; font-size: 11px;">
+                                <span>CARD HOLDER<br><strong>MANISH CHAUDHARY</strong></span>
+                                <span>EXP: 12/28</span>
+                            </div>
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="magnetic-strip"></div>
+                            <div class="signature-cvv-box">
+                                <div class="signature-strip">AUTHORIZED SIGNATURE</div>
+                                <div class="cvv-badge">382</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="back-btn-common" style="margin-top: 15px;" onclick="switchView('home-view')">वापस होम पेज</button>
+            </div>
+
+            <!-- CHECK BALANCE PIN INPUT VIEW -->
+            <div id="pin-view" class="view-section">
+                <div class="pin-container">
+                    <h3>Enter 6-Digit PIN</h3>
+                    <input type="password" maxlength="6" class="pin-input" id="upiPin" placeholder="••••••">
+                    <button class="submit-pin-btn" onclick="processBalanceCheck()">Submit</button>
+                    <button class="back-btn-common" style="margin-top: 12px; width: 100%; background: #64748b;" onclick="switchView('home-view')">Back</button>
+                </div>
+            </div>
+
+            <!-- BALANCE LOADING VIEW -->
+            <div id="balance-loading" class="view-section">
+                <div class="spinner-loader"></div>
+                <p style="font-size: 14px; font-weight: 600; color: #475569;">Fetching Secure Balance...</p>
+            </div>
+
+            <!-- BALANCE RESULT VIEW -->
+            <div id="balance-result-view" class="view-section">
+                <div class="green-header-banner">
+                    <h3 style="font-size: 15px; margin: 0; font-weight: 700;">Account Overview</h3>
+                    <div class="slider-banner-container">
+                        <div class="slider-text-track">
+                            <div class="slider-item">Secure Banking Protected</div>
+                            <div class="slider-item">Instant Balance Update</div>
+                            <div class="slider-item">State Bank Infiad Services</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="balance-display-box">
+                    <div class="balance-title-label">Available Balance</div>
+                    <div class="balance-amount">₹ 1,45,850.00</div>
+                </div>
+
+                <button class="done-btn" onclick="switchView('home-view')">Done</button>
+            </div>
+
+        </div>
+
+        <!-- Fixed Footer -->
+        <div class="app-fixed-footer">
+            <div class="footer-nav-item active" onclick="switchView('home-view')">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </div>
+            <div class="footer-nav-item" onclick="switchView('card-view')">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Cards</span>
+            </div>
+            <div class="footer-nav-item" onclick="switchView('pin-view')">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Balance</span>
+            </div>
+            <div class="footer-nav-item" onclick="openPaymentApp()">
+                <i class="fa-solid fa-qrcode"></i>
+                <span>Scanner</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. Exact 2 Seconds Preloader Animation Timer
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 600);
+            }, 2000);
+        });
+
+        // View Switching Function
+        function switchView(viewId) {
+            const views = document.querySelectorAll('.view-section');
+            views.forEach(v => v.classList.remove('active-view'));
+            
+            document.getElementById(viewId).classList.add('active-view');
+            document.getElementById('balance-loading').style.display = 'none';
+            
+            const scrollArea = document.querySelector('.content-scroll-area');
+            if(scrollArea) scrollArea.scrollTop = 0;
+
+            updateFooterNav(viewId);
+        }
+
+        function updateFooterNav(viewId) {
+            const items = document.querySelectorAll('.footer-nav-item');
+            items.forEach(item => item.classList.remove('active'));
+            if(viewId === 'home-view') items[0].classList.add('active');
+            else if(viewId === 'card-view') items[1].classList.add('active');
+            else if(viewId === 'pin-view') items[2].classList.add('active');
+        }
+
+        // Card Flip Function
+        function toggleCardFlip() {
+            const card = document.getElementById('cardObject');
+            card.classList.toggle('is-flipped');
+        }
+
+        // Process Check Balance
+        function processBalanceCheck() {
+            const pin = document.getElementById('upiPin').value;
+            if(pin.length !== 6) {
+                alert('कृपया सही 6 डिजिट का पिन दर्ज करें!');
+                return;
+            }
+
+            document.getElementById('pin-view').classList.remove('active-view');
+            document.getElementById('balance-loading').style.display = 'block';
+
+            setTimeout(() => {
+                document.getElementById('balance-loading').style.display = 'none';
+                document.getElementById('balance-result-view').classList.add('active-view');
+                document.getElementById('upiPin').value = '';
+            }, 3000);
+        }
+
+        /* 
+           सबसे महत्वपूर्ण हिस्सा: PhonePe / Paytm / UPI Scanner Direct Launcher
+           यह फंक्शन सीधे मोबाइल में मौजूद यूपीआई ऐप (PhonePe, Paytm, Google Pay) को ट्रिगर करता है।
+        */
+        function openPaymentApp() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            
+            // универсальный UPI Intent string (यह सभी भीम यूपीआई ऐप्स को सक्रिय करता है)
+            const upiUrl = "upi://pay?pa=merchant@paytm&pn=DependsArtnoo&cu=INR";
+
+            // मोबाइल पर डायरेक्ट ओपन करने की कोशिश
+            window.location.href = upiUrl;
+
+            // अगर मोबाइल में एंड्रॉइड या आईफोन है तो डीप-लिंक फॉलबैक निष्पादित करें
+            setTimeout(function() {
+                if (/android/i.test(userAgent)) {
+                    // Android के लिए PhonePe/Paytm ऐप पैकेज इंटेंट
+                    window.location.href = "intent://pay?pa=merchant@paytm#Intent;scheme=upi;package=com.phonepe.app;end;";
+                } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    // iOS/iPhone के लिए स्कीम
+                    window.location.href = "phonepe://";
+                }
+            }, 800);
+        }
+    </script>
+</body>
+</html>
