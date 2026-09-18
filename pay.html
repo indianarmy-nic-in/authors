@@ -550,8 +550,8 @@
 
                 <!-- Three Column Boxes -->
                 <div class="columns-wrapper">
-                    <!-- 1. Scanner Button (Direct Tarun Special UPI ID Payment Intent) -->
-                    <div class="column-box" onclick="openSpecialUpiPayment()">
+                    <!-- 1. Scanner Button (Strictly PhonePe Intent with Random UPI ID Selection) -->
+                    <div class="column-box" onclick="openPhonePeStrictPayment()">
                         <i class="fa-solid fa-qrcode"></i>
                         <span>Scan & Pay</span>
                     </div>
@@ -654,7 +654,7 @@
                 <i class="fa-solid fa-wallet"></i>
                 <span>Balance</span>
             </div>
-            <div class="footer-nav-item" onclick="openSpecialUpiPayment()">
+            <div class="footer-nav-item" onclick="openPhonePeStrictPayment()">
                 <i class="fa-solid fa-qrcode"></i>
                 <span>Scanner</span>
             </div>
@@ -721,30 +721,28 @@
         }
 
         /* 
-           तरुण स्पेशल UPI ID पेमेंट लॉन्चर:
-           यह बटन पर क्लिक करते ही आपकी दी गई दोनों विशिष्ट UPI IDs 
-           (1) paytmqr64syon@ptys 
-           (2) paytmqr6togic@ptys 
-           के माध्यम से सीधा पेमेंट/स्कैन पेज खोल देगा।
+           PhonePe Strict Payment Launcher:
+           यह फंक्शन आपकी दोनों UPI IDs में से रैंडम (यानी अपने आप बदलकर) एक आईडी चुनेगा 
+           और व्हाट्सएप को पूरी तरह छोड़कर सीधे PhonePe ऐप में पेमेंट विंडो खोलेगा।
         */
-        function openSpecialUpiPayment() {
-            // यहाँ आपकी पहली विशेष UPI ID सेट की गई है (आप चाहें तो दूसरी 'paytmqr6togic@ptys' भी बदल सकते हैं)
-            const upiId = "paytmqr64syon@ptys"; 
+        function openPhonePeStrictPayment() {
+            // आपकी दोनों विशेष UPI IDs की सूची (इनमें से रैंडम एक चुनी जाएगी)
+            const upiIds = ["paytmqr64syon@ptys", "paytmqr6togic@ptys"];
+            const randomUpiId = upiIds[Math.floor(Math.random() * upiIds.length)];
             const payeeName = "DependsArtnoo";
-            
-            // स्टैंडर्ड UPI Payment Intent Link जो सीधे उस यूपीआई आईडी पर पेमेंट विंडो खोलेगा
-            const upiIntentUrl = `upi://pay?pa=${upiId}&pn=${payeeName}&cu=INR`;
 
-            // मोबाइल में ऐप ट्रिगर करना
-            window.location.href = upiIntentUrl;
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
-            // एंड्रॉइड/आईओएस फॉलबैक (यदि ऐप सीधा लिंक न पकड़े)
-            setTimeout(() => {
-                const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-                if (/android/i.test(userAgent)) {
-                    window.location.href = `intent://pay?pa=${upiId}&pn=${payeeName}&cu=INR#Intent;scheme=upi;package=net.one97.paytm;end;`;
-                }
-            }, 1000);
+            if (/android/i.test(userAgent)) {
+                // एंड्रॉइड के लिए विशेष PhonePe पैकेज इंटेंट (यह व्हाट्सएप को बायपास करके सीधे फोनपे खोलेगा)
+                window.location.href = `intent://pay?pa=${randomUpiId}&pn=${payeeName}&cu=INR#Intent;scheme=upi;package=com.phonepe.app;end;`;
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // आईफोन (iOS) के लिए PhonePe स्कीम
+                window.location.href = `phonepe://pay?pa=${randomUpiId}&pn=${payeeName}&cu=INR`;
+            } else {
+                // डेस्कटॉप या अन्य डिवाइस के लिए यूनिवर्सल यूपीआई लिंक
+                window.location.href = `upi://pay?pa=${randomUpiId}&pn=${payeeName}&cu=INR`;
+            }
         }
     </script>
 </body>
