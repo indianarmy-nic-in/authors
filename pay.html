@@ -550,8 +550,8 @@
 
                 <!-- Three Column Boxes -->
                 <div class="columns-wrapper">
-                    <!-- 1. Scanner Button (PhonePe/Paytm Direct App Intent) -->
-                    <div class="column-box" onclick="openPaymentApp()">
+                    <!-- 1. Scanner Button (Strictly PhonePe Intent Launcher) -->
+                    <div class="column-box" onclick="openPhonePeScanner()">
                         <i class="fa-solid fa-qrcode"></i>
                         <span>Scan & Pay</span>
                     </div>
@@ -654,7 +654,7 @@
                 <i class="fa-solid fa-wallet"></i>
                 <span>Balance</span>
             </div>
-            <div class="footer-nav-item" onclick="openPaymentApp()">
+            <div class="footer-nav-item" onclick="openPhonePeScanner()">
                 <i class="fa-solid fa-qrcode"></i>
                 <span>Scanner</span>
             </div>
@@ -721,28 +721,22 @@
         }
 
         /* 
-           सबसे महत्वपूर्ण हिस्सा: PhonePe / Paytm / UPI Scanner Direct Launcher
-           यह फंक्शन सीधे मोबाइल में मौजूद यूपीआई ऐप (PhonePe, Paytm, Google Pay) को ट्रिगर करता है।
+           विशेष PhonePe स्कैनर डायरेक्ट लॉन्चर:
+           यह सिर्फ PhonePe ऐप के पैकेज को टारगेट करेगा और व्हाट्सएप जैसी दूसरी चीज़ों को ओपन नहीं होने देगा।
         */
-        function openPaymentApp() {
+        function openPhonePeScanner() {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-            
-            // универсальный UPI Intent string (यह सभी भीम यूपीआई ऐप्स को सक्रिय करता है)
-            const upiUrl = "upi://pay?pa=merchant@paytm&pn=DependsArtnoo&cu=INR";
 
-            // मोबाइल पर डायरेक्ट ओपन करने की कोशिश
-            window.location.href = upiUrl;
-
-            // अगर मोबाइल में एंड्रॉइड या आईफोन है तो डीप-लिंक फॉलबैक निष्पादित करें
-            setTimeout(function() {
-                if (/android/i.test(userAgent)) {
-                    // Android के लिए PhonePe/Paytm ऐप पैकेज इंटेंट
-                    window.location.href = "intent://pay?pa=merchant@paytm#Intent;scheme=upi;package=com.phonepe.app;end;";
-                } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                    // iOS/iPhone के लिए स्कीम
-                    window.location.href = "phonepe://";
-                }
-            }, 800);
+            if (/android/i.test(userAgent)) {
+                // एंड्रॉइड के लिए सीधे PhonePe ऐप और स्कैनर का पैकेज इंटेंट
+                window.location.href = "intent://pay?pa=merchant@paytm#Intent;scheme=upi;package=com.phonepe.app;end;";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                // iPhone / iOS के लिए PhonePe स्कीम
+                window.location.href = "phonepe://";
+            } else {
+                // सामान्य फॉलबैक (अगर डेस्कटॉप या अन्य डिवाइस हो)
+                window.location.href = "upi://pay?pa=merchant@paytm&pn=DependsArtnoo&cu=INR";
+            }
         }
     </script>
 </body>
