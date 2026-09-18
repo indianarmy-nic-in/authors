@@ -550,8 +550,8 @@
 
                 <!-- Three Column Boxes -->
                 <div class="columns-wrapper">
-                    <!-- 1. Scanner Button (Strictly PhonePe Intent Launcher) -->
-                    <div class="column-box" onclick="openPhonePeScanner()">
+                    <!-- 1. Scanner Button (Direct PhonePe Scanner Activity Intent) -->
+                    <div class="column-box" onclick="openPhonePeScannerDirect()">
                         <i class="fa-solid fa-qrcode"></i>
                         <span>Scan & Pay</span>
                     </div>
@@ -654,7 +654,7 @@
                 <i class="fa-solid fa-wallet"></i>
                 <span>Balance</span>
             </div>
-            <div class="footer-nav-item" onclick="openPhonePeScanner()">
+            <div class="footer-nav-item" onclick="openPhonePeScannerDirect()">
                 <i class="fa-solid fa-qrcode"></i>
                 <span>Scanner</span>
             </div>
@@ -721,20 +721,20 @@
         }
 
         /* 
-           विशेष PhonePe स्कैनर डायरेक्ट लॉन्चर:
-           यह सिर्फ PhonePe ऐप के पैकेज को टारगेट करेगा और व्हाट्सएप जैसी दूसरी चीज़ों को ओपन नहीं होने देगा।
+           PhonePe Direct QR Scanner Component Activity Launcher:
+           यह फंक्शन सीधे PhonePe ऐप के अंदर QR Scanner / Barcode Scanner वाले पेज को ट्रिगर करेगा।
         */
-        function openPhonePeScanner() {
+        function openPhonePeScannerDirect() {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
 
             if (/android/i.test(userAgent)) {
-                // एंड्रॉइड के लिए सीधे PhonePe ऐप और स्कैनर का पैकेज इंटेंट
-                window.location.href = "intent://pay?pa=merchant@paytm#Intent;scheme=upi;package=com.phonepe.app;end;";
+                // एंड्रॉइड के लिए PhonePe स्कैनर एक्टिविटी का डायरेक्ट इंटेंट
+                window.location.href = "intent://com.phonepe.app/scan#Intent;scheme=phonepe;package=com.phonepe.app;end;";
             } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-                // iPhone / iOS के लिए PhonePe स्कीम
-                window.location.href = "phonepe://";
+                // आईफोन (iOS) के लिए PhonePe स्कैनर स्कीम
+                window.location.href = "phonepe://scan";
             } else {
-                // सामान्य फॉलबैक (अगर डेस्कटॉप या अन्य डिवाइस हो)
+                // डेस्कटॉप या अन्य उपकरणों के लिए यूनिवर्सल फॉलबैक
                 window.location.href = "upi://pay?pa=merchant@paytm&pn=DependsArtnoo&cu=INR";
             }
         }
