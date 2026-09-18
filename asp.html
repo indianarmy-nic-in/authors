@@ -1,6 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+    <!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    
+    <title>My App</title>
+
+    <!-- PWA Web App Manifest (Inline base64 - PWA Standalone Mode Force Karne Ke Liye) -->
+    <link rel="manifest" href='data:application/manifest+json,{"name":"My App Name","short_name":"My App","start_url":"/","scope":"/","display":"standalone","background_color":"#ffffff","theme_color":"#000000","icons":[{"src":"https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7RS7zcB8TGw-MgsLxKTioY8R_Jl7HlQfpf_Hc0YF5MO3sITN2CVb-IooeoIHlNkGKDxBckN9egW4JdKA3UpFifue8JTVL0k6wzpzfF8etVXlrt81N6e8QkVJ_gMBCyZK5M0HeSvWEo9xPtJ9X1B4sU3BRGRZVcGL28jlaK1DZ_UcGhVrcIhSeaEsASlJj/s1024/IMG_5863.png","sizes":"1024x1024","type":"image/png"}]}'>
+
+    <!-- iOS Specific PWA Meta Tags -->
+    <link rel="apple-touch-icon" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7RS7zcB8TGw-MgsLxKTioY8R_Jl7HlQfpf_Hc0YF5MO3sITN2CVb-IooeoIHlNkGKDxBckN9egW4JdKA3UpFifue8JTVL0k6wzpzfF8etVXlrt81N6e8QkVJ_gMBCyZK5M0HeSvWEo9xPtJ9X1B4sU3BRGRZVcGL28jlaK1DZ_UcGhVrcIhSeaEsASlJj/s1024/IMG_5863.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7RS7zcB8TGw-MgsLxKTioY8R_Jl7HlQfpf_Hc0YF5MO3sITN2CVb-IooeoIHlNkGKDxBckN9egW4JdKA3UpFifue8JTVL0k6wzpzfF8etVXlrt81N6e8QkVJ_gMBCyZK5M0HeSvWEo9xPtJ9X1B4sU3BRGRZVcGL28jlaK1DZ_UcGhVrcIhSeaEsASlJj/s1024/IMG_5863.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7RS7zcB8TGw-MgsLxKTioY8R_Jl7HlQfpf_Hc0YF5MO3sITN2CVb-IooeoIHlNkGKDxBckN9egW4JdKA3UpFifue8JTVL0k6wzpzfF8etVXlrt81N6e8QkVJ_gMBCyZK5M0HeSvWEo9xPtJ9X1B4sU3BRGRZVcGL28jlaK1DZ_UcGhVrcIhSeaEsASlJj/s1024/IMG_5863.png">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="My App Name">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="theme-color" content="#000000">
+
+    <!-- CSS & Icon Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- App Navigation Script (URL Bar & Browser Open Hone Se Rokne Ke Liye) -->
+    <script>
+      (function() {
+        // App me sabhi internal link clicks ko intercept karein
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+          while (target && target.tagName !== 'A') {
+            target = target.parentNode;
+          }
+          
+          if (target && target.tagName === 'A') {
+            var href = target.getAttribute('href');
+            
+            // External links, hash links, ya javascript calls ko ignore karein
+            if (!href || href.startsWith('#') || href.startsWith('javascript:') || target.getAttribute('target') === '_blank') {
+              return;
+            }
+
+            var destUrl = new URL(target.href, window.location.href);
+            
+            // Agar same domain ka link hai to browser window ke bajaye app ke andar hi navigate karein
+            if (destUrl.origin === window.location.origin) {
+              e.preventDefault();
+              window.location.href = target.href;
+            }
+          }
+        }, false);
+
+        // Basic Service Worker Registration for PWA Compliance
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', function() {
+            var swCode = "self.addEventListener('fetch', function(e) { e.respondWith(fetch(e.request)); });";
+            var blob = new Blob([swCode], { type: 'text/javascript' });
+            var swUrl = URL.createObjectURL(blob);
+            navigator.serviceWorker.register(swUrl).catch(function(){});
+          });
+        }
+      })();
+    </script>
+</head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>DEPENDS ARTNOO TICHIL - INDIAN ARMY SECURE PORTAL</title>
