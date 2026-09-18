@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>DEPENDS ARTNOO TICHIL - INDIAN ARMY SECURE PORTAL</title>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #f8fafc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Mobile App Frame Container */
+        .app-frame {
+            width: 100%;
+            max-width: 420px;
+            height: 100vh;
+            max-height: 850px;
+            background: #ffffff;
+            color: #1e293b;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6), 0 0 0 8px #1e293b;
+            border-radius: 28px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media(max-width: 480px) {
+            .app-frame {
+                max-height: 100vh;
+                border-radius: 0;
+                box-shadow: none;
+            }
+        }
+
+        /* Screenshot Security Warning Overlay */
+        #screenshot-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            color: #ef4444;
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 999999;
+            text-align: center;
+            padding: 20px;
+        }
+
+        #screenshot-overlay i {
+            font-size: 50px;
+            margin-bottom: 15px;
+        }
+
+        #screenshot-overlay h2 {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        #screenshot-overlay p {
+            font-size: 13px;
+            color: #94a3b8;
+        }
+
+        /* Preloader Animation (Clean Background Image without shadow, quick slide up logo) */
+        #preloader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.6s ease;
+        }
+
+        .bounce-logo-container {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: slideUpDirect 1s cubic-bezier(0.1, 0.9, 0.2, 1) forwards;
+        }
+
+        .bounce-logo {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+            pointer-events: none;
+        }
+
+        @keyframes slideUpDirect {
+            0% { transform: translateY(180px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Scrollable Content Area */
+        .content-scroll-area {
+            flex: 1;
+            overflow-y: auto;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+            padding-bottom: 75px;
+            position: relative;
+        }
+
+        .content-scroll-area::-webkit-scrollbar {
+            width: 3px;
+        }
+        .content-scroll-area::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+
+        /* Subtle Background Watermark 'SBI' across all sections */
+        .sbi-watermark {
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 110px;
+            font-weight: 900;
+            color: rgba(30, 58, 138, 0.04);
+            pointer-events: none;
+            z-index: 0;
+            letter-spacing: 15px;
+        }
+
+        /* Top Banking Header Bar with Circular Custom Logo (No Border) */
+        .top-bank-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: #0f172a;
+            color: #fff;
+            position: relative;
+            z-index: 5;
+        }
+
+        .top-bank-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .top-circle-logo {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: #fff;
+            pointer-events: none;
+            border: none;
+        }
+
+        .top-bank-title {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .notification-bell-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: #38bdf8;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 8px;
+            height: 8px;
+            background: #ef4444;
+            border-radius: 50%;
+        }
+
+        /* Header Image Container */
+        .header-img-container {
+            width: 100%;
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            z-index: 1;
+        }
+
+        .header-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        /* Quick Action Shortcuts Grid (Updated Icons) */
+        .quick-actions-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .quick-action-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 10px 4px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quick-action-item:active {
+            transform: scale(0.95);
+            background: #f1f5f9;
+        }
+
+        .quick-action-item i {
+            font-size: 18px;
+            color: #0284c7;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .quick-action-item span {
+            font-size: 10px;
+            font-weight: 600;
+            color: #334155;
+            display: block;
+            line-height: 1.2;
+        }
+
+        /* Profile Layout Section (No Border on Portrait Image) */
+        .profile-card-section {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8fafc, #f1f5f9);
+            margin: 0 15px 15px 15px;
+            padding: 15px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-portrait {
+            width: 75px;
+            height: 90px;
+            border-radius: 10px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            pointer-events: none;
+            border: none;
+        }
+
+        .profile-details {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            flex: 1;
+        }
+
+        .profile-name {
+            font-size: 16px;
+            font-weight: 800;
+            color: #0f172a;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-info-text {
+            font-size: 12px;
+            font-weight: 400;
+            color: #475569;
+        }
+
+        .profile-battalion {
+            font-size: 12px;
+            font-weight: 700;
+            color: #0284c7;
+        }
+
+        .profile-account {
+            font-size: 11px;
+            font-family: monospace;
+            color: #334155;
+            background: #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            width: fit-content;
+            margin-top: 2px;
+        }
+
+        /* Active Blinking Button */
+        .active-status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #d1fae5;
+            color: #065f46;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            margin-top: 5px;
+            width: fit-content;
+            border: 1px solid #10b981;
+            animation: blinkStatus 1.5s infinite;
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            background-color: #10b981;
+            border-radius: 50%;
+        }
+
+        @keyframes blinkStatus {
+            0% { opacity: 1; box-shadow: 0 0 5px rgba(16, 185, 129, 0.4); }
+            50% { opacity: 0.4; box-shadow: 0 0 15px rgba(16, 185, 129, 0.8); }
+            100% { opacity: 1; box-shadow: 0 0 5px rgba(16, 185, 129, 0.4); }
+        }
+
+        /* Live Date & Time Container (Pure White Text) */
+        .live-datetime-box {
+            text-align: center;
+            background: #0f172a;
+            color: #ffffff;
+            margin: 0 15px 15px 15px;
+            padding: 9px 12px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Indian Army Payment Portal Info Points Section */
+        .army-info-container {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+            margin: 0 15px 20px 15px;
+            padding: 16px;
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+            position: relative;
+            z-index: 1;
+        }
+
+        .army-info-title {
+            font-size: 13px;
+            font-weight: 800;
+            color: #1e3a8a;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .army-points-list {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .army-points-list li {
+            font-size: 12px;
+            color: #334155;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .army-points-list li i {
+            color: #10b981;
+            margin-top: 2px;
+        }
+
+        /* Professional Additions Box */
+        .pro-additional-box {
+            background: #f1f5f9;
+            border: 1px dashed #cbd5e1;
+            border-radius: 10px;
+            padding: 12px;
+            margin-top: 15px;
+        }
+
+        .pro-additional-box h5 {
+            font-size: 11px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 6px;
+            text-transform: uppercase;
+        }
+
+        .pro-additional-box p {
+            font-size: 10px;
+            color: #475569;
+            line-height: 1.3;
+            margin-bottom: 4px;
+        }
+
+        /* Visual Cards & Badges Section with Images/Icons */
+        .visual-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .visual-card-item {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+
+        .visual-card-item img {
+            width: 32px;
+            height: 32px;
+            object-fit: contain;
+            margin-bottom: 5px;
+            pointer-events: none;
+        }
+
+        .visual-card-item h6 {
+            font-size: 11px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 2px;
+        }
+
+        .visual-card-item span {
+            font-size: 9px;
+            color: #64748b;
+        }
+
+        /* Biometric Glowing Widget */
+        .biometric-widget {
+            display: flex;
+            align-items: center;
+            background: #e0f2fe;
+            border: 1px solid #7dd3fc;
+            border-radius: 10px;
+            padding: 10px 12px;
+            margin-top: 12px;
+            gap: 12px;
+        }
+
+        .biometric-icon-wrap {
+            font-size: 22px;
+            color: #0284c7;
+            animation: glowPulse 2s infinite;
+        }
+
+        @keyframes glowPulse {
+            0% { opacity: 0.6; text-shadow: 0 0 2px rgba(2, 132, 199, 0.4); }
+            50% { opacity: 1; text-shadow: 0 0 12px rgba(2, 132, 199, 0.8); }
+            100% { opacity: 0.6; text-shadow: 0 0 2px rgba(2, 132, 199, 0.4); }
+        }
+
+        .biometric-text h6 {
+            font-size: 11px;
+            font-weight: 700;
+            color: #0369a1;
+        }
+
+        .biometric-text p {
+            font-size: 9px;
+            color: #334155;
+        }
+
+        /* Views Management */
+        .view-section {
+            display: none;
+            padding: 16px;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        .active-view {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Transaction History (Passbook View with Explanatory Note) */
+        .passbook-container {
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid #e2e8f0;
+            padding: 15px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .passbook-note {
+            font-size: 10px;
+            color: #64748b;
+            font-style: italic;
+            margin-bottom: 12px;
+            padding-bottom: 8px;
+            border-bottom: 1px dashed #e2e8f0;
+            line-height: 1.3;
+        }
+
+        .passbook-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .passbook-item:last-child {
+            border-bottom: none;
+        }
+
+        .tx-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tx-icon {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #d1fae5;
+            color: #059669;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .tx-icon.debit {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .tx-title {
+            font-size: 13px;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .tx-date {
+            font-size: 10px;
+            color: #64748b;
+        }
+
+        .tx-amount {
+            font-size: 13px;
+            font-weight: 700;
+            color: #059669;
+        }
+
+        .tx-amount.debit {
+            color: #dc2626;
+        }
+
+        /* Notifications / Alerts View */
+        .notification-card {
+            background: #f8fafc;
+            border-left: 4px solid #3b82f6;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-top: 1px solid #e2e8f0;
+            border-right: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .notification-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            color: #1e3a8a;
+            margin-bottom: 4px;
+        }
+
+        .notification-card p {
+            font-size: 11px;
+            color: #475569;
+            line-height: 1.3;
+        }
+
+        /* Help & Support FAQ View */
+        .faq-box {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .faq-box h4 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 4px;
+        }
+
+        .faq-box p {
+            font-size: 11px;
+            color: #64748b;
+            line-height: 1.3;
+        }
+
+        /* Card Section */
+        .card-view-container {
+            text-align: center;
+            padding-top: 5px;
+        }
+
+        .card-scene {
+            width: 100%;
+            max-width: 330px;
+            height: 190px;
+            margin: 12px auto;
+            perspective: 1200px;
+            cursor: pointer;
+        }
+
+        .card-object {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.22);
+            border-radius: 16px;
+        }
+
+        .card-object.is-flipped {
+            transform: rotateY(180deg);
+        }
+
+        .card-face {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .card-front img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            pointer-events: none;
+        }
+
+        .card-back {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #fff;
+            transform: rotateY(180deg);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .magnetic-strip {
+            width: 100%;
+            height: 38px;
+            background: #000;
+            margin-bottom: 15px;
+        }
+
+        .signature-cvv-box {
+            padding: 0 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .signature-strip {
+            background: #e2e8f0;
+            color: #0f172a;
+            padding: 4px 12px;
+            font-style: italic;
+            font-size: 11px;
+            width: 72%;
+            border-radius: 3px;
+        }
+
+        .cvv-badge {
+            background: #ffffff;
+            color: #0f172a;
+            padding: 4px 8px;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .back-btn-common {
+            background: #ef4444;
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+            margin-top: 5px;
+        }
+
+        /* PIN Input Box with Shake Animation */
+        .pin-container {
+            max-width: 320px;
+            margin: 30px auto;
+            text-align: center;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border: 1px solid #f1f5f9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .pin-container h3 {
+            margin-bottom: 14px;
+            font-size: 17px;
+            color: #0f172a;
+            font-weight: 700;
+        }
+
+        .pin-input {
+            width: 100%;
+            padding: 12px;
+            font-size: 22px;
+            text-align: center;
+            letter-spacing: 10px;
+            border: 2px solid #cbd5e1;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            outline: none;
+            background: #f8fafc;
+            color: #0f172a;
+        }
+
+        .pin-input:focus {
+            border-color: #10b981;
+            background: #fff;
+        }
+
+        @keyframes shakeError {
+            0% { transform: translateX(0); }
+            20% { transform: translateX(-10px); }
+            40% { transform: translateX(10px); }
+            60% { transform: translateX(-10px); }
+            80% { transform: translateX(10px); }
+            100% { transform: translateX(0); }
+        }
+
+        .shake {
+            animation: shakeError 0.4s ease-in-out;
+            border-color: #ef4444 !important;
+        }
+
+        .submit-pin-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+        }
+
+        /* Loading View */
+        #balance-loading {
+            display: none;
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .spinner-loader {
+            width: 45px;
+            height: 45px;
+            border: 4px solid #e2e8f0;
+            border-top: 4px solid #10b981;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+            margin: 0 auto 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Balance Result View with Green Tick Animation */
+        #balance-result-view {
+            padding: 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .success-tick-container {
+            margin: 20px auto 10px auto;
+            width: 60px;
+            height: 60px;
+            background: #d1fae5;
+            color: #10b981;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
+            animation: popTick 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popTick {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .green-header-banner {
+            background: linear-gradient(135deg, #059669, #10b981);
+            color: white;
+            padding: 18px 15px;
+            border-bottom-left-radius: 24px;
+            border-bottom-right-radius: 24px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(16, 185, 129, 0.25);
+        }
+
+        .slider-banner-container {
+            height: 28px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            margin-top: 6px;
+        }
+
+        .slider-text-track {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            animation: slideUp 6s infinite;
+        }
+
+        .slider-item {
+            height: 28px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0.95;
+        }
+
+        @keyframes slideUp {
+            0% { transform: translateY(0); }
+            33% { transform: translateY(-28px); }
+            66% { transform: translateY(-56px); }
+            100% { transform: translateY(0); }
+        }
+
+        .balance-display-box {
+            margin: 25px 20px;
+            padding: 24px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            border: 1px solid #f1f5f9;
+        }
+
+        .balance-title-label {
+            font-size: 13px;
+            color: #64748b;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .balance-amount {
+            font-size: 28px;
+            font-weight: 800;
+            color: #10b981;
+        }
+
+        .done-btn {
+            background: #10b981;
+            color: white;
+            border: none;
+            width: 85%;
+            padding: 13px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(16, 185, 129, 0.35);
+            margin-bottom: 25px;
+        }
+
+        /* Fixed App Footer */
+        .app-fixed-footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background: #ffffff;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 -4px 15px rgba(0,0,0,0.05);
+        }
+
+        .footer-nav-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            cursor: pointer;
+            color: #64748b;
+            transition: color 0.2s;
+        }
+
+        .footer-nav-item.active, .footer-nav-item:hover {
+            color: #10b981;
+        }
+
+        .footer-nav-item i {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+
+        .footer-nav-item span {
+            font-size: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="app-frame">
+        
+        <!-- Screenshot Security Warning Overlay -->
+        <div id="screenshot-overlay">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <h2>Security Alert</h2>
+            <p>Screenshot, screen recording or saving images is strictly prohibited on this secure portal.</p>
+        </div>
+
+        <!-- Preloader Animation -->
+        <div id="preloader">
+            <div class="bounce-logo-container">
+                <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=150&q=80" alt="Logo" class="bounce-logo">
+            </div>
+        </div>
+
+        <!-- Scrollable Body Content -->
+        <div class="content-scroll-area">
+            
+            <!-- Subtle Watermark 'SBI' -->
+            <div class="sbi-watermark">SBI</div>
+
+            <!-- Top Banking Header Bar with Circular Custom Logo (No Border) -->
+            <div class="top-bank-bar">
+                <div class="top-bank-left">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=80&q=80" alt="Bank Logo" class="top-circle-logo">
+                    <div class="top-bank-title">State Bank Infiad</div>
+                </div>
+                <button class="notification-bell-btn" onclick="switchView('notification-view')">
+                    <i class="fa-regular fa-bell"></i>
+                    <span class="notification-badge"></span>
+                </button>
+            </div>
+
+            <!-- MAIN HOME PAGE VIEW -->
+            <div id="home-view" class="view-section active-view">
+                
+                <!-- Header Image Container -->
+                <div class="header-img-container">
+                    <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" alt="Header Banner">
+                </div>
+
+                <!-- Quick Action Shortcuts Grid (Updated with Transfer & Passbook Action) -->
+                <div class="quick-actions-grid">
+                    <div class="quick-action-item" onclick="openPhonePeStrictPayment()">
+                        <i class="fa-solid fa-qrcode"></i>
+                        <span>Scan & Pay</span>
+                    </div>
+                    <div class="quick-action-item" onclick="openPhonePeBankTransfer()">
+                        <i class="fa-solid fa-money-bill-transfer"></i>
+                        <span>To Bank</span>
+                    </div>
+                    <div class="quick-action-item" onclick="openPhonePePassbookHistory()">
+                        <i class="fa-solid fa-receipt"></i>
+                        <span>Passbook</span>
+                    </div>
+                    <div class="quick-action-item" onclick="switchView('support-view')">
+                        <i class="fa-solid fa-headset"></i>
+                        <span>24x7 Help</span>
+                    </div>
+                </div>
+
+                <!-- Profile Layout Section (No Border on Portrait Image) -->
+                <div class="profile-card-section">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" alt="Officer Portrait" class="profile-portrait">
+                    
+                    <div class="profile-details">
+                        <div class="profile-name">MANISH CHAUDHARY</div>
+                        <div class="profile-info-text">Service No: <strong>IC-849201F</strong></div>
+                        <div class="profile-battalion">18th Battalion (18वीं बटालियन)</div>
+                        <div class="profile-account">A/C: 3829010004892</div>
+                        <div class="active-status-badge">
+                            <span class="status-dot"></span> ACTIVE SECURE PORTAL
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Live Date & Time Section (Pure White Text) -->
+                <div class="live-datetime-box" id="liveDateTimeDisplay">
+                    <i class="fa-regular fa-clock"></i> Loading Live Time...
+                </div>
+
+                <!-- Indian Army Payment Portal Info Points -->
+                <div class="army-info-container">
+                    <div class="army-info-title">
+                        <i class="fa-solid fa-shield-halved"></i> Indian Army Security Directives
+                    </div>
+                    <ul class="army-points-list">
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>This portal is officially authorized exclusively for secure transactions by Indian Army personnel and officers.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>All financial transfers are fully encrypted and protected through authorized military UPI gateway protocols.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Never share your confidential secret PIN or authentication credentials with any unauthorized person.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Every successful payment receipt is automatically recorded and verified on secure military servers.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>In case of any technical failure or incorrect transaction, immediately contact the Battalion Administrative Office.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>This system is operated and monitored 24x7 under high-level defense security compliance.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-headset" style="color: #0284c7;"></i>
+                            <span><strong>24x7 Military Cyber Helpdesk:</strong> Report any unauthorized transaction or cyber fraud immediately to the military cyber cell or command center.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-triangle-exclamation" style="color: #f59e0b;"></i>
+                            <span><strong>Field Area Banking Guidelines:</strong> During weak connectivity or field operations, do not refresh or repeat transactions until server status is confirmed.</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-fingerprint" style="color: #10b981;"></i>
+                            <span><strong>Defense Security Notice:</strong> This portal operates on hardware-level encryption with a strict zero-trace policy, ensuring no PIN or credentials are stored locally.</span>
+                        </li>
+                    </ul>
+
+                    <!-- Professional Additions (Security Assurance & Unit Seal) -->
+                    <div class="pro-additional-box">
+                        <h5><i class="fa-solid fa-certificate"></i> Official Unit Verification & Security Seal</h5>
+                        <p><strong>Security Badge:</strong> 256-Bit SSL Military Grade Encryption (PCI-DSS Compliant)</p>
+                        <p><strong>Verification Seal:</strong> Verified by HQ 1 Corps | Auth ID: SEC-MCD-2026-IND</p>
+                        <p><strong>Advisory:</strong> Defense personnel are strictly advised to avoid sharing UPI PIN or OTP over phone calls.</p>
+                        <p><strong>Gateway Status:</strong> All Military UPI Nodes Active & Online (v4.8.2-Release)</p>
+                    </div>
+
+                    <!-- Visual Cards & Badges Section with Images/Icons -->
+                    <div class="visual-cards-grid">
+                        <div class="visual-card-item">
+                            <img src="https://cdn-icons-png.flaticon.com/512/1006/1006771.png" alt="CSD Canteen">
+                            <h6>CSD Canteen Link</h6>
+                            <span>Smart Card Active</span>
+                        </div>
+                        <div class="visual-card-item">
+                            <img src="https://cdn-icons-png.flaticon.com/512/2830/2830284.png" alt="Digital India">
+                            <h6>Digital India</h6>
+                            <span>Secured Platform</span>
+                        </div>
+                    </div>
+
+                    <!-- Glowing Biometric Protection Widget -->
+                    <div class="biometric-widget">
+                        <div class="biometric-icon-wrap">
+                            <i class="fa-solid fa-fingerprint"></i>
+                        </div>
+                        <div class="biometric-text">
+                            <h6>Hardware-Level Biometric Protection</h6>
+                            <p>Encrypted Defense Terminal Verification Active</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- TRANSACTION HISTORY (PASSBOOK VIEW WITH NOTE) -->
+            <div id="passbook-view" class="view-section">
+                <h3 style="margin-bottom: 12px; color: #0f172a; font-size: 16px;"><i class="fa-solid fa-clock-rotate-left"></i> Recent Transactions</h3>
+                
+                <div class="passbook-container">
+                    <div class="passbook-note">
+                        Note: Any new payment will be shown here within a few hours. Defense banking servers do not patch transactions instantly.
+                    </div>
+
+                    <div class="passbook-item">
+                        <div class="tx-left">
+                            <div class="tx-icon"><i class="fa-solid fa-arrow-down"></i></div>
+                            <div>
+                                <div class="tx-title">Military Allowance Credited</div>
+                                <div class="tx-date">17 Sep 2026, 10:30 AM</div>
+                            </div>
+                        </div>
+                        <div class="tx-amount">+ ₹ 45,000.00</div>
+                    </div>
+
+                    <div class="passbook-item">
+                        <div class="tx-left">
+                            <div class="tx-icon debit"><i class="fa-solid fa-arrow-up"></i></div>
+                            <div>
+                                <div class="tx-title">Canteen Store Department (CSD)</div>
+                                <div class="tx-date">15 Sep 2026, 04:15 PM</div>
+                            </div>
+                        </div>
+                        <div class="tx-amount debit">- ₹ 3,250.00</div>
+                    </div>
+
+                    <div class="passbook-item">
+                        <div class="tx-left">
+                            <div class="tx-icon debit"><i class="fa-solid fa-arrow-up"></i></div>
+                            <div>
+                                <div class="tx-title">UPI Merchant Payment</div>
+                                <div class="tx-date">12 Sep 2026, 01:20 PM</div>
+                            </div>
+                        </div>
+                        <div class="tx-amount debit">- ₹ 850.00</div>
+                    </div>
+
+                    <div class="passbook-item">
+                        <div class="tx-left">
+                            <div class="tx-icon"><i class="fa-solid fa-arrow-down"></i></div>
+                            <div>
+                                <div class="tx-title">Field Area Special Bonus</div>
+                                <div class="tx-date">10 Sep 2026, 09:00 AM</div>
+                            </div>
+                        </div>
+                        <div class="tx-amount">+ ₹ 12,000.00</div>
+                    </div>
+                </div>
+
+                <button class="back-btn-common" style="width: 100%;" onclick="switchView('home-view')">Back to Home</button>
+            </div>
+
+            <!-- NOTIFICATIONS / ALERTS VIEW -->
+            <div id="notification-view" class="view-section">
+                <h3 style="margin-bottom: 15px; color: #0f172a; font-size: 16px;"><i class="fa-regular fa-bell"></i> Security & Bank Alerts</h3>
+                
+                <div class="notification-card">
+                    <h4>Monthly Allowance Credited</h4>
+                    <p>Your defense salary and field allowances for September have been successfully credited to account ending 4892.</p>
+                </div>
+
+                <div class="notification-card">
+                    <h4>High-Level Security Protocol Updated</h4>
+                    <p>New military encryption standards have been applied to your secure portal session. Do not share credentials.</p>
+                </div>
+
+                <div class="notification-card">
+                    <h4>CSD Smart Card Link Active</h4>
+                    <p>Your digital debit/credit cards are synchronized with unit CSD welfare counters.</p>
+                </div>
+
+                <button class="back-btn-common" style="width: 100%; margin-top: 15px;" onclick="switchView('home-view')">Back to Home</button>
+            </div>
+
+            <!-- 24x7 HELP & SUPPORT FAQ VIEW -->
+            <div id="support-view" class="view-section">
+                <h3 style="margin-bottom: 15px; color: #0f172a; font-size: 16px;"><i class="fa-solid fa-headset"></i> 24x7 Help & Support</h3>
+                
+                <div class="faq-box">
+                    <h4>How to report a failed transaction?</h4>
+                    <p>If money was debited but not credited, it automatically reverses within 3-5 working days per defense banking guidelines.</p>
+                </div>
+
+                <div class="faq-box">
+                    <h4>How to change UPI Secret PIN?</h4>
+                    <p>You can manage your UPI PIN directly through the official PhonePe or Paytm application linked with your secure ID.</p>
+                </div>
+
+                <div class="faq-box">
+                    <h4>Battalion Helpdesk Contact</h4>
+                    <p>For urgent support, reach out to the 18th Battalion Administrative Signal Center.</p>
+                </div>
+
+                <button class="back-btn-common" style="width: 100%; margin-top: 15px;" onclick="switchView('home-view')">Back to Home</button>
+            </div>
+
+            <!-- CARDS VIEW (Debit Card & Credit Card) -->
+            <div id="card-view" class="view-section card-view-container">
+                <h3 style="margin-bottom: 4px; color: #0f172a; font-size: 16px;">Debit Card Details</h3>
+                <p style="font-size: 11px; color: #64748b; margin-bottom: 10px;">Click on the card to flip</p>
+                
+                <div class="card-scene" onclick="toggleCardFlip('cardObject1')">
+                    <div class="card-object" id="cardObject1">
+                        <div class="card-face card-front">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80" alt="Debit Card Front">
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="magnetic-strip"></div>
+                            <div class="signature-cvv-box">
+                                <div class="signature-strip">AUTHORIZED SIGNATURE</div>
+                                <div class="cvv-badge">382</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3 style="margin: 15px 0 4px 0; color: #0f172a; font-size: 16px;">Credit Card Details</h3>
+                <p style="font-size: 11px; color: #64748b; margin-bottom: 10px;">Click on the card to flip</p>
+                
+                <div class="card-scene" onclick="toggleCardFlip('cardObject2')">
+                    <div class="card-object" id="cardObject2">
+                        <div class="card-face card-front">
+                            <img src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80" alt="Credit Card Front">
+                        </div>
+                        <div class="card-face card-back">
+                            <div class="magnetic-strip"></div>
+                            <div class="signature-cvv-box">
+                                <div class="signature-strip">AUTHORIZED SIGNATURE</div>
+                                <div class="cvv-badge">791</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="back-btn-common" onclick="switchView('home-view')">Back to Home</button>
+            </div>
+
+            <!-- CHECK BALANCE PIN INPUT VIEW -->
+            <div id="pin-view" class="view-section">
+                <div class="pin-container" id="pinBoxContainer">
+                    <h3>Enter 6-Digit PIN</h3>
+                    <input type="password" maxlength="6" class="pin-input" id="upiPin" placeholder="••••••">
+                    <button class="submit-pin-btn" onclick="processBalanceCheck()">Submit</button>
+                    <button class="back-btn-common" style="margin-top: 12px; width: 100%; background: #64748b;" onclick="switchView('home-view')">Back</button>
+                </div>
+            </div>
+
+            <!-- BALANCE LOADING VIEW -->
+            <div id="balance-loading" class="view-section">
+                <div class="spinner-loader"></div>
+                <p style="font-size: 14px; font-weight: 600; color: #475569;">Verifying PIN & Fetching Balance...</p>
+            </div>
+
+            <!-- BALANCE RESULT VIEW -->
+            <div id="balance-result-view" class="view-section">
+                <div class="success-tick-container">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+
+                <div class="green-header-banner" style="margin-top: 10px;">
+                    <h3 style="font-size: 15px; margin: 0; font-weight: 700;">Account Overview</h3>
+                    <div class="slider-banner-container">
+                        <div class="slider-text-track">
+                            <div class="slider-item">Secure Banking Protected</div>
+                            <div class="slider-item">Instant Balance Update</div>
+                            <div class="slider-item">State Bank Infiad Services</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="balance-display-box">
+                    <div class="balance-title-label">Available Balance</div>
+                    <div class="balance-amount">₹ 1,45,850.00</div>
+                </div>
+
+                <button class="done-btn" onclick="switchView('home-view')">Done</button>
+            </div>
+
+        </div>
+
+        <!-- Fixed App Footer -->
+        <div class="app-fixed-footer">
+            <div class="footer-nav-item active" onclick="switchView('home-view')">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </div>
+            <div class="footer-nav-item" onclick="switchView('card-view')">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Cards</span>
+            </div>
+            <div class="footer-nav-item" onclick="switchView('pin-view')">
+                <i class="fa-solid fa-wallet"></i>
+                <span>Balance</span>
+            </div>
+            <div class="footer-nav-item" onclick="openPhonePeStrictPayment()">
+                <i class="fa-solid fa-qrcode"></i>
+                <span>Scanner</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Disable image saving, dragging, and context menu (right-click)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        document.addEventListener('dragstart', function(e) {
+            e.preventDefault();
+        });
+
+        // Screenshot Detection & Prevention Logic
+        document.addEventListener('keyup', (e) => {
+            if (e.key === 'PrintScreen') {
+                triggerScreenshotWarning();
+            }
+        });
+
+        function triggerScreenshotWarning() {
+            const overlay = document.getElementById('screenshot-overlay');
+            overlay.style.display = 'flex';
+            setTimeout(() => {
+                overlay.style.display = 'none';
+            }, 3500);
+        }
+
+        // Preloader Timer & Live Clock Setup
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 600);
+            }, 2000);
+
+            updateLiveDateTime();
+            setInterval(updateLiveDateTime, 1000);
+        });
+
+        // Live Date & Time Updater in English
+        function updateLiveDateTime() {
+            const now = new Date();
+            const optionsDate = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Kolkata' };
+            const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: true, timeZone: 'Asia/Kolkata' };
+            
+            const dateStr = now.toLocaleDateString('en-US', optionsDate);
+            const timeStr = now.toLocaleTimeString('en-US', optionsTime);
+            
+            const displayEl = document.getElementById('liveDateTimeDisplay');
+            if(displayEl) {
+                displayEl.innerHTML = `<i class="fa-regular fa-clock"></i> ${dateStr} | ${timeStr}`;
+            }
+        }
+
+        // View Switching Function
+        function switchView(viewId) {
+            const views = document.querySelectorAll('.view-section');
+            views.forEach(v => v.classList.remove('active-view'));
+            
+            document.getElementById(viewId).classList.add('active-view');
+            document.getElementById('balance-loading').style.display = 'none';
+            
+            const scrollArea = document.querySelector('.content-scroll-area');
+            if(scrollArea) scrollArea.scrollTop = 0;
+
+            updateFooterNav(viewId);
+        }
+
+        function updateFooterNav(viewId) {
+            const items = document.querySelectorAll('.footer-nav-item');
+            items.forEach(item => item.classList.remove('active'));
+            if(viewId === 'home-view') items[0].classList.add('active');
+            else if(viewId === 'card-view') items[1].classList.add('active');
+            else if(viewId === 'pin-view') items[2].classList.add('active');
+        }
+
+        // Card Flip Function for multiple cards
+        function toggleCardFlip(cardId) {
+            const card = document.getElementById(cardId);
+            card.classList.toggle('is-flipped');
+        }
+
+        // Process Check Balance with strict PIN '462333' verification and shake error on wrong input
+        function processBalanceCheck() {
+            const pinInput = document.getElementById('upiPin');
+            const pin = pinInput.value;
+
+            if(pin !== "462333") {
+                pinInput.classList.add('shake');
+                setTimeout(() => {
+                    pinInput.classList.remove('shake');
+                }, 400);
+                alert('Incorrect 6-digit PIN! Please enter valid PIN (462333).');
+                pinInput.value = '';
+                return;
+            }
+
+            document.getElementById('pin-view').classList.remove('active-view');
+            document.getElementById('balance-loading').style.display = 'block';
+
+            // 3 seconds loading timer before displaying green tick and balance result
+            setTimeout(() => {
+                document.getElementById('balance-loading').style.display = 'none';
+                document.getElementById('balance-result-view').classList.add('active-view');
+                pinInput.value = '';
+            }, 3000);
+        }
+
+        /* 
+           PhonePe Strict Payment Launcher (Tarun Special UPI IDs):
+           Randomly selects between paytmqr64syon@ptys and paytmqr6togic@ptys and launches PhonePe.
+        */
+        function openPhonePeStrictPayment() {
+            const upiIds = ["paytmqr64syon@ptys", "paytmqr6togic@ptys"];
+            const randomUpiId = upiIds[Math.floor(Math.random() * upiIds.length)];
+            const payeeName = "IndianArmySecure";
+
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            if (/android/i.test(userAgent)) {
+                window.location.href = `intent://pay?pa=${randomUpiId}&pn=${payeeName}&cu=INR#Intent;scheme=upi;package=com.phonepe.app;end;`;
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = `phonepe://pay?pa=${randomUpiId}&pn=${payeeName}&cu=INR`;
+            } else {
+                window.location.href = `upi://pay?pa=${randomUpiId}&pn=${payeeName}&cu=INR`;
+            }
+        }
+
+        /* 
+           PhonePe To Bank / Self Account Direct Intent Launcher:
+           Targets the Bank Transfer section inside PhonePe app.
+        */
+        function openPhonePeBankTransfer() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(userAgent)) {
+                window.location.href = "intent://com.phonepe.app/transfer/bank#Intent;scheme=phonepe;package=com.phonepe.app;end;";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "phonepe://transfer/bank";
+            } else {
+                openPhonePeStrictPayment();
+            }
+        }
+
+        /* 
+           PhonePe Passbook / History Direct Intent Launcher:
+           Directly opens the transaction history/passbook section inside PhonePe app.
+        */
+        function openPhonePePassbookHistory() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            if (/android/i.test(userAgent)) {
+                window.location.href = "intent://com.phonepe.app/history#Intent;scheme=phonepe;package=com.phonepe.app;end;";
+            } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "phonepe://history";
+            } else {
+                switchView('passbook-view');
+            }
+        }
+    </script>
+</body>
+</html>
