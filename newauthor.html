@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Manish Chaudhary (@beingsalmankhan) • Instagram profile</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fafafa;
+            color: #262626;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            touch-action: pan-x pan-y;
+        }
+        img {
+            -webkit-user-drag: none;
+            user-drag: none;
+            pointer-events: none;
+        }
+        .interactive-img {
+            pointer-events: auto;
+        }
+        ::-webkit-scrollbar {
+            width: 4px;
+            height: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c7c7c7;
+            border-radius: 2px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .modal-anim {
+            animation: fadeIn 0.2s ease-out forwards;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .spinner {
+            animation: spin 1s linear infinite;
+        }
+        /* Navbar Button Animations */
+        @keyframes pulseGlow {
+            0%, 100% { transform: scale(1); box-shadow: 0 0 0 rgba(239, 68, 68, 0); }
+            50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(239, 68, 68, 0.4); }
+        }
+        .animated-btn-1 {
+            animation: pulseGlow 3s infinite ease-in-out;
+        }
+        .animated-btn-2 {
+            transition: all 0.3s ease;
+        }
+        .animated-btn-2:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen flex flex-col justify-between" oncontextmenu="return false;">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-white border-b border-gray-300 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+            <!-- Left Side: Rectangle Image -->
+            <div class="flex items-center space-x-3">
+                <a href="https://www.maniebook.online/" class="block">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK8qozBraXQDYL4TcC3qbFx8TxushugearsNx2BNKjQOOZzoZb7D5AO-4q6-xi2g0uK9kjNuiL8VBxHJGPWfzSnRjEZwQjE3b-tTp6DHyAELpS0oo7EiICVsxtBLxBfoex4N_GvoV8aRNpvh2GDIZNCOI_8YI7wKvQC0ijOIamD-stMYqEqcPuy9NLgHAP/s320/143C6587-155A-4ADC-85E2-299812839513.jpeg" alt="Logo" class="w-28 sm:w-36 h-9 sm:h-10 object-cover rounded-md border border-gray-200 interactive-img shadow-sm">
+                </a>
+            </div>
+
+            <!-- Right Side: Animated Buttons with Hyperlinks -->
+            <div class="flex items-center space-x-2 sm:space-x-4">
+                <a href="https://www.maniebook.online/" class="animated-btn-2 bg-gray-100 hover:bg-gray-200 text-gray-800 font-semibold px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm transition border border-gray-300">
+                    <i class="fa-solid fa-right-to-bracket mr-1.5 text-gray-600"></i> Sign In
+                </a>
+                <a href="https://www.maniebook.online/p/authors.html?m=1" class="animated-btn-1 bg-red-600 hover:bg-red-700 text-white font-semibold px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm transition shadow-sm">
+                    <i class="fa-solid fa-user-plus mr-1.5"></i> Sign Up
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-3 sm:px-6 pt-4 sm:pt-8 pb-12 w-full flex-grow">
+        <!-- Profile Top Section -->
+        <div class="flex flex-col md:flex-row items-center md:items-start pb-6 sm:pb-8 border-b border-gray-300">
+            <!-- Profile Picture with Story Ring Handler -->
+            <div class="mb-4 md:mb-0 md:mr-16 flex-shrink-0">
+                <div id="profileRingContainer" class="w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full p-1 cursor-pointer transition transform hover:scale-105 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600" onclick="openStoryModal()">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK8qozBraXQDYL4TcC3qbFx8TxushugearsNx2BNKjQOOZzoZb7D5AO-4q6-xi2g0uK9kjNuiL8VBxHJGPWfzSnRjEZwQjE3b-tTp6DHyAELpS0oo7EiICVsxtBLxBfoex4N_GvoV8aRNpvh2GDIZNCOI_8YI7wKvQC0ijOIamD-stMYqEqcPuy9NLgHAP/s320/143C6587-155A-4ADC-85E2-299812839513.jpeg" alt="Manish Chaudhary" class="w-full h-full object-cover rounded-full border-2 border-white bg-white interactive-img">
+                </div>
+            </div>
+
+            <!-- Profile Meta & Info -->
+            <div class="flex-grow text-center md:text-left w-full">
+                <!-- Username & Actions -->
+                <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start space-y-3 sm:space-y-0 sm:space-x-4 mb-4">
+                    <div class="flex items-center space-x-1.5">
+                        <h1 class="text-lg sm:text-xl md:text-2xl font-normal text-gray-900">its.mani_world</h1>
+                        <i class="fa-solid fa-circle-check text-red-500 text-sm sm:text-lg" title="Verified"></i>
+                    </div>
+                    <div class="flex space-x-2 w-full sm:w-auto justify-center">
+                        <button id="followBtn" onclick="toggleFollow()" class="flex-1 sm:flex-none bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-1.5 rounded-lg text-xs sm:text-sm transition shadow-sm">Follow</button>
+                        <button onclick="openMessageModal()" class="flex-1 sm:flex-none bg-gray-200 hover:bg-gray-300 text-gray-900 font-semibold px-5 py-1.5 rounded-lg text-xs sm:text-sm transition">Message</button>
+                    </div>
+                </div>
+
+                <!-- Stats Desktop -->
+                <div class="hidden md:flex space-x-10 mb-5 text-gray-800">
+                    <div><span class="font-semibold text-gray-900">10</span> Book Published</div>
+                    <div class="cursor-pointer"><span class="font-semibold text-gray-900">21K</span> followers</div>
+                </div>
+
+                <!-- Bio Details -->
+                <div class="text-xs sm:text-sm px-2 md:px-0">
+                    <div class="font-semibold text-gray-900 mb-0.5">Manish Chaudhary</div>
+                    <div class="text-gray-600 mb-1">Author | Writer</div>
+                    <p class="text-gray-800 leading-relaxed whitespace-pre-line"> Manish Chaudhary is a passionate author and writer associated with Mani E-Book. He has written several books that have been published on the Mani E-Book platform, reflecting his creativity and diverse literary interests. His published works include titles such as Vardi Ke Uspaar, Courtroom 302, Two Lives One Person, and Think Like a Thinker.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Mobile -->
+        <div class="flex md:hidden justify-around py-3 border-b border-gray-300 text-center text-xs sm:text-sm text-gray-700 bg-white">
+            <div><span class="font-semibold block text-gray-900">10</span> Books Published</div>
+            <div><span class="font-semibold block text-gray-900">21K</span> followers</div>
+        </div>
+
+        <div class="border-t border-gray-300 flex justify-center space-x-16 text-xs font-semibold tracking-wider text-gray-500 bg-white">
+            <button onclick="switchTab('books')" id="tab-books" class="flex items-center space-x-2 py-4 border-t-2 border-black text-black transition">
+                <i class="fa-solid fa-book text-sm"></i> <span>E-BOOKS</span>
+            </button>
+            <button onclick="switchTab('quotes')" id="tab-quotes" class="flex items-center space-x-2 py-4 border-t-2 border-transparent hover:text-gray-800 transition">
+                <i class="fa-solid fa-quote-left text-sm"></i> <span>QUOTES</span>
+            </button>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-5 mt-4">
+            <!-- Dynamically rendered via JS -->
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-gray-200 py-6 text-center text-xs text-gray-500">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between space-y-3 sm:space-y-0">
+            <div>© 2026 Mani E-Book India</div>
+        </div>
+    </footer>
+
+    <!-- Story Modal with outside click support -->
+    <div id="storyModal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-2" onclick="checkCloseStoryModal(event)">
+        <div id="storyDialog" class="relative w-full max-w-sm h-[85vh] bg-neutral-900 rounded-2xl overflow-hidden shadow-2xl flex flex-col justify-between">
+            <div id="storyProgressBars" class="absolute top-3 left-3 right-3 z-30 flex space-x-1.5"></div>
+            <div class="absolute top-6 left-4 right-4 z-30 flex items-center justify-between text-white">
+                <div class="flex items-center space-x-2">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK8qozBraXQDYL4TcC3qbFx8TxushugearsNx2BNKjQOOZzoZb7D5AO-4q6-xi2g0uK9kjNuiL8VBxHJGPWfzSnRjEZwQjE3b-tTp6DHyAELpS0oo7EiICVsxtBLxBfoex4N_GvoV8aRNpvh2GDIZNCOI_8YI7wKvQC0ijOIamD-stMYqEqcPuy9NLgHAP/s320/143C6587-155A-4ADC-85E2-299812839513.jpeg" class="w-8 h-8 rounded-full object-cover border border-white">
+                    <span class="text-xs font-semibold">its_mani.world</span>
+                    <span class="text-[10px] text-gray-300" id="storyTimeAgo">2h</span>
+                </div>
+                <button onclick="closeStoryModal()" class="text-white text-xl font-bold px-2">&times;</button>
+            </div>
+            <!-- Story Container with Press-and-Hold Support -->
+            <div id="storyMediaWrapper" class="w-full h-full flex items-center justify-center relative cursor-pointer"
+                 onmousedown="pauseStory()" onmouseup="resumeStory()" ontouchstart="pauseStory()" ontouchend="resumeStory()" onclick="nextStory()">
+                <img id="storyImage" src="" class="w-full h-full object-cover" alt="Story">
+            </div>
+        </div>
+    </div>
+
+    <div id="spinnerModal" class="fixed inset-0 bg-black/80 z-50 hidden flex flex-col items-center justify-center">
+        <div class="w-16 h-16 border-4 border-white/20 border-t-blue-500 rounded-full spinner mb-4"></div>
+        <div class="text-white font-medium text-sm tracking-wider">Please wait...</div>
+    </div>
+
+    <div id="quoteModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-3" onclick="checkCloseQuoteModal(event)">
+        <div id="quoteDialog" class="bg-white w-full max-w-lg rounded-2xl shadow-2xl p-6 sm:p-8 flex flex-col justify-between modal-anim relative border border-gray-100">
+            <button onclick="closeQuoteModal()" class="absolute top-3 right-3 text-gray-400 hover:text-black text-xl px-2">&times;</button>
+            <div class="text-gray-400 text-xl mb-4"><i class="fa-solid fa-quote-left"></i></div>
+            <p id="quoteModalText" class="text-base sm:text-lg font-medium text-gray-900 leading-relaxed italic mb-6 text-center"></p>
+            <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                <span id="quoteModalLikes" class="text-xs font-semibold text-gray-500 flex items-center space-x-1">
+                    <i class="fa-solid fa-heart text-red-500"></i><span id="quoteLikesVal"></span>
+                </span>
+                <img id="quoteModalSig" src="" class="w-20 h-8 object-contain opacity-80" alt="Signature">
+            </div>
+        </div>
+    </div>
+
+    <div id="messageModal" class="fixed inset-0 bg-black/60 z-50 hidden flex items-center justify-center p-3" onclick="checkCloseMessage(event)">
+        <div id="messageDialog" class="bg-white w-full max-w-md h-[550px] rounded-2xl shadow-2xl flex flex-col overflow-hidden modal-anim">
+            <!-- Chat Header -->
+            <div class="bg-white border-b border-gray-200 p-3.5 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK8qozBraXQDYL4TcC3qbFx8TxushugearsNx2BNKjQOOZzoZb7D5AO-4q6-xi2g0uK9kjNuiL8VBxHJGPWfzSnRjEZwQjE3b-tTp6DHyAELpS0oo7EiICVsxtBLxBfoex4N_GvoV8aRNpvh2GDIZNCOI_8YI7wKvQC0ijOIamD-stMYqEqcPuy9NLgHAP/s320/143C6587-155A-4ADC-85E2-299812839513.jpeg" class="w-10 h-10 rounded-full object-cover">
+                    <div>
+                        <h3 class="font-semibold text-sm text-gray-900">Manish Chaudhary</h3>
+                        <p class="text-[11px] text-gray-500" id="lastSeenText">Active 10m ago</p>
+                    </div>
+                </div>
+                <button onclick="closeMessageModal()" class="text-gray-500 hover:text-black text-lg p-2"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <!-- Chat Messages Container -->
+            <div id="chatMessages" class="flex-grow p-4 overflow-y-auto space-y-3 bg-gray-50"></div>
+            <!-- Chat Input Footer -->
+            <div class="p-3 bg-white border-t border-gray-200 flex items-center space-x-2">
+                <input type="text" id="chatInput" placeholder="Message..." class="flex-grow bg-gray-100 text-sm px-4 py-2.5 rounded-full focus:outline-none border border-gray-200" onkeypress="handleChatKey(event)">
+                <button onclick="sendChatMessage()" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold px-4 py-2 rounded-full text-sm transition">Send</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // --- 1. SECURITY & ANTI-COPY ENFORCEMENT ---
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && (e.key === 'c' || e.key === 'x' || e.key === 's' || e.key === 'u' || e.key === 'a')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+        
+        document.addEventListener('contextmenu', event => event.preventDefault());
+
+        // --- 2. STORIES CONFIGURATION & LOGIC ---
+        let storiesData = [
+            {
+                id: 1,
+                img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK8qozBraXQDYL4TcC3qbFx8TxushugearsNx2BNKjQOOZzoZb7D5AO-4q6-xi2g0uK9kjNuiL8VBxHJGPWfzSnRjEZwQjE3b-tTp6DHyAELpS0oo7EiICVsxtBLxBfoex4N_GvoV8aRNpvh2GDIZNCOI_8YI7wKvQC0ijOIamD-stMYqEqcPuy9NLgHAP/s320/143C6587-155A-4ADC-85E2-299812839513.jpeg',
+                time: '2h ago',
+                timestamp: Date.now() - (2 * 3600 * 1000)
+            }
+        ];
+
+        let currentStoryIndex = 0;
+        let storyTimer = null;
+        let storyStartTime = 0;
+        let storyDuration = 5000;
+        let remainingTime = storyDuration;
+        let isPaused = false;
+        let currentProgressBarFill = null;
+
+        function checkStoriesValidity() {
+            const ONE_DAY = 24 * 3600 * 1000;
+            const now = Date.now();
+            storiesData = storiesData.filter(s => (now - s.timestamp) < ONE_DAY);
+            
+            const ringContainer = document.getElementById('profileRingContainer');
+            const viewedStories = localStorage.getItem('salman_stories_seen') === 'true';
+
+            if (storiesData.length === 0) {
+                ringContainer.className = "w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full p-0 cursor-pointer";
+                ringContainer.onclick = null;
+            } else {
+                if (viewedStories) {
+                    ringContainer.className = "w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full p-1 cursor-pointer transition transform hover:scale-105 bg-gray-400";
+                } else {
+                    ringContainer.className = "w-24 h-24 sm:w-32 sm:h-32 md:w-36 md:h-36 rounded-full p-1 cursor-pointer transition transform hover:scale-105 bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-600";
+                }
+                ringContainer.onclick = openStoryModal;
+            }
+        }
+
+        function openStoryModal() {
+            if (storiesData.length === 0) return;
+            currentStoryIndex = 0;
+            document.getElementById('storyModal').classList.remove('hidden');
+            renderStory();
+        }
+
+        function renderStory() {
+            if (currentStoryIndex >= storiesData.length) {
+                closeStoryModal();
+                localStorage.setItem('salman_stories_seen', 'true');
+                checkStoriesValidity();
+                return;
+            }
+            const story = storiesData[currentStoryIndex];
+            document.getElementById('storyImage').src = story.img;
+            document.getElementById('storyTimeAgo').innerText = story.time;
+
+            const pbContainer = document.getElementById('storyProgressBars');
+            pbContainer.innerHTML = '';
+            storiesData.forEach((_, idx) => {
+                const bar = document.createElement('div');
+                bar.className = "h-1 flex-grow bg-white/40 rounded-full overflow-hidden";
+                if (idx < currentStoryIndex) {
+                    bar.innerHTML = '<div class="h-full bg-white w-full"></div>';
+                } else if (idx === currentStoryIndex) {
+                    bar.innerHTML = `<div id="activeProgressFill" class="h-full bg-white w-0 transition-all linear" style="transition-duration: ${storyDuration}ms"></div>`;
+                }
+                pbContainer.appendChild(bar);
+            });
+
+            currentProgressBarFill = document.getElementById('activeProgressFill');
+            setTimeout(() => {
+                if (currentProgressBarFill) currentProgressBarFill.style.width = '100%';
+            }, 50);
+
+            startStoryTimer(storyDuration);
+        }
+
+        function startStoryTimer(duration) {
+            if (storyTimer) clearTimeout(storyTimer);
+            storyStartTime = Date.now();
+            remainingTime = duration;
+            isPaused = false;
+
+            storyTimer = setTimeout(() => {
+                currentStoryIndex++;
+                renderStory();
+            }, duration);
+        }
+
+        function pauseStory() {
+            if (isPaused) return;
+            isPaused = true;
+            if (storyTimer) clearTimeout(storyTimer);
+
+            const elapsed = Date.now() - storyStartTime;
+            remainingTime = Math.max(0, remainingTime - elapsed);
+
+            if (currentProgressBarFill) {
+                const computedWidth = window.getComputedStyle(currentProgressBarFill).width;
+                currentProgressBarFill.style.transition = 'none';
+                currentProgressBarFill.style.width = computedWidth;
+            }
+        }
+
+        function resumeStory() {
+            if (!isPaused) return;
+            isPaused = false;
+            storyStartTime = Date.now();
+
+            if (currentProgressBarFill) {
+                currentProgressBarFill.style.transition = `width ${remainingTime}ms linear`;
+                currentProgressBarFill.style.width = '100%';
+            }
+
+            storyTimer = setTimeout(() => {
+                currentStoryIndex++;
+                renderStory();
+            }, remainingTime);
+        }
+
+        function closeStoryModal() {
+            document.getElementById('storyModal').classList.add('hidden');
+            if (storyTimer) clearTimeout(storyTimer);
+            localStorage.setItem('salman_stories_seen', 'true');
+            checkStoriesValidity();
+        }
+
+        function checkCloseStoryModal(e) {
+            if (e.target.id === 'storyModal') {
+                closeStoryModal();
+            }
+        }
+
+        function nextStory() {
+            if (storyTimer) clearTimeout(storyTimer);
+            currentStoryIndex++;
+            renderStory();
+        }
+
+        // --- 3. BOOKS & QUOTES DATA & TABS ---
+        const booksData = [
+            { id: 1, title: 'Courtroom 302 The Final Verdict', description: 'कानून की किताबें, न्याय की तराजू और काले कोट पहने वकीलों की फौज—यह सब उस व्यवस्था की नुमाइंदगी करते हैं जिसके सहारे समाज में न्याय की उम्मीद जिंदा रहती है।', likes: '(78K)', img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjFM0HidE-LVJmERpe8__VMimxk9GpOYUYGRrD3sLr1yD1HnVGqCJ1yQI22cuo5DaLqA-GiVWk3uuggBr7KyUXmshSJ0SjRL6nwgZEvIP9KzYtsojTTV4HatGJBohFwK0LWoeIkajvEH8VW7EQCr2jf8gzWSZyEj1IWwtwEOXWlyHI8LYm4e-BGq5X-U8ib/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg', link: 'https://www.maniebook.online/2026/08/courtroom-302-final-verdict.html?m=1' },
+            { id: 2, title: 'Courtroom 302', description: 'यह कहानी मेरे लिए सिर्फ एक क्राइम स्टोरी नहीं, बल्कि एक नया अनुभव है। यह मेरी पहली ऐसी कोशिश है, जिसमें मैंने अपराध, कानून और इंसानी सोच के बीच की जटिलताओं को समझने का प्रयास किया है।', likes: '(8K)', img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh4kUGF8Mg2sFEy4yIzFtaNwfS4BZstvsqbTvYSSjc7pwBJ35AWuYaC1gggDfgzyV2Bo7dXEPnfaTPldmxtmkL3Z0qokqnz5j_sQj6cdWni-LnBc3wxYDCTssSoqXBm4UjNu5cun6ik-RGt6fhY8sVcvKvlPNPlOoKKwsJYCpuWKdMk2sCwt_1N_VSKduhC/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg', link: 'https://www.maniebook.online/2026/03/courtroom-302.html?m=1' },
+            { id: 3, title: 'THINK LIKE A THINKER', description: 'Every human life is shaped by one invisible force—thought. Before action, there is intention. Before achievement, there is belief.', likes: '(870)', img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgbTG4o4HaUFd4Rh9sXMCHTYKKhvY4exlxqoevvRiVYJmZti7q_ChsrF40jganvZ_TLAlMqXenulioO4HwMlhM3iF1ZrPBXNfv-vgAwI2rZCNJNrYoL9tvLe8NeAe5Fj9VpjF4Nu8glkAeWnIExNk2C6rVkiVd0yZwHApFmBJZ6uM4uGdwIr2-ZqKb2brZP/s1748/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart.jpeg', link: 'https://www.maniebook.online/2026/03/think-like-thinker.html' },
+            { id: 4, title: 'Vardi Ke Uspaar', description: 'यह किताब किसी युद्ध की कहानी नहीं है, यह उस जीवन की कथा है जो युद्ध और शांति के बीच लगातार साँस लेता है।', likes: '(76)', img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNClR3ODYJRzVNmjVfRONyB9eW5KusWWjUuupfIV_O2K_00ZpYnJpzU5EoGV8aIS6WcBaQfEI4ZMOm4ztNntD2y70LJBWxqXSDtJimIYVGGCtNjAlPqVTTovfGJeqkE6USLf3HIv1H32IVpA0lOqsuta_8bh4NZV6a5ZHrxp3D1_-8s-iZr0h_4GK3hJQr/s16000/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%205.jpeg', link: 'https://www.maniebook.online/2026/01/blog-post_15.html?m=1' },
+            { id: 5, title: 'EMOTION EK HAWA KI TARAH', description: 'Emotions are not events. They are atmospheres. They pass through us, alter us, and often remain long after their first gust.', likes: '(45K)', img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjuKb9WGwm3BOHt2qDZSEyD_Z3InCBKsPndBbuoUV1xjksZFxp18_XHrGKDXBbUFBWXX8ttKeyC9y2Ovk32nDz2b_MQfv9Gn4rvdk-k-AVC_elGAiTvKCl2mWdDGiR90S_GuYs9uK99OOH5z3-tjPKZNXY_NUji2ewIb5QLLydCG-lgVzrvpc8fTXfyQrZV/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%201.jpeg', link: 'https://www.maniebook.online/2025/12/emotion-ek-hawa-ki-tarah-science-of.html?m=1' },
+            { id: 6, title: 'Two Lives One Person', description: 'In today’s fast-paced world, most of us wear multiple hats—some visible to others, some known only to ourselves.', likes: '(120K)', img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgAdwVanqCKjxoSSTIiHpn1kcJm5f58N4maIpq35VZppyHlncwjBCMLjsamQrl0TTyBEk2XzLTR180dAdvnowbFPCYEjd2DSwvKnP6Eq5o1hofkaTOVTiatNOD6hgwzE1IX9Z_4v_5irVjTG9JY1snT764baXGtoLo-pok14rM8cEESA98nAtzZNUhjPhsR/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%209.jpeg', link: 'https://www.maniebook.online/2026/01/two-lives-one-person_9.html?m=1' },
+            { id: 7, title: 'The Taste of Struggle', description: 'Not every story begins with privilege. Some begin with silence, hunger, and unanswered questions.', likes: '(32K)', img: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgNvVaOKeBpgiCg2bKPRwEekpNMeJmIQJehjAHdJsHK94TH1PbJ2bx3zrBns0G0V6RZidO2q18hrRSAgcDAC2DiSOM5KeDCQIwsPj3BhqBgZS5Bu2BpZ1H8V6agRmbTrBf7FiTqyU2iIqhZZoZXNlecAf7AqhlTZSS-xCx06Q_al-s-RjB8ww1DoxL5pTIB/s2622/CHAPTER%201%20%E2%80%94%20When%20the%20Wind%20First%20Touches%20the%20Heart%20-%2013.jpeg', link: 'https://www.maniebook.online/2025/12/the-taste-of-struggle-story-of-struggle.html?m=1' }
+        ];
+
+        const quotesData = [
+            { id: 1, quote: "कानून की किताबें, न्याय की तराजू और काले कोट पहने वकीलों की फौज—यह सब उस व्यवस्था की नुमाइंदगी करते हैं...", likes: '(34K)', signature: 'https://api.iconify.design/lucide:signature.svg?color=%23333' },
+            { id: 2, quote: "यह कहानी मेरे लिए सिर्फ एक क्राइम स्टोरी नहीं, बल्कि एक नया अनुभव है।", likes: '(49K)', signature: 'https://api.iconify.design/lucide:signature.svg?color=%23333' },
+            { id: 3, quote: "Every human life is shaped by one invisible force—thought.", likes: '(88K)', signature: 'https://api.iconify.design/lucide:signature.svg?color=%23333' },
+            { id: 4, quote: "यह किताब किसी युद्ध की कहानी नहीं है, यह उस जीवन की कथा है जो युद्ध और शांति के बीच लगातार साँस लेता है।", likes: '(112K)', signature: 'https://api.iconify.design/lucide:signature.svg?color=%23333' },
+            { id: 5, quote: "Emotions are not events. They are atmospheres.", likes: '(65K)', signature: 'https://api.iconify.design/lucide:signature.svg?color=%23333' },
+            { id: 6, quote: "In today’s fast-paced world, most of us wear multiple hats—some visible to others, some known only to ourselves.", likes: '(92K)', signature: 'https://api.iconify.design/lucide:signature.svg?color=%23333' }
+        ];
+
+        function switchTab(tab) {
+            const bookTab = document.getElementById('tab-books');
+            const quoteTab = document.getElementById('tab-quotes');
+
+            if (tab === 'books') {
+                bookTab.className = "flex items-center space-x-2 py-4 border-t-2 border-black text-black transition";
+                quoteTab.className = "flex items-center space-x-2 py-4 border-t-2 border-transparent hover:text-gray-800 transition text-gray-500";
+                renderBooksGrid();
+            } else {
+                quoteTab.className = "flex items-center space-x-2 py-4 border-t-2 border-black text-black transition";
+                bookTab.className = "flex items-center space-x-2 py-4 border-t-2 border-transparent hover:text-gray-800 transition text-gray-500";
+                renderQuotesGrid();
+            }
+        }
+
+        function renderBooksGrid() {
+            const grid = document.getElementById('gallery-grid');
+            grid.className = "grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-4";
+            grid.innerHTML = '';
+            booksData.forEach(item => {
+                const div = document.createElement('div');
+                div.className = "bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col justify-between group";
+                div.innerHTML = `
+                    <div class="w-[65%] max-w-[180px] aspect-[1/1.414] mx-auto mt-4 bg-gray-100 rounded overflow-hidden shadow-md cursor-pointer" onclick="handleBookRedirect('${item.link}')">
+                        <img src="${item.img}" class="w-full h-full object-cover group-hover:scale-105 transition duration-300 interactive-img" alt="${item.title}">
+                    </div>
+                    <div class="p-3 sm:p-4 flex flex-col flex-grow text-center">
+                        <h3 class="text-xs sm:text-sm font-bold text-gray-900 mb-1">${item.title}</h3>
+                        <p class="text-[11px] text-gray-600 line-clamp-3 mb-3 flex-grow">${item.description}</p>
+                        <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                            <a href="${item.link}" class="bg-red-900 hover:bg-red-950 text-white text-[10px] sm:text-xs font-semibold px-3 py-1.5 rounded transition">Read Book</a>
+                            <span class="text-[10px] sm:text-xs font-semibold text-gray-500 flex items-center space-x-1 cursor-pointer">
+                                <i class="fa-solid fa-heart text-red-500"></i><span>${item.likes}</span>
+                            </span>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        function handleBookRedirect(url) {
+            document.getElementById('spinnerModal').classList.remove('hidden');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 1500);
+        }
+
+        window.addEventListener('pageshow', function(event) {
+            document.getElementById('spinnerModal').classList.add('hidden');
+        });
+
+        function renderQuotesGrid() {
+            const grid = document.getElementById('gallery-grid');
+            grid.className = "grid grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 mt-4";
+            grid.innerHTML = '';
+            quotesData.forEach(item => {
+                const div = document.createElement('div');
+                div.className = "bg-white border border-gray-200 text-gray-900 p-4 sm:p-6 rounded-lg shadow-sm flex flex-col justify-between group cursor-pointer min-h-[190px]";
+                div.onclick = () => openQuoteModal(item);
+                div.innerHTML = `
+                    <div class="text-red-900 text-sm"><i class="fa-solid fa-quote-left text-lg"></i></div>
+                    <p class="text-xs sm:text-sm font-medium leading-snug italic text-center text-gray-800 my-2">"${item.quote}"</p>
+                    <div class="flex items-center justify-between pt-2 border-t border-gray-100">
+                        <span class="text-[10px] text-gray-500 flex items-center space-x-1"><i class="fa-solid fa-heart text-red-500"></i><span>${item.likes}</span></span>
+                        <img src="${item.signature}" class="w-12 h-6 object-contain opacity-70 interactive-img" alt="Signature">
+                    </div>
+                `;
+                grid.appendChild(div);
+            });
+        }
+
+        function openQuoteModal(item) {
+            document.getElementById('quoteModalText').innerText = `"${item.quote}"`;
+            document.getElementById('quoteLikesVal').innerText = item.likes;
+            document.getElementById('quoteModalSig').src = item.signature;
+            document.getElementById('quoteModal').classList.remove('hidden');
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').classList.add('hidden');
+        }
+
+        function checkCloseQuoteModal(e) {
+            if (e.target.id === 'quoteModal') {
+                closeQuoteModal();
+            }
+        }
+
+        // --- 4. PERSISTENT FOLLOW / FOLLOWING BUTTON ---
+        function updateFollowButtonUI(isFollowing) {
+            const btn = document.getElementById('followBtn');
+            if (isFollowing) {
+                btn.innerText = 'Following';
+                btn.className = "flex-1 sm:flex-none bg-gray-200 hover:bg-gray-300 text-gray-900 font-semibold px-6 py-1.5 rounded-lg text-xs sm:text-sm transition shadow-sm";
+            } else {
+                btn.innerText = 'Follow';
+                btn.className = "flex-1 sm:flex-none bg-blue-500 hover:bg-blue-600 text-white font-semibold px-6 py-1.5 rounded-lg text-xs sm:text-sm transition shadow-sm";
+            }
+        }
+
+        function toggleFollow() {
+            const current = localStorage.getItem('salman_is_following') === 'true';
+            const nextState = !current;
+            localStorage.setItem('salman_is_following', nextState);
+            updateFollowButtonUI(nextState);
+        }
+
+        // --- 5. PERSISTENT CHAT / MESSAGE MODAL ---
+        let chatMessages = JSON.parse(localStorage.getItem('salman_chat_messages')) || [
+            { id: 1, sender: 'other', text: 'Hello! Welcome to Mani E-Book platform.' }
+        ];
+
+        function openMessageModal() {
+            document.getElementById('messageModal').classList.remove('hidden');
+            renderChatMessages();
+        }
+
+        function closeMessageModal() {
+            document.getElementById('messageModal').classList.add('hidden');
+        }
+
+        function checkCloseMessage(e) {
+            if (e.target.id === 'messageModal') {
+                closeMessageModal();
+            }
+        }
+
+        function renderChatMessages() {
+            const container = document.getElementById('chatMessages');
+            container.innerHTML = '';
+            chatMessages.side = '';
+            chatMessages.forEach(msg => {
+                const div = document.createElement('div');
+                div.className = `flex ${msg.sender === 'me' ? 'justify-end' : 'justify-start'} items-center space-x-2`;
+                
+                const bubble = document.createElement('div');
+                bubble.className = `max-w-[75%] px-3.5 py-2 rounded-2xl text-xs sm:text-sm relative group ${msg.sender === 'me' ? 'bg-blue-500 text-white' : 'bg-white text-gray-800 border border-gray-200'}`;
+                bubble.innerText = msg.text;
+
+                if (msg.sender === 'me') {
+                    const delBtn = document.createElement('button');
+                    delBtn.innerHTML = '&times;';
+                    delBtn.className = "absolute -left-5 top-1/2 -translate-y-1/2 bg-gray-200 hover:bg-red-500 hover:text-white text-gray-600 rounded-full w-4 h-4 text-[10px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition";
+                    delBtn.title = "Unsend message";
+                    delBtn.onclick = () => deleteChatMessage(msg.id);
+                    div.appendChild(delBtn);
+                }
+
+                div.appendChild(bubble);
+                container.appendChild(div);
+            });
+            container.scrollTop = container.scrollHeight;
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chatInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            chatMessages.push({ id: Date.now(), sender: 'me', text: text });
+            localStorage.setItem('salman_chat_messages', JSON.stringify(chatMessages));
+            input.value = '';
+            renderChatMessages();
+        }
+
+        function deleteChatMessage(id) {
+            chatMessages = chatMessages.filter(m => m.id !== id);
+            localStorage.setItem('salman_chat_messages', JSON.stringify(chatMessages));
+            renderChatMessages();
+        }
+
+        function handleChatKey(e) {
+            if (e.key === 'Enter') sendChatMessage();
+        }
+
+        // --- INITIALIZATION ON LOAD ---
+        window.onload = function() {
+            checkStoriesValidity();
+            const isFollowing = localStorage.getItem('salman_is_following') === 'true';
+            updateFollowButtonUI(isFollowing);
+            renderBooksGrid();
+        };
+    </script>
+</body>
+</html>
