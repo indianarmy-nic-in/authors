@@ -13,16 +13,12 @@
     <!-- Confetti Library CDN -->
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <style>
-        /* Global Styles & Security (Disable Copy/Save/Inspect) */
+        /* Global Styles & Security Restrictions Removed */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-            user-select: none;
         }
 
         body {
@@ -58,7 +54,6 @@
             width: auto;
             object-fit: contain;
             display: block;
-            pointer-events: none;
         }
 
         @media (max-width: 768px) {
@@ -169,7 +164,6 @@
             border: 5px solid #fff;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             background: #eee;
-            pointer-events: none;
         }
 
         .profile-names h4 {
@@ -188,8 +182,6 @@
             align-items: center;
             vertical-align: middle;
             cursor: pointer;
-            -webkit-user-select: none;
-            user-select: none;
         }
 
         .verified-tick-img {
@@ -197,8 +189,6 @@
             height: 18px;
             object-fit: contain;
             display: block;
-            pointer-events: none;
-            -webkit-user-drag: none;
         }
 
         .profile-names p {
@@ -370,7 +360,6 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            pointer-events: none;
         }
 
         .portrait-content {
@@ -514,9 +503,6 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            pointer-events: none;
-            -webkit-user-select: none;
-            user-select: none;
         }
 
         .signature-img {
@@ -524,8 +510,6 @@
             height: 32px;
             object-fit: contain;
             display: block;
-            pointer-events: none;
-            -webkit-user-drag: none;
             filter: contrast(120%);
         }
 
@@ -568,7 +552,6 @@
             border-radius: 50%;
             object-fit: cover;
             border: 1px solid #fff;
-            pointer-events: none;
         }
 
         .chat-user-details h4 {
@@ -710,7 +693,6 @@
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid #fff;
-            pointer-events: none;
         }
 
         .footer-left span {
@@ -805,7 +787,7 @@
         }
     </style>
 </head>
-<body oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+<body>
 
     <div id="loading-overlay">
         <div class="spinner"></div>
@@ -1194,14 +1176,6 @@
     </footer>
 
     <script>
-        // Disable Developer Tools Shortcuts & Source Viewing
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'F12' || (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'C' || e.key === 'J')) || (e.ctrlKey && e.key === 'U')) {
-                e.preventDefault();
-                return false;
-            }
-        });
-
         // Facebook-style Click / Tap Audio Feedback Generator using Web Audio API
         function playFacebookSound() {
             try {
@@ -1247,11 +1221,10 @@
         }
 
         // ==========================================
-        // CONFIGURABLE LIKE COUNTS (You can change these values anytime in coding)
+        // CONFIGURABLE LIKE COUNTS
         // ==========================================
         const initialLikes = ["40K", "125K", "12K", "24K", "22K", "5K", "9K", "110K", "41K", "18K"];
 
-        // Initialize and Load Likes States (Read-only static control as requested)
         function initBookLikes() {
             for (let i = 0; i < 10; i++) {
                 const isLiked = localStorage.getItem(`book_liked_${i}`) === 'true';
@@ -1268,7 +1241,6 @@
             }
         }
 
-        // Toggle Like functionality without inflating numbers (Plays sound + saves active color state)
         function toggleBookLike(index) {
             playFacebookSound();
             const isLiked = localStorage.getItem(`book_liked_${index}`) === 'true';
@@ -1283,7 +1255,6 @@
             }
         }
 
-        // Follow / Unfollow Persistent Logic with Confetti and Sound Effect
         function checkFollowState() {
             const isFollowing = localStorage.getItem('mani_author_followed') === 'true';
             const btn = document.getElementById('followBtn');
@@ -1322,7 +1293,6 @@
             loadPersistentChatHistory();
         });
 
-        // Chat Popup Modal Logic & Click Outside to Close
         function openChatModal() {
             document.getElementById('chat-modal').style.display = 'flex';
             const chatBody = document.getElementById('chatBody');
